@@ -122,10 +122,9 @@
       @open="handleDialogOpen"
     >
       <el-descriptions :column="1" border>
-        <el-descriptions-item label="函数调用链">
-          <div class="call-chain-container">
-            <CallChainGraph ref="callChainGraph" :stack-trace="currentLog.stackTrace" />
-            <el-button type="text" @click="toggleFullScreen">全屏查看</el-button>
+        <el-descriptions-item label="异常代码片段">
+          <div class="code-container">
+            <pre class="code-block" v-html="formatStackTrace(currentLog.stackTrace)"></pre>
           </div>
         </el-descriptions-item>
         <el-descriptions-item label="异常日志分析">
@@ -424,6 +423,21 @@ const callChainGraphRef = ref(null)
 const handleDialogOpen = () => {
   callChainGraphRef.value?.setFullView()
 }
+
+const formatStackTrace = (stackTrace) => {
+  if (!stackTrace) return ''
+  
+  return stackTrace
+    .split('\n')
+    .map(line => {
+      // 高亮关键字
+      return line
+        .replace(/Error:/g, '<span class="error-keyword">Error:</span>')
+        .replace(/at\s+(\w+\.\w+)/g, 'at <span class="method-name">$1</span>')
+        .replace(/\((.*?)\)/g, '(<span class="file-location">$1</span>)')
+    })
+    .join('\n')
+}
 </script>
 
 <style scoped>
@@ -625,7 +639,7 @@ const handleDialogOpen = () => {
 
 .call-chain-container {
   max-height: 200px; /* 限制最大高度 */
-  overflow-y: auto; /* 启���垂直滚动 */
+  overflow-y: auto; /* 启垂直滚动 */
   padding: 10px;
   background-color: #f8f9fa;
   border-radius: 8px;
@@ -653,5 +667,35 @@ const handleDialogOpen = () => {
   left: 50%; /* 水平居中 */
   transform: translate(-50%, -50%); /* 确保居中 */
   z-index: 1000; /* 确保在其他元素之上 */
+}
+
+.code-container {
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 10px 0;
+  overflow-x: auto;
+}
+
+.code-block {
+  margin: 0;
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #d4d4d4;
+  white-space: pre;
+}
+
+:deep(.error-keyword) {
+  color: #f14c4c;
+  font-weight: bold;
+}
+
+:deep(.method-name) {
+  color: #4ec9b0;
+}
+
+:deep(.file-location) {
+  color: #9cdcfe;
 }
 </style>
