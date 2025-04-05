@@ -72,6 +72,7 @@
                   <el-button link type="primary" @click="showDetails(scope.row)">
                     查看详情
                   </el-button>
+                  <!-- 注释掉AI对话按钮
                   <el-button 
                     link 
                     type="success" 
@@ -80,6 +81,7 @@
                     <el-icon><ChatDotRound /></el-icon>
                     AI对话
                   </el-button>
+                  -->
                 </template>
               </el-table-column>
             </el-table>
@@ -110,7 +112,9 @@
         </el-card>
       </div>
       
+      <!-- 注释掉AIChatBox组件显示 
       <AIChatBox ref="aiChatRef" />
+      -->
     </div>
 
     <el-dialog
@@ -122,20 +126,38 @@
       @open="handleDialogOpen"
     >
       <el-descriptions :column="1" border>
-        <el-descriptions-item label="函数调用链">
-          <div class="call-chain-container">
-            <CallChainGraph ref="callChainGraph" :stack-trace="currentLog.stackTrace" />
-            <el-button type="text" @click="toggleFullScreen">全屏查看</el-button>
-          </div>
-        </el-descriptions-item>
-        <el-descriptions-item label="异常日志分析">
-          <span v-html="currentLog.summary"></span>
-        </el-descriptions-item>
-        <el-descriptions-item label="修复建议">
+        <el-descriptions-item label="异常概述">
           <ul>
-            <li>检查网络配置，确保服务可用。</li>
-            <li>查看系统日志以获取更多信息。</li>
-            <li>联系技术支持以获得进一步帮助。</li>
+            <li><strong>类型：</strong>{{ currentLog && currentLog.service === 'openstack-service' ? 'AssertionError' : '服务异常' }}</li>
+            <li><strong>表现：</strong>{{ currentLog && currentLog.service === 'openstack-service' ? '预期返回1个服务器实例，实际len(servers)为0' : currentLog.message }}</li>
+          </ul>
+        </el-descriptions-item>
+        <el-descriptions-item label="核心原因">
+          <ul>
+            <li><strong>参数转换错误：</strong>
+              <ul>
+                <li>{{ currentLog && currentLog.service === 'openstack-service' ? 'flavor=abcde未映射到flavor_id' : '服务参数配置错误' }}</li>
+                <li>{{ currentLog && currentLog.service === 'openstack-service' ? 'status=resize未匹配实例真实状态' : '状态不匹配' }}</li>
+              </ul>
+            </li>
+            <li><strong>测试数据缺陷：</strong>{{ currentLog && currentLog.service === 'openstack-service' ? 'Mock返回空列表，但测试预期非空数据' : '测试数据不完整' }}</li>
+            <li><strong>状态同步异常：</strong>{{ currentLog && currentLog.service === 'openstack-service' ? 'Nova日志显示实例因pending task跳过状态更新' : '服务状态同步失败' }}</li>
+          </ul>
+        </el-descriptions-item>
+        <el-descriptions-item label="解决方案">
+          <ul>
+            <li><strong>短期措施：</strong>
+              <ul>
+                <li>{{ currentLog && currentLog.service === 'openstack-service' ? '检查compute_api.API.get_all中search_opts的过滤逻辑' : '检查服务配置' }}</li>
+                <li>{{ currentLog && currentLog.service === 'openstack-service' ? '添加断言验证参数：mock_get.assert_called_with(search_opts={\'status\':\'resize\'})' : '更新服务参数验证' }}</li>
+              </ul>
+            </li>
+            <li><strong>长期优化：</strong>
+              <ul>
+                <li>{{ currentLog && currentLog.service === 'openstack-service' ? '在get_all中记录search_opts和返回结果数量' : '增强日志记录' }}</li>
+                <li>{{ currentLog && currentLog.service === 'openstack-service' ? '为pending task状态增加自动重试机制' : '添加自动重试机制' }}</li>
+              </ul>
+            </li>
           </ul>
         </el-descriptions-item>
       </el-descriptions>
@@ -143,11 +165,46 @@
 
     <el-dialog
       v-model="fullScreenVisible"
-      title="完整函数调用链"
+      title="完整异常分析"
       width="90%"
       center
     >
-      <CallChainGraph :stack-trace="currentLog.stackTrace" />
+      <el-descriptions :column="1" border>
+        <el-descriptions-item label="异常概述">
+          <ul>
+            <li><strong>类型：</strong>{{ currentLog && currentLog.service === 'openstack-service' ? 'AssertionError' : '服务异常' }}</li>
+            <li><strong>表现：</strong>{{ currentLog && currentLog.service === 'openstack-service' ? '预期返回1个服务器实例，实际len(servers)为0' : currentLog.message }}</li>
+          </ul>
+        </el-descriptions-item>
+        <el-descriptions-item label="核心原因">
+          <ul>
+            <li><strong>参数转换错误：</strong>
+              <ul>
+                <li>{{ currentLog && currentLog.service === 'openstack-service' ? 'flavor=abcde未映射到flavor_id' : '服务参数配置错误' }}</li>
+                <li>{{ currentLog && currentLog.service === 'openstack-service' ? 'status=resize未匹配实例真实状态' : '状态不匹配' }}</li>
+              </ul>
+            </li>
+            <li><strong>测试数据缺陷：</strong>{{ currentLog && currentLog.service === 'openstack-service' ? 'Mock返回空列表，但测试预期非空数据' : '测试数据不完整' }}</li>
+            <li><strong>状态同步异常：</strong>{{ currentLog && currentLog.service === 'openstack-service' ? 'Nova日志显示实例因pending task跳过状态更新' : '服务状态同步失败' }}</li>
+          </ul>
+        </el-descriptions-item>
+        <el-descriptions-item label="解决方案">
+          <ul>
+            <li><strong>短期措施：</strong>
+              <ul>
+                <li>{{ currentLog && currentLog.service === 'openstack-service' ? '检查compute_api.API.get_all中search_opts的过滤逻辑' : '检查服务配置' }}</li>
+                <li>{{ currentLog && currentLog.service === 'openstack-service' ? '添加断言验证参数：mock_get.assert_called_with(search_opts={\'status\':\'resize\'})' : '更新服务参数验证' }}</li>
+              </ul>
+            </li>
+            <li><strong>长期优化：</strong>
+              <ul>
+                <li>{{ currentLog && currentLog.service === 'openstack-service' ? '在get_all中记录search_opts和返回结果数量' : '增强日志记录' }}</li>
+                <li>{{ currentLog && currentLog.service === 'openstack-service' ? '为pending task状态增加自动重试机制' : '添加自动重试机制' }}</li>
+              </ul>
+            </li>
+          </ul>
+        </el-descriptions-item>
+      </el-descriptions>
     </el-dialog>
   </div>
 </template>
@@ -156,8 +213,8 @@
 import { ref, reactive, onMounted, onUnmounted } from 'vue'
 import { ElMessage } from 'element-plus'
 import { ChatDotRound } from '@element-plus/icons-vue'
+// 保留导入但注释掉使用
 import AIChatBox from './components/AIChatBox.vue'
-import CallChainGraph from './components/CallChainGraph.vue'
 
 const searchForm = reactive({
   service: '',
@@ -169,7 +226,8 @@ const services = [
   { value: 'dns-service', label: 'DNS服务' },
   { value: 'http-service', label: 'HTTP服务' },
   { value: 'ftp-service', label: 'FTP服务' },
-  { value: 'smtp-service', label: 'SMTP服务' }
+  { value: 'smtp-service', label: 'SMTP服务' },
+  { value: 'openstack-service', label: 'OpenStack服务' }
 ]
 
 const loading = ref(false)
@@ -249,6 +307,11 @@ const generateMockLogs = (serviceType) => {
       'SMTP身份验证失败',
       'SMTP连接超时',
       'SMTP邮件发送失败'
+    ],
+    'openstack-service': [
+      'AssertionError: 预期返回1个服务器实例，实际为0',
+      'Nova实例状态同步失败',
+      'Flavor参数转换错误'
     ]
   }
 
@@ -272,6 +335,11 @@ const generateMockLogs = (serviceType) => {
       'at SMTPClient.send(SMTPClient.java:90)',
       'at EmailService.sendEmail(EmailService.java:45)',
       'at ApiGateway.route(ApiGateway.java:65)'
+    ],
+    'openstack-service': [
+      'at ServerList.get_all(ServerList.py:85)',
+      'at compute_api.API.get_all(compute_api.py:120)',
+      'at test_servers.py:245'
     ]
   }
 
@@ -280,6 +348,13 @@ const generateMockLogs = (serviceType) => {
     const message = messages[serviceType][Math.floor(Math.random() * messages[serviceType].length)]
     const problemStage = stackTraces[serviceType][1]
     const stackTrace = stackTraces[serviceType].join('\n    ')
+    
+    let summary = `在处理请求时，${message}。<strong>可能的问题阶段是：${problemStage}</strong>。总体异常是由于网络配置错误或服务不可用导致`
+    
+    // 为OpenStack服务生成特殊的摘要
+    if (serviceType === 'openstack-service') {
+      summary = `测试失败，${message}。<strong>核心问题在于：${problemStage}</strong>。异常是由于参数转换错误和状态同步异常导致`
+    }
 
     mockLogs.push({
       id: `${serviceType}-${i + 1}`,
@@ -287,7 +362,7 @@ const generateMockLogs = (serviceType) => {
       service: serviceType,
       level,
       message,
-      summary: `在处理请求时，${message}。<strong>可能的问题阶段是：${problemStage}</strong>。总体异常是由于网络配置错误或服务不可用导致`,
+      summary,
       stackTrace: `Error: ${message}\n    ${stackTrace}`
     })
   }
@@ -407,10 +482,16 @@ const startAIChat = (row) => {
 堆栈信息：${row.stackTrace}
 
 请从以下几个方面进行分析：
-1. 错误原因分析
-2. 可能的影响
-3. 解决建议
-4. 预防措施`
+1. 异常概述
+   - 类型
+   - 表现
+2. 核心原因
+   - 参数转换错误
+   - 测试数据缺陷
+   - 状态同步异常
+3. 解决方案
+   - 短期措施
+   - 长期优化`
 
   aiChatRef.value?.startNewChat(analysisPrompt)
 }
@@ -419,10 +500,9 @@ const toggleFullScreen = () => {
   fullScreenVisible.value = !fullScreenVisible.value
 }
 
-const callChainGraphRef = ref(null)
-
 const handleDialogOpen = () => {
-  callChainGraphRef.value?.setFullView()
+  // 移除对callChainGraph的操作
+  // callChainGraphRef.value?.setFullView()
 }
 </script>
 
@@ -625,7 +705,7 @@ const handleDialogOpen = () => {
 
 .call-chain-container {
   max-height: 200px; /* 限制最大高度 */
-  overflow-y: auto; /* 启���垂直滚动 */
+  overflow-y: auto; /* 启用垂直滚动 */
   padding: 10px;
   background-color: #f8f9fa;
   border-radius: 8px;
