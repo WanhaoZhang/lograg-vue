@@ -1,0 +1,37 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.2.2 Chrome/134.0.6998.178 Electron/35.1.2 Safari/537.36" version="26.2.2">
+  <diagram name="日志到源码跳转分析" id="W8TLUpf3BG2UtwfU_hgR">
+    <mxGraphModel dx="1108" dy="883" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="&lt;span style=&quot;caret-color: rgb(0, 0, 0); font-family: -webkit-standard; font-size: medium; text-align: start;&quot;&gt;📝&lt;/span&gt;&amp;nbsp;日志原文：&lt;span style=&quot;caret-color: rgb(0, 0, 0); font-family: -webkit-standard; font-size: medium; text-align: start;&quot;&gt;nova-api.log. xxx detail HTTP/1.1&quot; status: xxx 0.2619948&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=light-dark(#000000, #5c79a3);fontSize=15;fontFamily=Verdana;" parent="1" tooltip="nova-api.log.2017-05-14_21:56:07 2017-05-14 21:43:27.488 25746 INFO nova.osapi_compute.wsgi.server [req-bbb3bc8f-3632-4784-9176-e236af42e7d1 113d3a99c3da401fbd62cc2caa5b96d2 54fadb412c4e40cdbaed9335e4c35a9e - - -] 10.11.10.1 &quot;GET /v2/54fadb412c4e40cdbaed9335e4c35a9e/servers/detail HTTP/1.1&quot; status: 200 len: 1893 time: 0.2619948" vertex="1">
+          <mxGeometry x="140" y="40" width="410" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="🧩 模块名识别：nova.osapi_compute.wsgi.server" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=light-dark(#000000, #446e2c);fontSize=15;fontFamily=Verdana;" parent="1" vertex="1">
+          <mxGeometry x="140" y="110" width="410" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="🌐 API路径提取：/v2/tenant_id/servers/detail" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=15;fontFamily=Verdana;" parent="1" vertex="1">
+          <mxGeometry x="140" y="180" width="410" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="📂 匹配源码文件：test_servers.py" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=default;fontSize=15;fontFamily=Verdana;" parent="1" vertex="1">
+          <mxGeometry x="140" y="250" width="410" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;🎯 定位源代码片段：&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;839:&amp;nbsp; &amp;nbsp; &amp;nbsp; req = fakes.HTTPRequest.blank(&#39;/fake/servers/detail?flavor=abcde&#39;)&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;840:&amp;nbsp; &amp;nbsp; &amp;nbsp; with mock.patch.object(compute_api.API, &#39;get_all&#39;) as mock_get:&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;841:&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; mock_get.return_value = objects.InstanceList(objects=[])&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&amp;nbsp; -&amp;gt; 842:&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;servers = self.controller.detail(req)[&#39;servers&#39;]&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;843:&amp;nbsp;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;844:&amp;nbsp; &amp;nbsp; &amp;nbsp; self.assertThat(servers, testtools.matchers.HasLength(0))&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontFamily=Verdana;fontSize=12;" parent="1" vertex="1">
+          <mxGeometry x="90" y="330" width="510" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="7" style="endArrow=block;html=1;strokeColor=#000000;" parent="1" source="2" target="3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8" style="endArrow=block;html=1;strokeColor=#000000;" parent="1" source="3" target="4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9" style="endArrow=block;html=1;strokeColor=#000000;" parent="1" source="4" target="5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="10" style="endArrow=block;html=1;strokeColor=#000000;" parent="1" source="5" target="6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

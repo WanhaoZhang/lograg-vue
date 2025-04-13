@@ -1,0 +1,80 @@
+# is_train: False # train deepsvdd
+# is_rag: True # use post processing stage
+# dataset_name: BGL
+# train_ratio: 0.8
+# window_size: 200 
+# window_time: 1800 # 30 minutes
+
+# # dataset and model paths
+# # log_structed_path: ./dataset/BGL/bgl-example.log_structured.csv
+# log_structed_path: /home/zhangwh/LogADEmpirical-dev/dataset/BGL/BGL.log_structured.csv
+# encoder_path: ./pretrained
+
+# # openai key
+# # api_key: PUT_YOUR_OWN_API_KEY_HERE 
+# api_key: sk-IXv5inyh4jRh9ae8bRFbuZ1NDpQVXcTgjnUJW024Mn93JTsx
+# api_base: https://api.openai-proxy.org/v1
+
+# # llm_name: gpt-3.5-turbo
+# # llm_name: gpt-4o-mini-2024-07-18
+# llm_name: mistralai/Mistral-7B-Instruct-v0.1 # from huggingface
+
+# # deepsvdd parameters
+# normal_class: 0
+# is_pretrain: False
+# optimizer_name: adam
+# lr: 0.0001
+# n_epochs: 150
+# lr_milestones: [50]
+# batch_size: 4096
+# weight_decay: 0.0005
+# device: cuda:0
+# n_jobs_dataloader: 0
+
+# # rag parameters
+# threshold: 0.8
+# topk: 5
+# prompt: prompt5
+# persist_directory: ./output/ragdb-bgl
+
+
+
+# # for spirit
+is_train: True # train deepsvdd
+is_rag: True # use post processing stage
+dataset_name: Spirit
+train_ratio: 0.8
+window_size: 200 
+window_time: 1800 # 30 minutes
+
+# dataset and model paths
+# log_structed_path: ./dataset/BGL/bgl-example.log_structured.csv
+log_structed_path: /home/zhangwh/LogADEmpirical-dev/dataset/Spirit/Spirit.log_structured.csv
+encoder_path: ./pretrained
+
+# openai key
+# api_key: PUT_YOUR_OWN_API_KEY_HERE 
+api_key: sk-IXv5inyh4jRh9ae8bRFbuZ1NDpQVXcTgjnUJW024Mn93JTsx
+api_base: https://api.openai-proxy.org/v1
+
+# llm_name: gpt-3.5-turbo
+# llm_name: gpt-4o-mini-2024-07-18
+llm_name: mistralai/Mistral-7B-Instruct-v0.1 # from huggingface
+
+# deepsvdd parameters
+normal_class: 0
+is_pretrain: False
+optimizer_name: adam
+lr: 0.0001
+n_epochs: 150
+lr_milestones: [50]
+batch_size: 4096
+weight_decay: 0.0005
+device: cuda:0
+n_jobs_dataloader: 0
+
+# rag parameters
+threshold: 0.8
+topk: 5
+prompt: prompt5
+persist_directory: ./output/ragdb-spirit
