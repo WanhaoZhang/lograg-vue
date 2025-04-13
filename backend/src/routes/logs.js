@@ -24,8 +24,8 @@ router.get('/', async (req, res, next) => {
     
     if (service) {
       if (service === 'openstack-service') {
-        // 如果选择的是OpenStack服务，匹配所有OpenStack相关子服务
-        query.service = { $in: ['nova', 'neutron', 'cinder', 'keystone', 'glance', 'heat'] };
+        // 查询service为'openstack-service'的记录
+        query.service = 'openstack-service';
       } else {
         query.service = service;
       }
