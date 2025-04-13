@@ -1,0 +1,31 @@
+timestamp,component,level,message,request_id,source_ip,status,instance_id,user_id,project_id,resource_type,resource_id,error_code,original_service
+2023-09-10 08:15:22,compute,ERROR,计算节点资源分配失败,req-a12b3c4d,192.168.1.101,error,i-09af234b,user-42,project-7,instance,r-5678ab12,ResourceAllocationFailed,nova
+2023-09-10 09:45:10,network,WARNING,网络连接延迟增加,req-e56f7g8h,192.168.1.102,warning,i-09af234b,user-15,project-3,network,r-9012cd34,LatencyIncrease,neutron
+2023-09-10 10:10:45,volume,ERROR,存储卷创建失败: 存储池容量不足,req-i90j1k2l,192.168.1.103,error,,user-27,project-9,volume,r-5678ef90,InsufficientStorage,cinder
+2023-09-10 10:30:18,identity,CRITICAL,身份验证服务不可用,req-m34n5o6p,192.168.1.104,critical,,user-8,project-2,service,r-1234gh56,ServiceUnavailable,keystone
+2023-09-10 11:05:33,image,INFO,镜像上传成功,req-q78r9s0t,192.168.1.105,normal,,user-31,project-12,image,r-7890ij12,,glance
+2023-09-10 11:25:22,api,ERROR,API请求限制超出,req-u12v3w4x,192.168.1.106,error,i-34dc567e,user-19,project-5,api,r-3456kl78,RateLimitExceeded,nova
+2023-09-10 11:48:50,dhcp,WARNING,DHCP租约异常,req-y56z7a8b,192.168.1.107,warning,i-78fg901h,user-22,project-8,network,r-9012mn34,DHCPLeaseIssue,neutron
+2023-09-10 12:12:15,scheduler,ERROR,无法找到合适的计算节点,req-c90d1e2f,192.168.1.108,error,i-12ij345k,user-11,project-4,instance,r-5678op90,NoValidHost,nova
+2023-09-10 12:35:40,backup,INFO,存储卷备份完成,req-g34h5i6j,192.168.1.109,normal,,user-36,project-13,volume,r-1234qr56,,cinder
+2023-09-10 13:02:25,orchestration,ERROR,堆栈创建失败: 模板验证错误,req-k78l9m0n,192.168.1.110,error,,user-24,project-10,stack,r-7890st12,TemplateValidationError,heat
+2023-09-10 13:28:10,compute,WARNING,计算节点CPU使用率高,req-o12p3q4r,192.168.1.111,warning,i-56lm789n,user-5,project-1,instance,r-3456uv78,HighCPUUsage,nova
+2023-09-10 13:55:40,network,INFO,负载均衡器配置更新,req-s56t7u8v,192.168.1.112,normal,,user-17,project-6,loadbalancer,r-9012wx34,,neutron
+2023-09-10 14:22:15,token,ERROR,令牌验证失败,req-w90x1y2z,192.168.1.113,error,,user-29,project-11,token,r-5678yz90,TokenValidationFailed,keystone
+2023-09-10 14:50:30,router,CRITICAL,路由器服务崩溃,req-a34b5c6d,192.168.1.114,critical,,user-14,project-3,router,r-1234ab56,ServiceCrash,neutron
+2023-09-10 15:15:12,conductor,INFO,实例迁移成功,req-e78f9g0h,192.168.1.115,normal,i-90op123q,user-41,project-14,instance,r-7890cd12,,nova
+2023-09-10 15:43:25,scheduler,WARNING,存储后端响应延迟,req-i12j3k4l,192.168.1.116,warning,,user-18,project-7,volume,r-3456ef78,BackendLatency,cinder
+2023-09-10 16:10:50,registry,ERROR,镜像元数据损坏,req-m56n7o8p,192.168.1.117,error,,user-26,project-9,image,r-9012gh34,MetadataCorruption,glance
+2023-09-10 16:36:22,network,INFO,网络连接重新建立,req-q90r1s2t,192.168.1.118,normal,i-34rs567t,user-13,project-5,network,r-5678ij90,,nova
+2023-09-10 17:08:40,assignment,ERROR,用户权限分配失败,req-u34v5w6x,192.168.1.119,error,,user-32,project-12,user,r-1234kl56,PermissionAssignmentFailed,keystone
+2023-09-10 17:31:15,agent,CRITICAL,网络代理离线,req-y78z9a0b,192.168.1.120,critical,,user-7,project-2,agent,r-7890mn12,AgentOffline,neutron
+2023-09-10 18:05:28,api,INFO,卷快照创建成功,req-c12d3e4f,192.168.1.121,normal,,user-20,project-8,snapshot,r-3456op78,,cinder
+2023-09-10 18:28:50,console,WARNING,控制台访问异常,req-g56h7i8j,192.168.1.122,warning,i-78uv901w,user-39,project-15,console,r-9012qr34,ConsoleAccessIssue,nova
+2023-09-10 18:55:15,engine,ERROR,资源删除失败,req-k90l1m2n,192.168.1.123,error,,user-25,project-10,resource,r-5678st90,ResourceDeletionFailed,heat
+2023-09-10 19:22:42,security,INFO,安全组规则更新,req-o34p5q6r,192.168.1.124,normal,,user-16,project-6,security-group,r-1234uv56,,neutron
+2023-09-10 19:48:10,federation,ERROR,联合身份验证失败,req-s78t9u0v,192.168.1.125,error,,user-28,project-11,federation,r-7890wx12,FederationAuthFailed,keystone
+2023-09-10 20:15:38,metadata,WARNING,元数据服务可用性下降,req-w12x3y4z,192.168.1.126,warning,i-12yz345a,user-4,project-1,metadata,r-3456ab78,ServiceDegraded,nova
+2023-09-10 20:40:22,attachment,INFO,卷挂载成功,req-a56b7c8d,192.168.1.127,normal,i-56bc789d,user-23,project-8,volume,r-9012cd34,,cinder
+2023-09-10 21:08:55,task,ERROR,镜像转换任务失败,req-e90f1g2h,192.168.1.128,error,,user-30,project-12,task,r-5678ef90,ConversionFailed,glance
+2023-09-10 21:35:20,availability,CRITICAL,可用区不可用,req-i34j5k6l,192.168.1.129,critical,,user-9,project-3,availability-zone,r-1234gh56,ZoneUnavailable,nova
+2023-09-10 22:02:48,metering,INFO,网络使用量计量完成,req-m78n9o0p,192.168.1.130,normal,,user-33,project-13,metering,r-7890ij12,,neutron 
