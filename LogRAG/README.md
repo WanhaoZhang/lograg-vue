@@ -1,4 +1,5 @@
 # Leveraging RAG-Enhanced Large Language Model for Semi-Supervised Log Anomaly Detection (ISSRE-2024)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.13372812.svg)](https://doi.org/10.5281/zenodo.13372812)
 
 ![image.png](lograg.jpg)
 
@@ -44,9 +45,12 @@ The raw logs need to be parsed to get a structured log. Here, we use BGL.log_str
 
 **Requirements:**
 
-- Python 3
+- Python 3.8.18
 - NVIDIA GPU + CUDA cuDNN
-- PyTorch 2.3.0
+- PyTorch 1.13.0
+- langchain 0.2.14
+- transformers 4.37.2
+- openai 1.42.0
 
 The required packages are listed in requirements.txt. Install:
 
@@ -78,7 +82,7 @@ log_structed_path: ./dataset/BGL/bgl-example.log_structured.csv
 encoder_path: ./pretrained
 
 # openai key, you can get from :https://www.closeai-asia.com
-# api_key: PUT_YOUR_OWN_API_KEY_HERE 
+api_key: PUT_YOUR_OWN_API_KEY_HERE 
 api_base: https://api.openai-proxy.org/v1
 
 llm_name: gpt-3.5-turbo

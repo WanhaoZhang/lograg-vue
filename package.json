@@ -4,6 +4,7 @@
   "description": "Add sample OpenStack logs to MongoDB",
   "main": "add_openstack_logs.js",
   "dependencies": {
-    "mongodb": "^6.15.0"
+    "mongodb": "^6.15.0",
+    "openstack-logs-seed": "^1.0.0"
   }
 }

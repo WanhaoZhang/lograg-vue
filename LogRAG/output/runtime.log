@@ -1,0 +1,1267 @@
+2025-04-29 09:54:41,538 - root - INFO - {'is_train': False, 'is_rag': True, 'dataset_name': 'BGL', 'train_ratio': 0.8, 'window_size': 200, 'window_time': 1800, 'log_structed_path': '/Users/zhangwh/Documents/毕设/project/LogRAG/dataset/BGL/bgl-example.log_structured.csv', 'encoder_path': './pretrained', 'api_key': 'sk-IXv5inyh4jRh9ae8bRFbuZ1NDpQVXcTgjnUJW024Mn93JTsx', 'api_base': 'https://api.openai-proxy.org/v1', 'llm_name': 'gpt-3.5-turbo', 'normal_class': 0, 'is_pretrain': False, 'optimizer_name': 'adam', 'lr': 0.0001, 'n_epochs': 150, 'lr_milestones': [50], 'batch_size': 4096, 'weight_decay': 0.0005, 'device': 'cuda:0', 'n_jobs_dataloader': 0, 'threshold': 0.8, 'topk': 5, 'prompt': 'prompt5', 'persist_directory': './output/ragdb-bgl'}
+2025-04-29 10:41:43,136 - root - INFO - {'is_train': False, 'is_rag': True, 'dataset_name': 'BGL', 'train_ratio': 0.8, 'window_size': 200, 'window_time': 1800, 'log_structed_path': './dataset/BGL/bgl-example.log_structured.csv', 'encoder_path': './pretrained', 'api_key': 'sk-IXv5inyh4jRh9ae8bRFbuZ1NDpQVXcTgjnUJW024Mn93JTsx', 'api_base': 'https://api.openai-proxy.org/v1', 'llm_name': 'gpt-3.5-turbo', 'normal_class': 0, 'is_pretrain': False, 'optimizer_name': 'adam', 'lr': 0.0001, 'n_epochs': 150, 'lr_milestones': [50], 'batch_size': 4096, 'weight_decay': 0.0005, 'device': 'cuda:0', 'n_jobs_dataloader': 0, 'threshold': 0.8, 'topk': 5, 'prompt': 'prompt5', 'persist_directory': './output/ragdb-bgl'}
+2025-04-29 10:41:58,387 - root - INFO - {'is_train': True, 'is_rag': True, 'dataset_name': 'BGL', 'train_ratio': 0.8, 'window_size': 200, 'window_time': 1800, 'log_structed_path': './dataset/BGL/bgl-example.log_structured.csv', 'encoder_path': './pretrained', 'api_key': 'sk-IXv5inyh4jRh9ae8bRFbuZ1NDpQVXcTgjnUJW024Mn93JTsx', 'api_base': 'https://api.openai-proxy.org/v1', 'llm_name': 'gpt-3.5-turbo', 'normal_class': 0, 'is_pretrain': False, 'optimizer_name': 'adam', 'lr': 0.0001, 'n_epochs': 150, 'lr_milestones': [50], 'batch_size': 4096, 'weight_decay': 0.0005, 'device': 'cuda:0', 'n_jobs_dataloader': 0, 'threshold': 0.8, 'topk': 5, 'prompt': 'prompt5', 'persist_directory': './output/ragdb-bgl'}
+2025-04-29 10:44:25,143 - root - INFO - {'is_train': True, 'is_rag': True, 'dataset_name': 'BGL', 'train_ratio': 0.8, 'window_size': 200, 'window_time': 1800, 'log_structed_path': './dataset/BGL/bgl-example.log_structured.csv', 'encoder_path': './pretrained', 'api_key': 'sk-IXv5inyh4jRh9ae8bRFbuZ1NDpQVXcTgjnUJW024Mn93JTsx', 'api_base': 'https://api.openai-proxy.org/v1', 'llm_name': 'gpt-3.5-turbo', 'normal_class': 0, 'is_pretrain': False, 'optimizer_name': 'adam', 'lr': 0.0001, 'n_epochs': 150, 'lr_milestones': [50], 'batch_size': 4096, 'weight_decay': 0.0005, 'device': 'cuda:0', 'n_jobs_dataloader': 0, 'threshold': 0.8, 'topk': 5, 'prompt': 'prompt5', 'persist_directory': './output/ragdb-bgl'}
+2025-04-29 10:44:46,173 - root - INFO - {'is_train': True, 'is_rag': True, 'dataset_name': 'BGL', 'train_ratio': 0.8, 'window_size': 200, 'window_time': 1800, 'log_structed_path': './dataset/BGL/bgl-example.log_structured.csv', 'encoder_path': './pretrained', 'api_key': 'sk-IXv5inyh4jRh9ae8bRFbuZ1NDpQVXcTgjnUJW024Mn93JTsx', 'api_base': 'https://api.openai-proxy.org/v1', 'llm_name': 'gpt-3.5-turbo', 'normal_class': 0, 'is_pretrain': False, 'optimizer_name': 'adam', 'lr': 0.0001, 'n_epochs': 150, 'lr_milestones': [50], 'batch_size': 4096, 'weight_decay': 0.0005, 'device': 'cpu', 'n_jobs_dataloader': 0, 'threshold': 0.8, 'topk': 5, 'prompt': 'prompt5', 'persist_directory': './output/ragdb-bgl'}
+2025-04-29 10:44:52,073 - root - INFO - Initializing center c...
+2025-04-29 10:44:52,089 - root - INFO - Center c initialized.
+2025-04-29 10:44:52,089 - root - INFO - Starting training...
+2025-04-29 10:44:52,111 - root - INFO -   Epoch 1/150	 Time: 0.022	 Loss: 1.51347065
+2025-04-29 10:44:52,127 - root - INFO -   Epoch 2/150	 Time: 0.016	 Loss: 1.34810662
+2025-04-29 10:44:52,146 - root - INFO -   Epoch 3/150	 Time: 0.018	 Loss: 1.20339823
+2025-04-29 10:44:52,169 - root - INFO -   Epoch 4/150	 Time: 0.022	 Loss: 1.07570040
+2025-04-29 10:44:52,189 - root - INFO -   Epoch 5/150	 Time: 0.020	 Loss: 0.96339130
+2025-04-29 10:44:52,211 - root - INFO -   Epoch 6/150	 Time: 0.022	 Loss: 0.86247838
+2025-04-29 10:44:52,228 - root - INFO -   Epoch 7/150	 Time: 0.017	 Loss: 0.77404624
+2025-04-29 10:44:52,247 - root - INFO -   Epoch 8/150	 Time: 0.019	 Loss: 0.69410837
+2025-04-29 10:44:52,269 - root - INFO -   Epoch 9/150	 Time: 0.022	 Loss: 0.62020516
+2025-04-29 10:44:52,293 - root - INFO -   Epoch 10/150	 Time: 0.024	 Loss: 0.55485737
+2025-04-29 10:44:52,312 - root - INFO -   Epoch 11/150	 Time: 0.018	 Loss: 0.49608171
+2025-04-29 10:44:52,377 - root - INFO -   Epoch 12/150	 Time: 0.065	 Loss: 0.08506666
+2025-04-29 10:44:52,397 - root - INFO -   Epoch 13/150	 Time: 0.020	 Loss: 0.07848107
+2025-04-29 10:44:52,417 - root - INFO -   Epoch 14/150	 Time: 0.020	 Loss: 0.07212354
+2025-04-29 10:44:52,434 - root - INFO -   Epoch 15/150	 Time: 0.017	 Loss: 0.06654435
+2025-04-29 10:44:52,452 - root - INFO -   Epoch 16/150	 Time: 0.018	 Loss: 0.06170185
+2025-04-29 10:44:52,477 - root - INFO -   Epoch 17/150	 Time: 0.024	 Loss: 0.05751199
+2025-04-29 10:44:52,496 - root - INFO -   Epoch 18/150	 Time: 0.019	 Loss: 0.05393819
+2025-04-29 10:44:52,514 - root - INFO -   Epoch 19/150	 Time: 0.018	 Loss: 0.05086133
+2025-04-29 10:44:52,536 - root - INFO -   Epoch 20/150	 Time: 0.021	 Loss: 0.04818443
+2025-04-29 10:44:52,559 - root - INFO -   Epoch 21/150	 Time: 0.023	 Loss: 0.04585536
+2025-04-29 10:44:52,579 - root - INFO -   Epoch 22/150	 Time: 0.019	 Loss: 0.04396173
+2025-04-29 10:44:52,597 - root - INFO -   Epoch 23/150	 Time: 0.018	 Loss: 0.04238669
+2025-04-29 10:44:52,614 - root - INFO -   Epoch 24/150	 Time: 0.017	 Loss: 0.04115677
+2025-04-29 10:44:52,638 - root - INFO -   Epoch 25/150	 Time: 0.023	 Loss: 0.04985526
+2025-04-29 10:44:52,662 - root - INFO -   Epoch 26/150	 Time: 0.024	 Loss: 0.04094214
+2025-04-29 10:44:52,693 - root - INFO -   Epoch 27/150	 Time: 0.030	 Loss: 0.03888887
+2025-04-29 10:44:52,710 - root - INFO -   Epoch 28/150	 Time: 0.017	 Loss: 0.03721652
+2025-04-29 10:44:52,729 - root - INFO -   Epoch 29/150	 Time: 0.019	 Loss: 0.03648319
+2025-04-29 10:44:52,753 - root - INFO -   Epoch 30/150	 Time: 0.024	 Loss: 0.03578842
+2025-04-29 10:44:52,773 - root - INFO -   Epoch 31/150	 Time: 0.019	 Loss: 0.03514885
+2025-04-29 10:44:52,795 - root - INFO -   Epoch 32/150	 Time: 0.022	 Loss: 0.03456492
+2025-04-29 10:44:52,813 - root - INFO -   Epoch 33/150	 Time: 0.017	 Loss: 0.03403416
+2025-04-29 10:44:52,839 - root - INFO -   Epoch 34/150	 Time: 0.026	 Loss: 0.03323682
+2025-04-29 10:44:52,870 - root - INFO -   Epoch 35/150	 Time: 0.030	 Loss: 0.03265663
+2025-04-29 10:44:52,887 - root - INFO -   Epoch 36/150	 Time: 0.017	 Loss: 0.03158697
+2025-04-29 10:44:52,901 - root - INFO -   Epoch 37/150	 Time: 0.015	 Loss: 0.03084755
+2025-04-29 10:44:52,921 - root - INFO -   Epoch 38/150	 Time: 0.019	 Loss: 0.03008974
+2025-04-29 10:44:52,943 - root - INFO -   Epoch 39/150	 Time: 0.022	 Loss: 0.02920157
+2025-04-29 10:44:52,970 - root - INFO -   Epoch 40/150	 Time: 0.026	 Loss: 0.02866060
+2025-04-29 10:44:52,995 - root - INFO -   Epoch 41/150	 Time: 0.025	 Loss: 0.02817565
+2025-04-29 10:44:53,014 - root - INFO -   Epoch 42/150	 Time: 0.019	 Loss: 0.02777854
+2025-04-29 10:44:53,034 - root - INFO -   Epoch 43/150	 Time: 0.020	 Loss: 0.02719405
+2025-04-29 10:44:53,056 - root - INFO -   Epoch 44/150	 Time: 0.021	 Loss: 0.02664238
+2025-04-29 10:44:53,079 - root - INFO -   Epoch 45/150	 Time: 0.024	 Loss: 0.02594528
+2025-04-29 10:44:53,098 - root - INFO -   Epoch 46/150	 Time: 0.018	 Loss: 0.02526960
+2025-04-29 10:44:53,115 - root - INFO -   Epoch 47/150	 Time: 0.017	 Loss: 0.02477069
+2025-04-29 10:44:53,135 - root - INFO -   Epoch 48/150	 Time: 0.020	 Loss: 0.02423345
+2025-04-29 10:44:53,153 - root - INFO -   Epoch 49/150	 Time: 0.017	 Loss: 0.02359781
+2025-04-29 10:44:53,177 - root - INFO -   Epoch 50/150	 Time: 0.024	 Loss: 0.02316556
+2025-04-29 10:44:53,177 - root - INFO -   LR scheduler: new learning rate is 1e-05
+2025-04-29 10:44:53,197 - root - INFO -   Epoch 51/150	 Time: 0.019	 Loss: 0.02276153
+2025-04-29 10:44:53,216 - root - INFO -   Epoch 52/150	 Time: 0.018	 Loss: 0.02261511
+2025-04-29 10:44:53,243 - root - INFO -   Epoch 53/150	 Time: 0.027	 Loss: 0.02256068
+2025-04-29 10:44:53,264 - root - INFO -   Epoch 54/150	 Time: 0.021	 Loss: 0.02249656
+2025-04-29 10:44:53,282 - root - INFO -   Epoch 55/150	 Time: 0.017	 Loss: 0.02242400
+2025-04-29 10:44:53,299 - root - INFO -   Epoch 56/150	 Time: 0.017	 Loss: 0.02234389
+2025-04-29 10:44:53,320 - root - INFO -   Epoch 57/150	 Time: 0.021	 Loss: 0.02226223
+2025-04-29 10:44:53,380 - root - INFO -   Epoch 58/150	 Time: 0.060	 Loss: 0.02219508
+2025-04-29 10:44:53,401 - root - INFO -   Epoch 59/150	 Time: 0.020	 Loss: 0.02211623
+2025-04-29 10:44:53,435 - root - INFO -   Epoch 60/150	 Time: 0.034	 Loss: 0.02203482
+2025-04-29 10:44:53,450 - root - INFO -   Epoch 61/150	 Time: 0.014	 Loss: 0.02196464
+2025-04-29 10:44:53,464 - root - INFO -   Epoch 62/150	 Time: 0.014	 Loss: 0.02189392
+2025-04-29 10:44:53,487 - root - INFO -   Epoch 63/150	 Time: 0.022	 Loss: 0.02182267
+2025-04-29 10:44:53,509 - root - INFO -   Epoch 64/150	 Time: 0.022	 Loss: 0.02174909
+2025-04-29 10:44:53,536 - root - INFO -   Epoch 65/150	 Time: 0.027	 Loss: 0.02167401
+2025-04-29 10:44:53,554 - root - INFO -   Epoch 66/150	 Time: 0.018	 Loss: 0.02159726
+2025-04-29 10:44:53,577 - root - INFO -   Epoch 67/150	 Time: 0.022	 Loss: 0.02152999
+2025-04-29 10:44:53,594 - root - INFO -   Epoch 68/150	 Time: 0.017	 Loss: 0.02145325
+2025-04-29 10:44:53,613 - root - INFO -   Epoch 69/150	 Time: 0.018	 Loss: 0.02137893
+2025-04-29 10:44:53,637 - root - INFO -   Epoch 70/150	 Time: 0.024	 Loss: 0.02131334
+2025-04-29 10:44:53,661 - root - INFO -   Epoch 71/150	 Time: 0.024	 Loss: 0.02125031
+2025-04-29 10:44:53,682 - root - INFO -   Epoch 72/150	 Time: 0.020	 Loss: 0.02119431
+2025-04-29 10:44:53,707 - root - INFO -   Epoch 73/150	 Time: 0.025	 Loss: 0.02114546
+2025-04-29 10:44:53,727 - root - INFO -   Epoch 74/150	 Time: 0.020	 Loss: 0.02109747
+2025-04-29 10:44:53,745 - root - INFO -   Epoch 75/150	 Time: 0.018	 Loss: 0.02104981
+2025-04-29 10:44:53,772 - root - INFO -   Epoch 76/150	 Time: 0.027	 Loss: 0.02100240
+2025-04-29 10:44:53,797 - root - INFO -   Epoch 77/150	 Time: 0.024	 Loss: 0.02095521
+2025-04-29 10:44:53,816 - root - INFO -   Epoch 78/150	 Time: 0.018	 Loss: 0.02090826
+2025-04-29 10:44:53,845 - root - INFO -   Epoch 79/150	 Time: 0.029	 Loss: 0.02086152
+2025-04-29 10:44:53,864 - root - INFO -   Epoch 80/150	 Time: 0.018	 Loss: 0.02081577
+2025-04-29 10:44:53,890 - root - INFO -   Epoch 81/150	 Time: 0.025	 Loss: 0.02077106
+2025-04-29 10:44:53,906 - root - INFO -   Epoch 82/150	 Time: 0.016	 Loss: 0.02073348
+2025-04-29 10:44:53,921 - root - INFO -   Epoch 83/150	 Time: 0.014	 Loss: 0.02068155
+2025-04-29 10:44:53,947 - root - INFO -   Epoch 84/150	 Time: 0.026	 Loss: 0.02062585
+2025-04-29 10:44:53,964 - root - INFO -   Epoch 85/150	 Time: 0.017	 Loss: 0.02055533
+2025-04-29 10:44:53,986 - root - INFO -   Epoch 86/150	 Time: 0.022	 Loss: 0.02049442
+2025-04-29 10:44:54,006 - root - INFO -   Epoch 87/150	 Time: 0.020	 Loss: 0.02043659
+2025-04-29 10:44:54,031 - root - INFO -   Epoch 88/150	 Time: 0.025	 Loss: 0.02038116
+2025-04-29 10:44:54,051 - root - INFO -   Epoch 89/150	 Time: 0.019	 Loss: 0.02032800
+2025-04-29 10:44:54,070 - root - INFO -   Epoch 90/150	 Time: 0.019	 Loss: 0.02027470
+2025-04-29 10:44:54,088 - root - INFO -   Epoch 91/150	 Time: 0.018	 Loss: 0.02021882
+2025-04-29 10:44:54,158 - root - INFO -   Epoch 92/150	 Time: 0.069	 Loss: 0.02016541
+2025-04-29 10:44:54,174 - root - INFO -   Epoch 93/150	 Time: 0.016	 Loss: 0.02011533
+2025-04-29 10:44:54,213 - root - INFO -   Epoch 94/150	 Time: 0.039	 Loss: 0.02006729
+2025-04-29 10:44:54,229 - root - INFO -   Epoch 95/150	 Time: 0.016	 Loss: 0.02001973
+2025-04-29 10:44:54,246 - root - INFO -   Epoch 96/150	 Time: 0.017	 Loss: 0.01997258
+2025-04-29 10:44:54,267 - root - INFO -   Epoch 97/150	 Time: 0.020	 Loss: 0.01992579
+2025-04-29 10:44:54,284 - root - INFO -   Epoch 98/150	 Time: 0.017	 Loss: 0.01987983
+2025-04-29 10:44:54,306 - root - INFO -   Epoch 99/150	 Time: 0.021	 Loss: 0.01983458
+2025-04-29 10:44:54,329 - root - INFO -   Epoch 100/150	 Time: 0.023	 Loss: 0.01979084
+2025-04-29 10:44:54,389 - root - INFO -   Epoch 101/150	 Time: 0.059	 Loss: 0.01974710
+2025-04-29 10:44:54,413 - root - INFO -   Epoch 102/150	 Time: 0.024	 Loss: 0.01970546
+2025-04-29 10:44:54,437 - root - INFO -   Epoch 103/150	 Time: 0.024	 Loss: 0.01966657
+2025-04-29 10:44:54,461 - root - INFO -   Epoch 104/150	 Time: 0.023	 Loss: 0.01963042
+2025-04-29 10:44:54,481 - root - INFO -   Epoch 105/150	 Time: 0.020	 Loss: 0.01959578
+2025-04-29 10:44:54,605 - root - INFO -   Epoch 106/150	 Time: 0.123	 Loss: 0.01955779
+2025-04-29 10:44:54,624 - root - INFO -   Epoch 107/150	 Time: 0.019	 Loss: 0.01952152
+2025-04-29 10:44:54,638 - root - INFO -   Epoch 108/150	 Time: 0.015	 Loss: 0.01948674
+2025-04-29 10:44:54,658 - root - INFO -   Epoch 109/150	 Time: 0.019	 Loss: 0.01945103
+2025-04-29 10:44:54,673 - root - INFO -   Epoch 110/150	 Time: 0.016	 Loss: 0.01941926
+2025-04-29 10:44:54,689 - root - INFO -   Epoch 111/150	 Time: 0.015	 Loss: 0.01938222
+2025-04-29 10:44:54,706 - root - INFO -   Epoch 112/150	 Time: 0.017	 Loss: 0.01934261
+2025-04-29 10:44:54,722 - root - INFO -   Epoch 113/150	 Time: 0.016	 Loss: 0.01930165
+2025-04-29 10:44:54,740 - root - INFO -   Epoch 114/150	 Time: 0.017	 Loss: 0.01925714
+2025-04-29 10:44:54,760 - root - INFO -   Epoch 115/150	 Time: 0.020	 Loss: 0.01921505
+2025-04-29 10:44:54,774 - root - INFO -   Epoch 116/150	 Time: 0.013	 Loss: 0.01917375
+2025-04-29 10:44:54,797 - root - INFO -   Epoch 117/150	 Time: 0.023	 Loss: 0.01913212
+2025-04-29 10:44:54,817 - root - INFO -   Epoch 118/150	 Time: 0.020	 Loss: 0.01909174
+2025-04-29 10:44:54,838 - root - INFO -   Epoch 119/150	 Time: 0.020	 Loss: 0.01905158
+2025-04-29 10:44:54,857 - root - INFO -   Epoch 120/150	 Time: 0.019	 Loss: 0.01901292
+2025-04-29 10:44:54,883 - root - INFO -   Epoch 121/150	 Time: 0.026	 Loss: 0.01897764
+2025-04-29 10:44:54,899 - root - INFO -   Epoch 122/150	 Time: 0.016	 Loss: 0.01894400
+2025-04-29 10:44:54,921 - root - INFO -   Epoch 123/150	 Time: 0.021	 Loss: 0.01890277
+2025-04-29 10:44:54,941 - root - INFO -   Epoch 124/150	 Time: 0.020	 Loss: 0.01886359
+2025-04-29 10:44:54,965 - root - INFO -   Epoch 125/150	 Time: 0.024	 Loss: 0.01882813
+2025-04-29 10:44:54,990 - root - INFO -   Epoch 126/150	 Time: 0.024	 Loss: 0.01879346
+2025-04-29 10:44:55,015 - root - INFO -   Epoch 127/150	 Time: 0.024	 Loss: 0.01874473
+2025-04-29 10:44:55,034 - root - INFO -   Epoch 128/150	 Time: 0.019	 Loss: 0.01870129
+2025-04-29 10:44:55,057 - root - INFO -   Epoch 129/150	 Time: 0.023	 Loss: 0.01865929
+2025-04-29 10:44:55,087 - root - INFO -   Epoch 130/150	 Time: 0.030	 Loss: 0.01861740
+2025-04-29 10:44:55,107 - root - INFO -   Epoch 131/150	 Time: 0.019	 Loss: 0.01857532
+2025-04-29 10:44:55,124 - root - INFO -   Epoch 132/150	 Time: 0.017	 Loss: 0.01853336
+2025-04-29 10:44:55,148 - root - INFO -   Epoch 133/150	 Time: 0.023	 Loss: 0.01849108
+2025-04-29 10:44:55,168 - root - INFO -   Epoch 134/150	 Time: 0.020	 Loss: 0.01845133
+2025-04-29 10:44:55,196 - root - INFO -   Epoch 135/150	 Time: 0.028	 Loss: 0.01841403
+2025-04-29 10:44:55,223 - root - INFO -   Epoch 136/150	 Time: 0.027	 Loss: 0.01837909
+2025-04-29 10:44:55,245 - root - INFO -   Epoch 137/150	 Time: 0.022	 Loss: 0.01834429
+2025-04-29 10:44:55,261 - root - INFO -   Epoch 138/150	 Time: 0.015	 Loss: 0.01830404
+2025-04-29 10:44:55,280 - root - INFO -   Epoch 139/150	 Time: 0.019	 Loss: 0.01826419
+2025-04-29 10:44:55,304 - root - INFO -   Epoch 140/150	 Time: 0.024	 Loss: 0.01822101
+2025-04-29 10:44:55,324 - root - INFO -   Epoch 141/150	 Time: 0.020	 Loss: 0.01818738
+2025-04-29 10:44:55,376 - root - INFO -   Epoch 142/150	 Time: 0.052	 Loss: 0.01814428
+2025-04-29 10:44:55,405 - root - INFO -   Epoch 143/150	 Time: 0.028	 Loss: 0.01809943
+2025-04-29 10:44:55,423 - root - INFO -   Epoch 144/150	 Time: 0.019	 Loss: 0.01805978
+2025-04-29 10:44:55,463 - root - INFO -   Epoch 145/150	 Time: 0.039	 Loss: 0.01801824
+2025-04-29 10:44:55,478 - root - INFO -   Epoch 146/150	 Time: 0.015	 Loss: 0.01797430
+2025-04-29 10:44:55,491 - root - INFO -   Epoch 147/150	 Time: 0.013	 Loss: 0.01793102
+2025-04-29 10:44:55,506 - root - INFO -   Epoch 148/150	 Time: 0.014	 Loss: 0.01789349
+2025-04-29 10:44:55,532 - root - INFO -   Epoch 149/150	 Time: 0.026	 Loss: 0.01786057
+2025-04-29 10:44:55,558 - root - INFO -   Epoch 150/150	 Time: 0.026	 Loss: 0.01782932
+2025-04-29 10:44:55,558 - root - INFO - Training time: 3.469
+2025-04-29 10:44:55,558 - root - INFO - Finished training.
+2025-04-29 10:44:55,563 - root - INFO - start testing....
+2025-04-29 10:44:55,566 - root - INFO - Loading model from ./output/model.tar
+2025-04-29 10:44:59,233 - root - INFO - Starting testing...
+2025-04-29 10:44:59,243 - root - INFO - Testing time: 0.009
+2025-04-29 10:44:59,249 - root - INFO - Test set AUC: 64.22%
+2025-04-29 10:44:59,249 - root - INFO - Finished testing.
+2025-04-29 10:44:59,263 - root - INFO - Normal log templates to embedding: , 73
+2025-04-29 10:51:53,998 - root - INFO - {'is_train': True, 'is_rag': True, 'dataset_name': 'BGL', 'train_ratio': 0.8, 'window_size': 200, 'window_time': 1800, 'log_structed_path': './dataset/BGL/bgl-example.log_structured.csv', 'encoder_path': './pretrained', 'api_key': 'sk-IXv5inyh4jRh9ae8bRFbuZ1NDpQVXcTgjnUJW024Mn93JTsx', 'api_base': 'https://api.openai-proxy.org/v1', 'llm_name': 'gpt-3.5-turbo', 'normal_class': 0, 'is_pretrain': False, 'optimizer_name': 'adam', 'lr': 0.0001, 'n_epochs': 150, 'lr_milestones': [50], 'batch_size': 4096, 'weight_decay': 0.0005, 'device': 'cpu', 'n_jobs_dataloader': 0, 'threshold': 0.8, 'topk': 5, 'prompt': 'prompt5', 'persist_directory': './output/ragdb-bgl'}
+2025-04-29 10:52:03,824 - root - INFO - Initializing center c...
+2025-04-29 10:52:03,839 - root - INFO - Center c initialized.
+2025-04-29 10:52:03,840 - root - INFO - Starting training...
+2025-04-29 10:52:03,892 - root - INFO -   Epoch 1/150	 Time: 0.052	 Loss: 1.32606268
+2025-04-29 10:52:03,909 - root - INFO -   Epoch 2/150	 Time: 0.017	 Loss: 1.19108009
+2025-04-29 10:52:03,931 - root - INFO -   Epoch 3/150	 Time: 0.021	 Loss: 1.07328916
+2025-04-29 10:52:03,956 - root - INFO -   Epoch 4/150	 Time: 0.025	 Loss: 0.96930212
+2025-04-29 10:52:03,976 - root - INFO -   Epoch 5/150	 Time: 0.020	 Loss: 0.88187945
+2025-04-29 10:52:04,010 - root - INFO -   Epoch 6/150	 Time: 0.033	 Loss: 0.80924225
+2025-04-29 10:52:04,034 - root - INFO -   Epoch 7/150	 Time: 0.024	 Loss: 0.74181849
+2025-04-29 10:52:04,054 - root - INFO -   Epoch 8/150	 Time: 0.019	 Loss: 0.67831099
+2025-04-29 10:52:04,070 - root - INFO -   Epoch 9/150	 Time: 0.017	 Loss: 0.62125063
+2025-04-29 10:52:04,094 - root - INFO -   Epoch 10/150	 Time: 0.023	 Loss: 0.57050699
+2025-04-29 10:52:04,155 - root - INFO -   Epoch 11/150	 Time: 0.062	 Loss: 0.52412456
+2025-04-29 10:52:04,176 - root - INFO -   Epoch 12/150	 Time: 0.020	 Loss: 0.07197450
+2025-04-29 10:52:04,203 - root - INFO -   Epoch 13/150	 Time: 0.027	 Loss: 0.06784046
+2025-04-29 10:52:04,242 - root - INFO -   Epoch 14/150	 Time: 0.039	 Loss: 0.06415217
+2025-04-29 10:52:04,311 - root - INFO -   Epoch 15/150	 Time: 0.069	 Loss: 0.06090204
+2025-04-29 10:52:04,344 - root - INFO -   Epoch 16/150	 Time: 0.033	 Loss: 0.05797288
+2025-04-29 10:52:04,382 - root - INFO -   Epoch 17/150	 Time: 0.038	 Loss: 0.05512981
+2025-04-29 10:52:04,412 - root - INFO -   Epoch 18/150	 Time: 0.029	 Loss: 0.05259120
+2025-04-29 10:52:04,438 - root - INFO -   Epoch 19/150	 Time: 0.026	 Loss: 0.05039455
+2025-04-29 10:52:04,455 - root - INFO -   Epoch 20/150	 Time: 0.017	 Loss: 0.04845465
+2025-04-29 10:52:04,478 - root - INFO -   Epoch 21/150	 Time: 0.023	 Loss: 0.04665092
+2025-04-29 10:52:04,506 - root - INFO -   Epoch 22/150	 Time: 0.028	 Loss: 0.04492602
+2025-04-29 10:52:04,542 - root - INFO -   Epoch 23/150	 Time: 0.036	 Loss: 0.04332149
+2025-04-29 10:52:04,571 - root - INFO -   Epoch 24/150	 Time: 0.029	 Loss: 0.04185222
+2025-04-29 10:52:04,589 - root - INFO -   Epoch 25/150	 Time: 0.017	 Loss: 0.04043513
+2025-04-29 10:52:04,619 - root - INFO -   Epoch 26/150	 Time: 0.030	 Loss: 0.03919056
+2025-04-29 10:52:04,696 - root - INFO -   Epoch 27/150	 Time: 0.076	 Loss: 0.03791347
+2025-04-29 10:52:04,789 - root - INFO -   Epoch 28/150	 Time: 0.093	 Loss: 0.03666378
+2025-04-29 10:52:04,974 - root - INFO -   Epoch 29/150	 Time: 0.185	 Loss: 0.03573583
+2025-04-29 10:52:05,148 - root - INFO -   Epoch 30/150	 Time: 0.173	 Loss: 0.03490673
+2025-04-29 10:52:05,164 - root - INFO -   Epoch 31/150	 Time: 0.016	 Loss: 0.03421602
+2025-04-29 10:52:05,183 - root - INFO -   Epoch 32/150	 Time: 0.019	 Loss: 0.03361676
+2025-04-29 10:52:05,196 - root - INFO -   Epoch 33/150	 Time: 0.013	 Loss: 0.03305376
+2025-04-29 10:52:05,222 - root - INFO -   Epoch 34/150	 Time: 0.026	 Loss: 0.03263308
+2025-04-29 10:52:05,253 - root - INFO -   Epoch 35/150	 Time: 0.030	 Loss: 0.03224514
+2025-04-29 10:52:05,289 - root - INFO -   Epoch 36/150	 Time: 0.035	 Loss: 0.03176411
+2025-04-29 10:52:05,330 - root - INFO -   Epoch 37/150	 Time: 0.041	 Loss: 0.03134274
+2025-04-29 10:52:05,358 - root - INFO -   Epoch 38/150	 Time: 0.027	 Loss: 0.03103277
+2025-04-29 10:52:05,376 - root - INFO -   Epoch 39/150	 Time: 0.018	 Loss: 0.03063887
+2025-04-29 10:52:05,406 - root - INFO -   Epoch 40/150	 Time: 0.030	 Loss: 0.03012995
+2025-04-29 10:52:05,427 - root - INFO -   Epoch 41/150	 Time: 0.021	 Loss: 0.02964254
+2025-04-29 10:52:05,447 - root - INFO -   Epoch 42/150	 Time: 0.019	 Loss: 0.02907309
+2025-04-29 10:52:05,470 - root - INFO -   Epoch 43/150	 Time: 0.023	 Loss: 0.02853096
+2025-04-29 10:52:05,490 - root - INFO -   Epoch 44/150	 Time: 0.020	 Loss: 0.02804339
+2025-04-29 10:52:05,510 - root - INFO -   Epoch 45/150	 Time: 0.020	 Loss: 0.02750310
+2025-04-29 10:52:05,529 - root - INFO -   Epoch 46/150	 Time: 0.019	 Loss: 0.02691349
+2025-04-29 10:52:05,555 - root - INFO -   Epoch 47/150	 Time: 0.026	 Loss: 0.02636761
+2025-04-29 10:52:05,575 - root - INFO -   Epoch 48/150	 Time: 0.020	 Loss: 0.02586058
+2025-04-29 10:52:05,612 - root - INFO -   Epoch 49/150	 Time: 0.037	 Loss: 0.02537332
+2025-04-29 10:52:05,661 - root - INFO -   Epoch 50/150	 Time: 0.049	 Loss: 0.02490742
+2025-04-29 10:52:05,662 - root - INFO -   LR scheduler: new learning rate is 1e-05
+2025-04-29 10:52:05,705 - root - INFO -   Epoch 51/150	 Time: 0.044	 Loss: 0.02447552
+2025-04-29 10:52:05,792 - root - INFO -   Epoch 52/150	 Time: 0.086	 Loss: 0.02433017
+2025-04-29 10:52:05,806 - root - INFO -   Epoch 53/150	 Time: 0.014	 Loss: 0.02427473
+2025-04-29 10:52:05,839 - root - INFO -   Epoch 54/150	 Time: 0.034	 Loss: 0.02420414
+2025-04-29 10:52:05,864 - root - INFO -   Epoch 55/150	 Time: 0.024	 Loss: 0.02412047
+2025-04-29 10:52:05,890 - root - INFO -   Epoch 56/150	 Time: 0.026	 Loss: 0.02402603
+2025-04-29 10:52:05,911 - root - INFO -   Epoch 57/150	 Time: 0.021	 Loss: 0.02392538
+2025-04-29 10:52:05,937 - root - INFO -   Epoch 58/150	 Time: 0.026	 Loss: 0.02387257
+2025-04-29 10:52:05,964 - root - INFO -   Epoch 59/150	 Time: 0.027	 Loss: 0.02383784
+2025-04-29 10:52:05,991 - root - INFO -   Epoch 60/150	 Time: 0.027	 Loss: 0.02380492
+2025-04-29 10:52:06,022 - root - INFO -   Epoch 61/150	 Time: 0.030	 Loss: 0.02377374
+2025-04-29 10:52:06,041 - root - INFO -   Epoch 62/150	 Time: 0.019	 Loss: 0.02374431
+2025-04-29 10:52:06,077 - root - INFO -   Epoch 63/150	 Time: 0.036	 Loss: 0.02371632
+2025-04-29 10:52:06,098 - root - INFO -   Epoch 64/150	 Time: 0.020	 Loss: 0.02368963
+2025-04-29 10:52:06,121 - root - INFO -   Epoch 65/150	 Time: 0.022	 Loss: 0.02366413
+2025-04-29 10:52:06,153 - root - INFO -   Epoch 66/150	 Time: 0.032	 Loss: 0.02363968
+2025-04-29 10:52:06,171 - root - INFO -   Epoch 67/150	 Time: 0.018	 Loss: 0.02361617
+2025-04-29 10:52:06,191 - root - INFO -   Epoch 68/150	 Time: 0.020	 Loss: 0.02359354
+2025-04-29 10:52:06,213 - root - INFO -   Epoch 69/150	 Time: 0.022	 Loss: 0.02357165
+2025-04-29 10:52:06,239 - root - INFO -   Epoch 70/150	 Time: 0.026	 Loss: 0.02355045
+2025-04-29 10:52:06,261 - root - INFO -   Epoch 71/150	 Time: 0.022	 Loss: 0.02353001
+2025-04-29 10:52:06,316 - root - INFO -   Epoch 72/150	 Time: 0.054	 Loss: 0.02351014
+2025-04-29 10:52:06,337 - root - INFO -   Epoch 73/150	 Time: 0.021	 Loss: 0.02349081
+2025-04-29 10:52:06,355 - root - INFO -   Epoch 74/150	 Time: 0.018	 Loss: 0.02347192
+2025-04-29 10:52:06,376 - root - INFO -   Epoch 75/150	 Time: 0.021	 Loss: 0.02345434
+2025-04-29 10:52:06,397 - root - INFO -   Epoch 76/150	 Time: 0.020	 Loss: 0.02343721
+2025-04-29 10:52:06,427 - root - INFO -   Epoch 77/150	 Time: 0.030	 Loss: 0.02342061
+2025-04-29 10:52:06,445 - root - INFO -   Epoch 78/150	 Time: 0.018	 Loss: 0.02340449
+2025-04-29 10:52:06,464 - root - INFO -   Epoch 79/150	 Time: 0.019	 Loss: 0.02338898
+2025-04-29 10:52:06,487 - root - INFO -   Epoch 80/150	 Time: 0.023	 Loss: 0.02337417
+2025-04-29 10:52:06,507 - root - INFO -   Epoch 81/150	 Time: 0.020	 Loss: 0.02335975
+2025-04-29 10:52:06,528 - root - INFO -   Epoch 82/150	 Time: 0.021	 Loss: 0.02334568
+2025-04-29 10:52:06,552 - root - INFO -   Epoch 83/150	 Time: 0.024	 Loss: 0.02333191
+2025-04-29 10:52:06,573 - root - INFO -   Epoch 84/150	 Time: 0.020	 Loss: 0.02331850
+2025-04-29 10:52:06,596 - root - INFO -   Epoch 85/150	 Time: 0.023	 Loss: 0.02330548
+2025-04-29 10:52:06,621 - root - INFO -   Epoch 86/150	 Time: 0.024	 Loss: 0.02329271
+2025-04-29 10:52:06,640 - root - INFO -   Epoch 87/150	 Time: 0.019	 Loss: 0.02328015
+2025-04-29 10:52:06,659 - root - INFO -   Epoch 88/150	 Time: 0.019	 Loss: 0.02326779
+2025-04-29 10:52:06,680 - root - INFO -   Epoch 89/150	 Time: 0.021	 Loss: 0.02325561
+2025-04-29 10:52:06,703 - root - INFO -   Epoch 90/150	 Time: 0.023	 Loss: 0.02324358
+2025-04-29 10:52:06,724 - root - INFO -   Epoch 91/150	 Time: 0.021	 Loss: 0.02323162
+2025-04-29 10:52:06,747 - root - INFO -   Epoch 92/150	 Time: 0.023	 Loss: 0.02321977
+2025-04-29 10:52:06,771 - root - INFO -   Epoch 93/150	 Time: 0.024	 Loss: 0.02320802
+2025-04-29 10:52:06,791 - root - INFO -   Epoch 94/150	 Time: 0.019	 Loss: 0.02319636
+2025-04-29 10:52:06,818 - root - INFO -   Epoch 95/150	 Time: 0.027	 Loss: 0.02318476
+2025-04-29 10:52:06,838 - root - INFO -   Epoch 96/150	 Time: 0.019	 Loss: 0.02317325
+2025-04-29 10:52:06,856 - root - INFO -   Epoch 97/150	 Time: 0.018	 Loss: 0.02316178
+2025-04-29 10:52:06,876 - root - INFO -   Epoch 98/150	 Time: 0.021	 Loss: 0.02315078
+2025-04-29 10:52:06,897 - root - INFO -   Epoch 99/150	 Time: 0.020	 Loss: 0.02313988
+2025-04-29 10:52:06,918 - root - INFO -   Epoch 100/150	 Time: 0.021	 Loss: 0.02312906
+2025-04-29 10:52:06,937 - root - INFO -   Epoch 101/150	 Time: 0.019	 Loss: 0.02311824
+2025-04-29 10:52:06,959 - root - INFO -   Epoch 102/150	 Time: 0.021	 Loss: 0.02310761
+2025-04-29 10:52:06,981 - root - INFO -   Epoch 103/150	 Time: 0.022	 Loss: 0.02309705
+2025-04-29 10:52:06,998 - root - INFO -   Epoch 104/150	 Time: 0.017	 Loss: 0.02308655
+2025-04-29 10:52:07,014 - root - INFO -   Epoch 105/150	 Time: 0.016	 Loss: 0.02307615
+2025-04-29 10:52:07,030 - root - INFO -   Epoch 106/150	 Time: 0.015	 Loss: 0.02306624
+2025-04-29 10:52:07,056 - root - INFO -   Epoch 107/150	 Time: 0.026	 Loss: 0.02305638
+2025-04-29 10:52:07,086 - root - INFO -   Epoch 108/150	 Time: 0.030	 Loss: 0.02304667
+2025-04-29 10:52:07,105 - root - INFO -   Epoch 109/150	 Time: 0.019	 Loss: 0.02303705
+2025-04-29 10:52:07,127 - root - INFO -   Epoch 110/150	 Time: 0.021	 Loss: 0.02302748
+2025-04-29 10:52:07,147 - root - INFO -   Epoch 111/150	 Time: 0.020	 Loss: 0.02301794
+2025-04-29 10:52:07,168 - root - INFO -   Epoch 112/150	 Time: 0.021	 Loss: 0.02300843
+2025-04-29 10:52:07,188 - root - INFO -   Epoch 113/150	 Time: 0.019	 Loss: 0.02299899
+2025-04-29 10:52:07,207 - root - INFO -   Epoch 114/150	 Time: 0.019	 Loss: 0.02298963
+2025-04-29 10:52:07,230 - root - INFO -   Epoch 115/150	 Time: 0.022	 Loss: 0.02298046
+2025-04-29 10:52:07,264 - root - INFO -   Epoch 116/150	 Time: 0.035	 Loss: 0.02297139
+2025-04-29 10:52:07,322 - root - INFO -   Epoch 117/150	 Time: 0.058	 Loss: 0.02296250
+2025-04-29 10:52:07,341 - root - INFO -   Epoch 118/150	 Time: 0.018	 Loss: 0.02295379
+2025-04-29 10:52:07,361 - root - INFO -   Epoch 119/150	 Time: 0.020	 Loss: 0.02294515
+2025-04-29 10:52:07,388 - root - INFO -   Epoch 120/150	 Time: 0.027	 Loss: 0.02293656
+2025-04-29 10:52:07,405 - root - INFO -   Epoch 121/150	 Time: 0.017	 Loss: 0.02292792
+2025-04-29 10:52:07,426 - root - INFO -   Epoch 122/150	 Time: 0.021	 Loss: 0.02291872
+2025-04-29 10:52:07,444 - root - INFO -   Epoch 123/150	 Time: 0.017	 Loss: 0.02290955
+2025-04-29 10:52:07,464 - root - INFO -   Epoch 124/150	 Time: 0.020	 Loss: 0.02290045
+2025-04-29 10:52:07,490 - root - INFO -   Epoch 125/150	 Time: 0.026	 Loss: 0.02289138
+2025-04-29 10:52:07,515 - root - INFO -   Epoch 126/150	 Time: 0.025	 Loss: 0.02288233
+2025-04-29 10:52:07,537 - root - INFO -   Epoch 127/150	 Time: 0.022	 Loss: 0.02287333
+2025-04-29 10:52:07,564 - root - INFO -   Epoch 128/150	 Time: 0.027	 Loss: 0.02286478
+2025-04-29 10:52:07,589 - root - INFO -   Epoch 129/150	 Time: 0.024	 Loss: 0.02285626
+2025-04-29 10:52:07,609 - root - INFO -   Epoch 130/150	 Time: 0.020	 Loss: 0.02284770
+2025-04-29 10:52:07,632 - root - INFO -   Epoch 131/150	 Time: 0.023	 Loss: 0.02283911
+2025-04-29 10:52:07,658 - root - INFO -   Epoch 132/150	 Time: 0.026	 Loss: 0.02283052
+2025-04-29 10:52:07,676 - root - INFO -   Epoch 133/150	 Time: 0.017	 Loss: 0.02282189
+2025-04-29 10:52:07,702 - root - INFO -   Epoch 134/150	 Time: 0.026	 Loss: 0.02281325
+2025-04-29 10:52:07,722 - root - INFO -   Epoch 135/150	 Time: 0.019	 Loss: 0.02280456
+2025-04-29 10:52:07,741 - root - INFO -   Epoch 136/150	 Time: 0.019	 Loss: 0.02279586
+2025-04-29 10:52:07,761 - root - INFO -   Epoch 137/150	 Time: 0.019	 Loss: 0.02278713
+2025-04-29 10:52:07,782 - root - INFO -   Epoch 138/150	 Time: 0.020	 Loss: 0.02277839
+2025-04-29 10:52:07,804 - root - INFO -   Epoch 139/150	 Time: 0.022	 Loss: 0.02276963
+2025-04-29 10:52:07,823 - root - INFO -   Epoch 140/150	 Time: 0.019	 Loss: 0.02276084
+2025-04-29 10:52:07,847 - root - INFO -   Epoch 141/150	 Time: 0.023	 Loss: 0.02275204
+2025-04-29 10:52:07,870 - root - INFO -   Epoch 142/150	 Time: 0.023	 Loss: 0.02274323
+2025-04-29 10:52:07,895 - root - INFO -   Epoch 143/150	 Time: 0.025	 Loss: 0.02273438
+2025-04-29 10:52:07,913 - root - INFO -   Epoch 144/150	 Time: 0.018	 Loss: 0.02272552
+2025-04-29 10:52:07,943 - root - INFO -   Epoch 145/150	 Time: 0.030	 Loss: 0.02271676
+2025-04-29 10:52:07,960 - root - INFO -   Epoch 146/150	 Time: 0.017	 Loss: 0.02270803
+2025-04-29 10:52:07,979 - root - INFO -   Epoch 147/150	 Time: 0.018	 Loss: 0.02269933
+2025-04-29 10:52:08,002 - root - INFO -   Epoch 148/150	 Time: 0.023	 Loss: 0.02269064
+2025-04-29 10:52:08,033 - root - INFO -   Epoch 149/150	 Time: 0.030	 Loss: 0.02268193
+2025-04-29 10:52:08,057 - root - INFO -   Epoch 150/150	 Time: 0.023	 Loss: 0.02267326
+2025-04-29 10:52:08,057 - root - INFO - Training time: 4.216
+2025-04-29 10:52:08,057 - root - INFO - Finished training.
+2025-04-29 10:52:08,061 - root - INFO - start testing....
+2025-04-29 10:52:08,064 - root - INFO - Loading model from ./output/model.tar
+2025-04-29 10:52:11,815 - root - INFO - Starting testing...
+2025-04-29 10:52:11,826 - root - INFO - Testing time: 0.010
+2025-04-29 10:52:11,829 - root - INFO - Test set AUC: 87.57%
+2025-04-29 10:52:11,829 - root - INFO - Finished testing.
+2025-04-29 10:52:11,845 - root - INFO - Normal log templates to embedding: , 73
+2025-04-29 10:58:33,603 - root - INFO - {'is_train': True, 'is_rag': True, 'dataset_name': 'BGL', 'train_ratio': 0.8, 'window_size': 200, 'window_time': 1800, 'log_structed_path': './dataset/BGL/bgl-example.log_structured.csv', 'encoder_path': './pretrained', 'api_key': 'sk-IXv5inyh4jRh9ae8bRFbuZ1NDpQVXcTgjnUJW024Mn93JTsx', 'api_base': 'https://api.openai-proxy.org/v1', 'llm_name': 'gpt-3.5-turbo', 'normal_class': 0, 'is_pretrain': False, 'optimizer_name': 'adam', 'lr': 0.0001, 'n_epochs': 150, 'lr_milestones': [50], 'batch_size': 4096, 'weight_decay': 0.0005, 'device': 'cpu', 'n_jobs_dataloader': 0, 'threshold': 0.8, 'topk': 5, 'prompt': 'prompt5', 'persist_directory': './output/ragdb-bgl'}
+2025-04-29 10:58:49,080 - root - INFO - Initializing center c...
+2025-04-29 10:58:49,122 - root - INFO - Center c initialized.
+2025-04-29 10:58:49,122 - root - INFO - Starting training...
+2025-04-29 10:58:49,176 - root - INFO -   Epoch 1/150	 Time: 0.054	 Loss: 1.37740993
+2025-04-29 10:58:49,197 - root - INFO -   Epoch 2/150	 Time: 0.021	 Loss: 1.23292994
+2025-04-29 10:58:49,218 - root - INFO -   Epoch 3/150	 Time: 0.020	 Loss: 1.10292459
+2025-04-29 10:58:49,232 - root - INFO -   Epoch 4/150	 Time: 0.013	 Loss: 0.98416412
+2025-04-29 10:58:49,245 - root - INFO -   Epoch 5/150	 Time: 0.013	 Loss: 0.87743628
+2025-04-29 10:58:49,258 - root - INFO -   Epoch 6/150	 Time: 0.013	 Loss: 0.78394091
+2025-04-29 10:58:49,272 - root - INFO -   Epoch 7/150	 Time: 0.013	 Loss: 0.69837630
+2025-04-29 10:58:49,297 - root - INFO -   Epoch 8/150	 Time: 0.025	 Loss: 0.62059528
+2025-04-29 10:58:49,323 - root - INFO -   Epoch 9/150	 Time: 0.026	 Loss: 0.55172765
+2025-04-29 10:58:49,338 - root - INFO -   Epoch 10/150	 Time: 0.015	 Loss: 0.48924506
+2025-04-29 10:58:49,352 - root - INFO -   Epoch 11/150	 Time: 0.014	 Loss: 0.43197426
+2025-04-29 10:58:49,367 - root - INFO -   Epoch 12/150	 Time: 0.014	 Loss: 0.07508409
+2025-04-29 10:58:49,380 - root - INFO -   Epoch 13/150	 Time: 0.013	 Loss: 0.06947252
+2025-04-29 10:58:49,395 - root - INFO -   Epoch 14/150	 Time: 0.015	 Loss: 0.06450911
+2025-04-29 10:58:49,411 - root - INFO -   Epoch 15/150	 Time: 0.016	 Loss: 0.06004069
+2025-04-29 10:58:49,441 - root - INFO -   Epoch 16/150	 Time: 0.030	 Loss: 0.05595343
+2025-04-29 10:58:49,454 - root - INFO -   Epoch 17/150	 Time: 0.012	 Loss: 0.05218619
+2025-04-29 10:58:49,467 - root - INFO -   Epoch 18/150	 Time: 0.013	 Loss: 0.04868539
+2025-04-29 10:58:49,482 - root - INFO -   Epoch 19/150	 Time: 0.015	 Loss: 0.04550048
+2025-04-29 10:58:49,496 - root - INFO -   Epoch 20/150	 Time: 0.014	 Loss: 0.04258826
+2025-04-29 10:58:49,510 - root - INFO -   Epoch 21/150	 Time: 0.013	 Loss: 0.03992658
+2025-04-29 10:58:49,522 - root - INFO -   Epoch 22/150	 Time: 0.012	 Loss: 0.03748805
+2025-04-29 10:58:49,536 - root - INFO -   Epoch 23/150	 Time: 0.014	 Loss: 0.03525409
+2025-04-29 10:58:49,555 - root - INFO -   Epoch 24/150	 Time: 0.019	 Loss: 0.03336610
+2025-04-29 10:58:49,568 - root - INFO -   Epoch 25/150	 Time: 0.012	 Loss: 0.03178508
+2025-04-29 10:58:49,581 - root - INFO -   Epoch 26/150	 Time: 0.013	 Loss: 0.03685948
+2025-04-29 10:58:49,594 - root - INFO -   Epoch 27/150	 Time: 0.013	 Loss: 0.03066277
+2025-04-29 10:58:49,662 - root - INFO -   Epoch 28/150	 Time: 0.068	 Loss: 0.02916605
+2025-04-29 10:58:49,680 - root - INFO -   Epoch 29/150	 Time: 0.018	 Loss: 0.02787423
+2025-04-29 10:58:49,695 - root - INFO -   Epoch 30/150	 Time: 0.015	 Loss: 0.02676569
+2025-04-29 10:58:49,709 - root - INFO -   Epoch 31/150	 Time: 0.013	 Loss: 0.02595419
+2025-04-29 10:58:49,738 - root - INFO -   Epoch 32/150	 Time: 0.028	 Loss: 0.02542398
+2025-04-29 10:58:49,755 - root - INFO -   Epoch 33/150	 Time: 0.017	 Loss: 0.02497382
+2025-04-29 10:58:49,767 - root - INFO -   Epoch 34/150	 Time: 0.012	 Loss: 0.02447477
+2025-04-29 10:58:49,785 - root - INFO -   Epoch 35/150	 Time: 0.017	 Loss: 0.02387782
+2025-04-29 10:58:49,801 - root - INFO -   Epoch 36/150	 Time: 0.016	 Loss: 0.02329843
+2025-04-29 10:58:49,815 - root - INFO -   Epoch 37/150	 Time: 0.013	 Loss: 0.02283238
+2025-04-29 10:58:49,829 - root - INFO -   Epoch 38/150	 Time: 0.014	 Loss: 0.02224706
+2025-04-29 10:58:49,843 - root - INFO -   Epoch 39/150	 Time: 0.014	 Loss: 0.02166730
+2025-04-29 10:58:49,859 - root - INFO -   Epoch 40/150	 Time: 0.016	 Loss: 0.02113406
+2025-04-29 10:58:49,875 - root - INFO -   Epoch 41/150	 Time: 0.016	 Loss: 0.02064112
+2025-04-29 10:58:49,887 - root - INFO -   Epoch 42/150	 Time: 0.012	 Loss: 0.02019494
+2025-04-29 10:58:49,900 - root - INFO -   Epoch 43/150	 Time: 0.013	 Loss: 0.01978224
+2025-04-29 10:58:49,914 - root - INFO -   Epoch 44/150	 Time: 0.014	 Loss: 0.01940746
+2025-04-29 10:58:49,929 - root - INFO -   Epoch 45/150	 Time: 0.015	 Loss: 0.01905220
+2025-04-29 10:58:49,945 - root - INFO -   Epoch 46/150	 Time: 0.015	 Loss: 0.01872028
+2025-04-29 10:58:49,960 - root - INFO -   Epoch 47/150	 Time: 0.016	 Loss: 0.01842013
+2025-04-29 10:58:49,975 - root - INFO -   Epoch 48/150	 Time: 0.015	 Loss: 0.01811981
+2025-04-29 10:58:49,987 - root - INFO -   Epoch 49/150	 Time: 0.012	 Loss: 0.01776086
+2025-04-29 10:58:50,009 - root - INFO -   Epoch 50/150	 Time: 0.022	 Loss: 0.01739758
+2025-04-29 10:58:50,010 - root - INFO -   LR scheduler: new learning rate is 1e-05
+2025-04-29 10:58:50,027 - root - INFO -   Epoch 51/150	 Time: 0.017	 Loss: 0.01709358
+2025-04-29 10:58:50,085 - root - INFO -   Epoch 52/150	 Time: 0.057	 Loss: 0.01694358
+2025-04-29 10:58:50,104 - root - INFO -   Epoch 53/150	 Time: 0.019	 Loss: 0.01691001
+2025-04-29 10:58:50,117 - root - INFO -   Epoch 54/150	 Time: 0.013	 Loss: 0.01688075
+2025-04-29 10:58:50,131 - root - INFO -   Epoch 55/150	 Time: 0.014	 Loss: 0.01683795
+2025-04-29 10:58:50,150 - root - INFO -   Epoch 56/150	 Time: 0.018	 Loss: 0.01679674
+2025-04-29 10:58:50,166 - root - INFO -   Epoch 57/150	 Time: 0.015	 Loss: 0.01675494
+2025-04-29 10:58:50,180 - root - INFO -   Epoch 58/150	 Time: 0.014	 Loss: 0.01671439
+2025-04-29 10:58:50,194 - root - INFO -   Epoch 59/150	 Time: 0.014	 Loss: 0.01667351
+2025-04-29 10:58:50,209 - root - INFO -   Epoch 60/150	 Time: 0.015	 Loss: 0.01663432
+2025-04-29 10:58:50,220 - root - INFO -   Epoch 61/150	 Time: 0.011	 Loss: 0.01659660
+2025-04-29 10:58:50,236 - root - INFO -   Epoch 62/150	 Time: 0.015	 Loss: 0.01656301
+2025-04-29 10:58:50,254 - root - INFO -   Epoch 63/150	 Time: 0.018	 Loss: 0.01653359
+2025-04-29 10:58:50,272 - root - INFO -   Epoch 64/150	 Time: 0.018	 Loss: 0.01649379
+2025-04-29 10:58:50,284 - root - INFO -   Epoch 65/150	 Time: 0.011	 Loss: 0.01646335
+2025-04-29 10:58:50,328 - root - INFO -   Epoch 66/150	 Time: 0.044	 Loss: 0.01642219
+2025-04-29 10:58:50,346 - root - INFO -   Epoch 67/150	 Time: 0.018	 Loss: 0.01637743
+2025-04-29 10:58:50,361 - root - INFO -   Epoch 68/150	 Time: 0.014	 Loss: 0.01633700
+2025-04-29 10:58:50,375 - root - INFO -   Epoch 69/150	 Time: 0.014	 Loss: 0.01630308
+2025-04-29 10:58:50,416 - root - INFO -   Epoch 70/150	 Time: 0.041	 Loss: 0.01625495
+2025-04-29 10:58:50,430 - root - INFO -   Epoch 71/150	 Time: 0.013	 Loss: 0.01621250
+2025-04-29 10:58:50,445 - root - INFO -   Epoch 72/150	 Time: 0.015	 Loss: 0.01617240
+2025-04-29 10:58:50,461 - root - INFO -   Epoch 73/150	 Time: 0.015	 Loss: 0.01613129
+2025-04-29 10:58:50,475 - root - INFO -   Epoch 74/150	 Time: 0.015	 Loss: 0.01609062
+2025-04-29 10:58:50,488 - root - INFO -   Epoch 75/150	 Time: 0.012	 Loss: 0.01605255
+2025-04-29 10:58:50,508 - root - INFO -   Epoch 76/150	 Time: 0.020	 Loss: 0.01601810
+2025-04-29 10:58:50,520 - root - INFO -   Epoch 77/150	 Time: 0.012	 Loss: 0.01598565
+2025-04-29 10:58:50,538 - root - INFO -   Epoch 78/150	 Time: 0.018	 Loss: 0.01595546
+2025-04-29 10:58:50,553 - root - INFO -   Epoch 79/150	 Time: 0.015	 Loss: 0.01592383
+2025-04-29 10:58:50,567 - root - INFO -   Epoch 80/150	 Time: 0.014	 Loss: 0.01589357
+2025-04-29 10:58:50,580 - root - INFO -   Epoch 81/150	 Time: 0.013	 Loss: 0.01586497
+2025-04-29 10:58:50,594 - root - INFO -   Epoch 82/150	 Time: 0.013	 Loss: 0.01584034
+2025-04-29 10:58:50,617 - root - INFO -   Epoch 83/150	 Time: 0.023	 Loss: 0.01581231
+2025-04-29 10:58:50,631 - root - INFO -   Epoch 84/150	 Time: 0.014	 Loss: 0.01578098
+2025-04-29 10:58:50,644 - root - INFO -   Epoch 85/150	 Time: 0.012	 Loss: 0.01575145
+2025-04-29 10:58:50,666 - root - INFO -   Epoch 86/150	 Time: 0.022	 Loss: 0.01571810
+2025-04-29 10:58:50,681 - root - INFO -   Epoch 87/150	 Time: 0.014	 Loss: 0.01568561
+2025-04-29 10:58:50,695 - root - INFO -   Epoch 88/150	 Time: 0.015	 Loss: 0.01565606
+2025-04-29 10:58:50,712 - root - INFO -   Epoch 89/150	 Time: 0.017	 Loss: 0.01562668
+2025-04-29 10:58:50,726 - root - INFO -   Epoch 90/150	 Time: 0.013	 Loss: 0.01559737
+2025-04-29 10:58:50,743 - root - INFO -   Epoch 91/150	 Time: 0.016	 Loss: 0.01556985
+2025-04-29 10:58:50,775 - root - INFO -   Epoch 92/150	 Time: 0.033	 Loss: 0.01554395
+2025-04-29 10:58:50,788 - root - INFO -   Epoch 93/150	 Time: 0.012	 Loss: 0.01551893
+2025-04-29 10:58:50,816 - root - INFO -   Epoch 94/150	 Time: 0.028	 Loss: 0.01549119
+2025-04-29 10:58:50,835 - root - INFO -   Epoch 95/150	 Time: 0.019	 Loss: 0.01546738
+2025-04-29 10:58:50,848 - root - INFO -   Epoch 96/150	 Time: 0.013	 Loss: 0.01545085
+2025-04-29 10:58:50,861 - root - INFO -   Epoch 97/150	 Time: 0.013	 Loss: 0.01543472
+2025-04-29 10:58:50,876 - root - INFO -   Epoch 98/150	 Time: 0.014	 Loss: 0.01541881
+2025-04-29 10:58:50,888 - root - INFO -   Epoch 99/150	 Time: 0.011	 Loss: 0.01540354
+2025-04-29 10:58:50,902 - root - INFO -   Epoch 100/150	 Time: 0.014	 Loss: 0.01538840
+2025-04-29 10:58:50,914 - root - INFO -   Epoch 101/150	 Time: 0.012	 Loss: 0.01537333
+2025-04-29 10:58:50,930 - root - INFO -   Epoch 102/150	 Time: 0.015	 Loss: 0.01535836
+2025-04-29 10:58:50,946 - root - INFO -   Epoch 103/150	 Time: 0.016	 Loss: 0.01534345
+2025-04-29 10:58:50,960 - root - INFO -   Epoch 104/150	 Time: 0.014	 Loss: 0.01532866
+2025-04-29 10:58:50,980 - root - INFO -   Epoch 105/150	 Time: 0.020	 Loss: 0.01531393
+2025-04-29 10:58:50,995 - root - INFO -   Epoch 106/150	 Time: 0.014	 Loss: 0.01529885
+2025-04-29 10:58:51,023 - root - INFO -   Epoch 107/150	 Time: 0.028	 Loss: 0.01528391
+2025-04-29 10:58:51,037 - root - INFO -   Epoch 108/150	 Time: 0.014	 Loss: 0.01526909
+2025-04-29 10:58:51,051 - root - INFO -   Epoch 109/150	 Time: 0.013	 Loss: 0.01525621
+2025-04-29 10:58:51,066 - root - INFO -   Epoch 110/150	 Time: 0.015	 Loss: 0.01523969
+2025-04-29 10:58:51,085 - root - INFO -   Epoch 111/150	 Time: 0.019	 Loss: 0.01522383
+2025-04-29 10:58:51,099 - root - INFO -   Epoch 112/150	 Time: 0.014	 Loss: 0.01520815
+2025-04-29 10:58:51,112 - root - INFO -   Epoch 113/150	 Time: 0.012	 Loss: 0.01519265
+2025-04-29 10:58:51,126 - root - INFO -   Epoch 114/150	 Time: 0.014	 Loss: 0.01517729
+2025-04-29 10:58:51,142 - root - INFO -   Epoch 115/150	 Time: 0.016	 Loss: 0.01516214
+2025-04-29 10:58:51,155 - root - INFO -   Epoch 116/150	 Time: 0.012	 Loss: 0.01514731
+2025-04-29 10:58:51,169 - root - INFO -   Epoch 117/150	 Time: 0.013	 Loss: 0.01513261
+2025-04-29 10:58:51,185 - root - INFO -   Epoch 118/150	 Time: 0.016	 Loss: 0.01511805
+2025-04-29 10:58:51,201 - root - INFO -   Epoch 119/150	 Time: 0.016	 Loss: 0.01510358
+2025-04-29 10:58:51,218 - root - INFO -   Epoch 120/150	 Time: 0.017	 Loss: 0.01508921
+2025-04-29 10:58:51,234 - root - INFO -   Epoch 121/150	 Time: 0.015	 Loss: 0.01507505
+2025-04-29 10:58:51,247 - root - INFO -   Epoch 122/150	 Time: 0.013	 Loss: 0.01506067
+2025-04-29 10:58:51,263 - root - INFO -   Epoch 123/150	 Time: 0.016	 Loss: 0.01504600
+2025-04-29 10:58:51,278 - root - INFO -   Epoch 124/150	 Time: 0.014	 Loss: 0.01503143
+2025-04-29 10:58:51,294 - root - INFO -   Epoch 125/150	 Time: 0.016	 Loss: 0.01501696
+2025-04-29 10:58:51,336 - root - INFO -   Epoch 126/150	 Time: 0.042	 Loss: 0.01500256
+2025-04-29 10:58:51,350 - root - INFO -   Epoch 127/150	 Time: 0.013	 Loss: 0.01498824
+2025-04-29 10:58:51,363 - root - INFO -   Epoch 128/150	 Time: 0.014	 Loss: 0.01497400
+2025-04-29 10:58:51,377 - root - INFO -   Epoch 129/150	 Time: 0.013	 Loss: 0.01495981
+2025-04-29 10:58:51,390 - root - INFO -   Epoch 130/150	 Time: 0.013	 Loss: 0.01494567
+2025-04-29 10:58:51,406 - root - INFO -   Epoch 131/150	 Time: 0.015	 Loss: 0.01493184
+2025-04-29 10:58:51,418 - root - INFO -   Epoch 132/150	 Time: 0.013	 Loss: 0.01491855
+2025-04-29 10:58:51,435 - root - INFO -   Epoch 133/150	 Time: 0.016	 Loss: 0.01490523
+2025-04-29 10:58:51,454 - root - INFO -   Epoch 134/150	 Time: 0.019	 Loss: 0.01489188
+2025-04-29 10:58:51,468 - root - INFO -   Epoch 135/150	 Time: 0.014	 Loss: 0.01487851
+2025-04-29 10:58:51,486 - root - INFO -   Epoch 136/150	 Time: 0.017	 Loss: 0.01486516
+2025-04-29 10:58:51,500 - root - INFO -   Epoch 137/150	 Time: 0.014	 Loss: 0.01485172
+2025-04-29 10:58:51,513 - root - INFO -   Epoch 138/150	 Time: 0.013	 Loss: 0.01483823
+2025-04-29 10:58:51,528 - root - INFO -   Epoch 139/150	 Time: 0.015	 Loss: 0.01482470
+2025-04-29 10:58:51,544 - root - INFO -   Epoch 140/150	 Time: 0.016	 Loss: 0.01481111
+2025-04-29 10:58:51,556 - root - INFO -   Epoch 141/150	 Time: 0.012	 Loss: 0.01479751
+2025-04-29 10:58:51,570 - root - INFO -   Epoch 142/150	 Time: 0.014	 Loss: 0.01478391
+2025-04-29 10:58:51,583 - root - INFO -   Epoch 143/150	 Time: 0.012	 Loss: 0.01477029
+2025-04-29 10:58:51,596 - root - INFO -   Epoch 144/150	 Time: 0.013	 Loss: 0.01475661
+2025-04-29 10:58:51,612 - root - INFO -   Epoch 145/150	 Time: 0.016	 Loss: 0.01474291
+2025-04-29 10:58:51,625 - root - INFO -   Epoch 146/150	 Time: 0.013	 Loss: 0.01472915
+2025-04-29 10:58:51,637 - root - INFO -   Epoch 147/150	 Time: 0.012	 Loss: 0.01471540
+2025-04-29 10:58:51,651 - root - INFO -   Epoch 148/150	 Time: 0.013	 Loss: 0.01470164
+2025-04-29 10:58:51,674 - root - INFO -   Epoch 149/150	 Time: 0.022	 Loss: 0.01468787
+2025-04-29 10:58:51,690 - root - INFO -   Epoch 150/150	 Time: 0.016	 Loss: 0.01467411
+2025-04-29 10:58:51,691 - root - INFO - Training time: 2.568
+2025-04-29 10:58:51,691 - root - INFO - Finished training.
+2025-04-29 10:58:51,696 - root - INFO - start testing....
+2025-04-29 10:58:51,699 - root - INFO - Loading model from ./output/model.tar
+2025-04-29 10:58:55,727 - root - INFO - Starting testing...
+2025-04-29 10:58:55,736 - root - INFO - Testing time: 0.008
+2025-04-29 10:58:55,741 - root - INFO - Test set AUC: 73.49%
+2025-04-29 10:58:55,741 - root - INFO - Finished testing.
+2025-04-29 10:58:55,755 - root - INFO - Normal log templates to embedding: , 73
+2025-04-29 10:58:55,825 - root - INFO - Using embedding...
+2025-04-29 12:52:36,243 - root - INFO - {'is_train': True, 'is_rag': True, 'dataset_name': 'BGL', 'train_ratio': 0.8, 'window_size': 200, 'window_time': 1800, 'log_structed_path': './dataset/BGL/bgl-example.log_structured.csv', 'encoder_path': './pretrained', 'api_key': 'sk-IXv5inyh4jRh9ae8bRFbuZ1NDpQVXcTgjnUJW024Mn93JTsx', 'api_base': 'https://api.openai-proxy.org/v1', 'llm_name': 'gpt-3.5-turbo', 'normal_class': 0, 'is_pretrain': False, 'optimizer_name': 'adam', 'lr': 0.0001, 'n_epochs': 150, 'lr_milestones': [50], 'batch_size': 4096, 'weight_decay': 0.0005, 'device': 'cpu', 'n_jobs_dataloader': 0, 'threshold': 0.8, 'topk': 5, 'prompt': 'prompt5', 'persist_directory': './output/ragdb-bgl'}
+2025-04-29 12:52:46,195 - root - INFO - Initializing center c...
+2025-04-29 12:52:46,233 - root - INFO - Center c initialized.
+2025-04-29 12:52:46,234 - root - INFO - Starting training...
+2025-04-29 12:52:46,290 - root - INFO -   Epoch 1/150	 Time: 0.056	 Loss: 1.33668256
+2025-04-29 12:52:46,301 - root - INFO -   Epoch 2/150	 Time: 0.011	 Loss: 1.17079771
+2025-04-29 12:52:46,317 - root - INFO -   Epoch 3/150	 Time: 0.016	 Loss: 1.02449524
+2025-04-29 12:52:46,331 - root - INFO -   Epoch 4/150	 Time: 0.014	 Loss: 0.89850986
+2025-04-29 12:52:46,344 - root - INFO -   Epoch 5/150	 Time: 0.012	 Loss: 0.79175270
+2025-04-29 12:52:46,358 - root - INFO -   Epoch 6/150	 Time: 0.014	 Loss: 0.69898891
+2025-04-29 12:52:46,368 - root - INFO -   Epoch 7/150	 Time: 0.010	 Loss: 0.61895746
+2025-04-29 12:52:46,381 - root - INFO -   Epoch 8/150	 Time: 0.013	 Loss: 0.55077112
+2025-04-29 12:52:46,391 - root - INFO -   Epoch 9/150	 Time: 0.010	 Loss: 0.49274698
+2025-04-29 12:52:46,402 - root - INFO -   Epoch 10/150	 Time: 0.011	 Loss: 0.44297236
+2025-04-29 12:52:46,417 - root - INFO -   Epoch 11/150	 Time: 0.015	 Loss: 0.39990610
+2025-04-29 12:52:46,429 - root - INFO -   Epoch 12/150	 Time: 0.011	 Loss: 0.06987420
+2025-04-29 12:52:46,443 - root - INFO -   Epoch 13/150	 Time: 0.015	 Loss: 0.06462876
+2025-04-29 12:52:46,458 - root - INFO -   Epoch 14/150	 Time: 0.014	 Loss: 0.05995997
+2025-04-29 12:52:46,470 - root - INFO -   Epoch 15/150	 Time: 0.011	 Loss: 0.05582527
+2025-04-29 12:52:46,482 - root - INFO -   Epoch 16/150	 Time: 0.012	 Loss: 0.05215066
+2025-04-29 12:52:46,497 - root - INFO -   Epoch 17/150	 Time: 0.015	 Loss: 0.04901050
+2025-04-29 12:52:46,511 - root - INFO -   Epoch 18/150	 Time: 0.014	 Loss: 0.04624212
+2025-04-29 12:52:46,524 - root - INFO -   Epoch 19/150	 Time: 0.013	 Loss: 0.04382891
+2025-04-29 12:52:46,536 - root - INFO -   Epoch 20/150	 Time: 0.012	 Loss: 0.04171426
+2025-04-29 12:52:46,549 - root - INFO -   Epoch 21/150	 Time: 0.012	 Loss: 0.03978409
+2025-04-29 12:52:46,562 - root - INFO -   Epoch 22/150	 Time: 0.014	 Loss: 0.03824396
+2025-04-29 12:52:46,574 - root - INFO -   Epoch 23/150	 Time: 0.011	 Loss: 0.03722372
+2025-04-29 12:52:46,585 - root - INFO -   Epoch 24/150	 Time: 0.011	 Loss: 0.03635175
+2025-04-29 12:52:46,604 - root - INFO -   Epoch 25/150	 Time: 0.019	 Loss: 0.03558042
+2025-04-29 12:52:46,666 - root - INFO -   Epoch 26/150	 Time: 0.061	 Loss: 0.03506064
+2025-04-29 12:52:46,680 - root - INFO -   Epoch 27/150	 Time: 0.014	 Loss: 0.03469018
+2025-04-29 12:52:46,695 - root - INFO -   Epoch 28/150	 Time: 0.014	 Loss: 0.03378521
+2025-04-29 12:52:46,726 - root - INFO -   Epoch 29/150	 Time: 0.031	 Loss: 0.03295258
+2025-04-29 12:52:46,800 - root - INFO -   Epoch 30/150	 Time: 0.074	 Loss: 0.03223415
+2025-04-29 12:52:46,812 - root - INFO -   Epoch 31/150	 Time: 0.012	 Loss: 0.03149682
+2025-04-29 12:52:46,831 - root - INFO -   Epoch 32/150	 Time: 0.019	 Loss: 0.03102113
+2025-04-29 12:52:46,845 - root - INFO -   Epoch 33/150	 Time: 0.014	 Loss: 0.03013188
+2025-04-29 12:52:46,949 - root - INFO -   Epoch 34/150	 Time: 0.104	 Loss: 0.02996649
+2025-04-29 12:52:46,964 - root - INFO -   Epoch 35/150	 Time: 0.014	 Loss: 0.02957855
+2025-04-29 12:52:46,979 - root - INFO -   Epoch 36/150	 Time: 0.014	 Loss: 0.02747031
+2025-04-29 12:52:46,992 - root - INFO -   Epoch 37/150	 Time: 0.014	 Loss: 0.02670621
+2025-04-29 12:52:47,003 - root - INFO -   Epoch 38/150	 Time: 0.011	 Loss: 0.02620882
+2025-04-29 12:52:47,023 - root - INFO -   Epoch 39/150	 Time: 0.020	 Loss: 0.02549109
+2025-04-29 12:52:47,035 - root - INFO -   Epoch 40/150	 Time: 0.011	 Loss: 0.02500421
+2025-04-29 12:52:47,049 - root - INFO -   Epoch 41/150	 Time: 0.014	 Loss: 0.02457819
+2025-04-29 12:52:47,063 - root - INFO -   Epoch 42/150	 Time: 0.014	 Loss: 0.02425423
+2025-04-29 12:52:47,097 - root - INFO -   Epoch 43/150	 Time: 0.034	 Loss: 0.02397213
+2025-04-29 12:52:47,114 - root - INFO -   Epoch 44/150	 Time: 0.016	 Loss: 0.02372539
+2025-04-29 12:52:47,127 - root - INFO -   Epoch 45/150	 Time: 0.013	 Loss: 0.02350841
+2025-04-29 12:52:47,140 - root - INFO -   Epoch 46/150	 Time: 0.013	 Loss: 0.02331364
+2025-04-29 12:52:47,151 - root - INFO -   Epoch 47/150	 Time: 0.011	 Loss: 0.02310983
+2025-04-29 12:52:47,166 - root - INFO -   Epoch 48/150	 Time: 0.014	 Loss: 0.02293103
+2025-04-29 12:52:47,177 - root - INFO -   Epoch 49/150	 Time: 0.011	 Loss: 0.02277237
+2025-04-29 12:52:47,197 - root - INFO -   Epoch 50/150	 Time: 0.019	 Loss: 0.02264890
+2025-04-29 12:52:47,197 - root - INFO -   LR scheduler: new learning rate is 1e-05
+2025-04-29 12:52:47,218 - root - INFO -   Epoch 51/150	 Time: 0.021	 Loss: 0.02248074
+2025-04-29 12:52:47,234 - root - INFO -   Epoch 52/150	 Time: 0.015	 Loss: 0.02226948
+2025-04-29 12:52:47,277 - root - INFO -   Epoch 53/150	 Time: 0.043	 Loss: 0.02219559
+2025-04-29 12:52:47,331 - root - INFO -   Epoch 54/150	 Time: 0.053	 Loss: 0.02211256
+2025-04-29 12:52:47,368 - root - INFO -   Epoch 55/150	 Time: 0.037	 Loss: 0.02205948
+2025-04-29 12:52:47,382 - root - INFO -   Epoch 56/150	 Time: 0.014	 Loss: 0.02196835
+2025-04-29 12:52:47,396 - root - INFO -   Epoch 57/150	 Time: 0.014	 Loss: 0.02188783
+2025-04-29 12:52:47,415 - root - INFO -   Epoch 58/150	 Time: 0.018	 Loss: 0.02178943
+2025-04-29 12:52:47,454 - root - INFO -   Epoch 59/150	 Time: 0.039	 Loss: 0.02167762
+2025-04-29 12:52:47,479 - root - INFO -   Epoch 60/150	 Time: 0.025	 Loss: 0.02157096
+2025-04-29 12:52:47,494 - root - INFO -   Epoch 61/150	 Time: 0.014	 Loss: 0.02148604
+2025-04-29 12:52:47,505 - root - INFO -   Epoch 62/150	 Time: 0.011	 Loss: 0.02140676
+2025-04-29 12:52:47,515 - root - INFO -   Epoch 63/150	 Time: 0.010	 Loss: 0.02133258
+2025-04-29 12:52:47,529 - root - INFO -   Epoch 64/150	 Time: 0.014	 Loss: 0.02126388
+2025-04-29 12:52:47,541 - root - INFO -   Epoch 65/150	 Time: 0.012	 Loss: 0.02120021
+2025-04-29 12:52:47,561 - root - INFO -   Epoch 66/150	 Time: 0.019	 Loss: 0.02113981
+2025-04-29 12:52:47,629 - root - INFO -   Epoch 67/150	 Time: 0.067	 Loss: 0.02108271
+2025-04-29 12:52:47,669 - root - INFO -   Epoch 68/150	 Time: 0.040	 Loss: 0.02102840
+2025-04-29 12:52:47,692 - root - INFO -   Epoch 69/150	 Time: 0.023	 Loss: 0.02097651
+2025-04-29 12:52:47,711 - root - INFO -   Epoch 70/150	 Time: 0.018	 Loss: 0.02092671
+2025-04-29 12:52:47,733 - root - INFO -   Epoch 71/150	 Time: 0.022	 Loss: 0.02088245
+2025-04-29 12:52:47,749 - root - INFO -   Epoch 72/150	 Time: 0.016	 Loss: 0.02084350
+2025-04-29 12:52:47,768 - root - INFO -   Epoch 73/150	 Time: 0.019	 Loss: 0.02080904
+2025-04-29 12:52:47,792 - root - INFO -   Epoch 74/150	 Time: 0.023	 Loss: 0.02077796
+2025-04-29 12:52:47,818 - root - INFO -   Epoch 75/150	 Time: 0.026	 Loss: 0.02073350
+2025-04-29 12:52:47,834 - root - INFO -   Epoch 76/150	 Time: 0.016	 Loss: 0.02065481
+2025-04-29 12:52:47,852 - root - INFO -   Epoch 77/150	 Time: 0.018	 Loss: 0.02059583
+2025-04-29 12:52:47,868 - root - INFO -   Epoch 78/150	 Time: 0.016	 Loss: 0.02052093
+2025-04-29 12:52:47,885 - root - INFO -   Epoch 79/150	 Time: 0.017	 Loss: 0.02041185
+2025-04-29 12:52:47,902 - root - INFO -   Epoch 80/150	 Time: 0.017	 Loss: 0.02031291
+2025-04-29 12:52:47,919 - root - INFO -   Epoch 81/150	 Time: 0.017	 Loss: 0.02022657
+2025-04-29 12:52:47,937 - root - INFO -   Epoch 82/150	 Time: 0.017	 Loss: 0.02016372
+2025-04-29 12:52:47,953 - root - INFO -   Epoch 83/150	 Time: 0.016	 Loss: 0.02008244
+2025-04-29 12:52:47,976 - root - INFO -   Epoch 84/150	 Time: 0.023	 Loss: 0.01998767
+2025-04-29 12:52:48,002 - root - INFO -   Epoch 85/150	 Time: 0.025	 Loss: 0.01990594
+2025-04-29 12:52:48,021 - root - INFO -   Epoch 86/150	 Time: 0.019	 Loss: 0.01982873
+2025-04-29 12:52:48,054 - root - INFO -   Epoch 87/150	 Time: 0.033	 Loss: 0.01975712
+2025-04-29 12:52:48,075 - root - INFO -   Epoch 88/150	 Time: 0.021	 Loss: 0.01969097
+2025-04-29 12:52:48,106 - root - INFO -   Epoch 89/150	 Time: 0.031	 Loss: 0.01963005
+2025-04-29 12:52:48,128 - root - INFO -   Epoch 90/150	 Time: 0.022	 Loss: 0.01957333
+2025-04-29 12:52:48,153 - root - INFO -   Epoch 91/150	 Time: 0.024	 Loss: 0.01951975
+2025-04-29 12:52:48,170 - root - INFO -   Epoch 92/150	 Time: 0.017	 Loss: 0.01946918
+2025-04-29 12:52:48,193 - root - INFO -   Epoch 93/150	 Time: 0.022	 Loss: 0.01942160
+2025-04-29 12:52:48,226 - root - INFO -   Epoch 94/150	 Time: 0.033	 Loss: 0.01937941
+2025-04-29 12:52:48,257 - root - INFO -   Epoch 95/150	 Time: 0.032	 Loss: 0.01934012
+2025-04-29 12:52:48,303 - root - INFO -   Epoch 96/150	 Time: 0.045	 Loss: 0.01930343
+2025-04-29 12:52:48,329 - root - INFO -   Epoch 97/150	 Time: 0.026	 Loss: 0.01926986
+2025-04-29 12:52:48,353 - root - INFO -   Epoch 98/150	 Time: 0.024	 Loss: 0.01922334
+2025-04-29 12:52:48,379 - root - INFO -   Epoch 99/150	 Time: 0.025	 Loss: 0.01915171
+2025-04-29 12:52:48,395 - root - INFO -   Epoch 100/150	 Time: 0.016	 Loss: 0.01908852
+2025-04-29 12:52:48,417 - root - INFO -   Epoch 101/150	 Time: 0.021	 Loss: 0.01902531
+2025-04-29 12:52:48,444 - root - INFO -   Epoch 102/150	 Time: 0.027	 Loss: 0.01896269
+2025-04-29 12:52:48,471 - root - INFO -   Epoch 103/150	 Time: 0.026	 Loss: 0.01890813
+2025-04-29 12:52:48,546 - root - INFO -   Epoch 104/150	 Time: 0.075	 Loss: 0.01883960
+2025-04-29 12:52:48,571 - root - INFO -   Epoch 105/150	 Time: 0.025	 Loss: 0.01880111
+2025-04-29 12:52:48,597 - root - INFO -   Epoch 106/150	 Time: 0.026	 Loss: 0.01872069
+2025-04-29 12:52:48,619 - root - INFO -   Epoch 107/150	 Time: 0.022	 Loss: 0.01866752
+2025-04-29 12:52:48,651 - root - INFO -   Epoch 108/150	 Time: 0.032	 Loss: 0.01859728
+2025-04-29 12:52:48,672 - root - INFO -   Epoch 109/150	 Time: 0.021	 Loss: 0.01851217
+2025-04-29 12:52:48,695 - root - INFO -   Epoch 110/150	 Time: 0.023	 Loss: 0.01842733
+2025-04-29 12:52:48,711 - root - INFO -   Epoch 111/150	 Time: 0.015	 Loss: 0.01836153
+2025-04-29 12:52:48,732 - root - INFO -   Epoch 112/150	 Time: 0.021	 Loss: 0.01830183
+2025-04-29 12:52:48,754 - root - INFO -   Epoch 113/150	 Time: 0.022	 Loss: 0.01822526
+2025-04-29 12:52:48,788 - root - INFO -   Epoch 114/150	 Time: 0.033	 Loss: 0.01816624
+2025-04-29 12:52:48,812 - root - INFO -   Epoch 115/150	 Time: 0.024	 Loss: 0.01810933
+2025-04-29 12:52:48,879 - root - INFO -   Epoch 116/150	 Time: 0.066	 Loss: 0.01805437
+2025-04-29 12:52:48,903 - root - INFO -   Epoch 117/150	 Time: 0.024	 Loss: 0.01800115
+2025-04-29 12:52:48,921 - root - INFO -   Epoch 118/150	 Time: 0.018	 Loss: 0.01795021
+2025-04-29 12:52:48,946 - root - INFO -   Epoch 119/150	 Time: 0.024	 Loss: 0.01790821
+2025-04-29 12:52:48,970 - root - INFO -   Epoch 120/150	 Time: 0.024	 Loss: 0.01786760
+2025-04-29 12:52:48,988 - root - INFO -   Epoch 121/150	 Time: 0.018	 Loss: 0.01781513
+2025-04-29 12:52:49,005 - root - INFO -   Epoch 122/150	 Time: 0.017	 Loss: 0.01774660
+2025-04-29 12:52:49,028 - root - INFO -   Epoch 123/150	 Time: 0.022	 Loss: 0.01768867
+2025-04-29 12:52:49,075 - root - INFO -   Epoch 124/150	 Time: 0.046	 Loss: 0.01763559
+2025-04-29 12:52:49,096 - root - INFO -   Epoch 125/150	 Time: 0.022	 Loss: 0.01758674
+2025-04-29 12:52:49,121 - root - INFO -   Epoch 126/150	 Time: 0.024	 Loss: 0.01753459
+2025-04-29 12:52:49,163 - root - INFO -   Epoch 127/150	 Time: 0.042	 Loss: 0.01748144
+2025-04-29 12:52:49,230 - root - INFO -   Epoch 128/150	 Time: 0.067	 Loss: 0.01744684
+2025-04-29 12:52:49,264 - root - INFO -   Epoch 129/150	 Time: 0.033	 Loss: 0.01740753
+2025-04-29 12:52:49,317 - root - INFO -   Epoch 130/150	 Time: 0.054	 Loss: 0.01736235
+2025-04-29 12:52:49,381 - root - INFO -   Epoch 131/150	 Time: 0.063	 Loss: 0.01731484
+2025-04-29 12:52:49,396 - root - INFO -   Epoch 132/150	 Time: 0.015	 Loss: 0.01727054
+2025-04-29 12:52:49,415 - root - INFO -   Epoch 133/150	 Time: 0.018	 Loss: 0.01722673
+2025-04-29 12:52:49,433 - root - INFO -   Epoch 134/150	 Time: 0.018	 Loss: 0.01717351
+2025-04-29 12:52:49,462 - root - INFO -   Epoch 135/150	 Time: 0.028	 Loss: 0.01712319
+2025-04-29 12:52:49,477 - root - INFO -   Epoch 136/150	 Time: 0.015	 Loss: 0.01707718
+2025-04-29 12:52:49,489 - root - INFO -   Epoch 137/150	 Time: 0.011	 Loss: 0.01703659
+2025-04-29 12:52:49,503 - root - INFO -   Epoch 138/150	 Time: 0.014	 Loss: 0.01700500
+2025-04-29 12:52:49,520 - root - INFO -   Epoch 139/150	 Time: 0.017	 Loss: 0.01697032
+2025-04-29 12:52:49,535 - root - INFO -   Epoch 140/150	 Time: 0.015	 Loss: 0.01693651
+2025-04-29 12:52:49,552 - root - INFO -   Epoch 141/150	 Time: 0.016	 Loss: 0.01691069
+2025-04-29 12:52:49,689 - root - INFO -   Epoch 142/150	 Time: 0.137	 Loss: 0.01688911
+2025-04-29 12:52:49,735 - root - INFO -   Epoch 143/150	 Time: 0.046	 Loss: 0.01686566
+2025-04-29 12:52:49,790 - root - INFO -   Epoch 144/150	 Time: 0.055	 Loss: 0.01681593
+2025-04-29 12:52:49,816 - root - INFO -   Epoch 145/150	 Time: 0.026	 Loss: 0.01676581
+2025-04-29 12:52:49,875 - root - INFO -   Epoch 146/150	 Time: 0.059	 Loss: 0.01670397
+2025-04-29 12:52:49,920 - root - INFO -   Epoch 147/150	 Time: 0.044	 Loss: 0.01665280
+2025-04-29 12:52:49,967 - root - INFO -   Epoch 148/150	 Time: 0.047	 Loss: 0.01662024
+2025-04-29 12:52:50,004 - root - INFO -   Epoch 149/150	 Time: 0.038	 Loss: 0.01655650
+2025-04-29 12:52:50,106 - root - INFO -   Epoch 150/150	 Time: 0.101	 Loss: 0.01650142
+2025-04-29 12:52:50,106 - root - INFO - Training time: 3.872
+2025-04-29 12:52:50,106 - root - INFO - Finished training.
+2025-04-29 12:52:50,112 - root - INFO - start testing....
+2025-04-29 12:52:50,117 - root - INFO - Loading model from ./output/model.tar
+2025-04-29 12:53:07,130 - root - INFO - {'is_train': True, 'is_rag': True, 'dataset_name': 'BGL', 'train_ratio': 0.8, 'window_size': 200, 'window_time': 1800, 'log_structed_path': './dataset/BGL/bgl-example.log_structured.csv', 'encoder_path': './pretrained', 'api_key': 'sk-IXv5inyh4jRh9ae8bRFbuZ1NDpQVXcTgjnUJW024Mn93JTsx', 'api_base': 'https://api.openai-proxy.org/v1', 'llm_name': 'gpt-3.5-turbo', 'normal_class': 0, 'is_pretrain': False, 'optimizer_name': 'adam', 'lr': 0.0001, 'n_epochs': 150, 'lr_milestones': [50], 'batch_size': 4096, 'weight_decay': 0.0005, 'device': 'cpu', 'n_jobs_dataloader': 0, 'threshold': 0.8, 'topk': 5, 'prompt': 'prompt5', 'persist_directory': './output/ragdb-bgl'}
+2025-04-29 12:53:21,089 - root - INFO - Initializing center c...
+2025-04-29 12:53:21,116 - root - INFO - Center c initialized.
+2025-04-29 12:53:21,117 - root - INFO - Starting training...
+2025-04-29 12:53:21,141 - root - INFO -   Epoch 1/150	 Time: 0.024	 Loss: 1.42929804
+2025-04-29 12:53:21,168 - root - INFO -   Epoch 2/150	 Time: 0.028	 Loss: 1.27163506
+2025-04-29 12:53:21,211 - root - INFO -   Epoch 3/150	 Time: 0.042	 Loss: 1.13178504
+2025-04-29 12:53:21,236 - root - INFO -   Epoch 4/150	 Time: 0.025	 Loss: 1.00966978
+2025-04-29 12:53:21,256 - root - INFO -   Epoch 5/150	 Time: 0.020	 Loss: 0.89887017
+2025-04-29 12:53:21,316 - root - INFO -   Epoch 6/150	 Time: 0.059	 Loss: 0.80173188
+2025-04-29 12:53:21,334 - root - INFO -   Epoch 7/150	 Time: 0.018	 Loss: 0.71655321
+2025-04-29 12:53:21,354 - root - INFO -   Epoch 8/150	 Time: 0.020	 Loss: 0.64064914
+2025-04-29 12:53:21,382 - root - INFO -   Epoch 9/150	 Time: 0.028	 Loss: 0.57181555
+2025-04-29 12:53:21,445 - root - INFO -   Epoch 10/150	 Time: 0.062	 Loss: 0.51070756
+2025-04-29 12:53:21,494 - root - INFO -   Epoch 11/150	 Time: 0.050	 Loss: 0.45852858
+2025-04-29 12:53:21,520 - root - INFO -   Epoch 12/150	 Time: 0.025	 Loss: 0.08104878
+2025-04-29 12:53:21,550 - root - INFO -   Epoch 13/150	 Time: 0.029	 Loss: 0.07534678
+2025-04-29 12:53:21,572 - root - INFO -   Epoch 14/150	 Time: 0.022	 Loss: 0.07035377
+2025-04-29 12:53:21,603 - root - INFO -   Epoch 15/150	 Time: 0.031	 Loss: 0.06586738
+2025-04-29 12:53:21,635 - root - INFO -   Epoch 16/150	 Time: 0.032	 Loss: 0.06190636
+2025-04-29 12:53:21,665 - root - INFO -   Epoch 17/150	 Time: 0.030	 Loss: 0.05834209
+2025-04-29 12:53:21,687 - root - INFO -   Epoch 18/150	 Time: 0.021	 Loss: 0.05515613
+2025-04-29 12:53:21,720 - root - INFO -   Epoch 19/150	 Time: 0.033	 Loss: 0.05227685
+2025-04-29 12:53:21,748 - root - INFO -   Epoch 20/150	 Time: 0.029	 Loss: 0.04962786
+2025-04-29 12:53:21,778 - root - INFO -   Epoch 21/150	 Time: 0.029	 Loss: 0.04720296
+2025-04-29 12:53:21,825 - root - INFO -   Epoch 22/150	 Time: 0.047	 Loss: 0.04493371
+2025-04-29 12:53:22,075 - root - INFO -   Epoch 23/150	 Time: 0.249	 Loss: 0.04276175
+2025-04-29 12:53:22,120 - root - INFO -   Epoch 24/150	 Time: 0.045	 Loss: 0.04072733
+2025-04-29 12:53:22,157 - root - INFO -   Epoch 25/150	 Time: 0.037	 Loss: 0.03879898
+2025-04-29 12:53:22,176 - root - INFO -   Epoch 26/150	 Time: 0.019	 Loss: 0.03701966
+2025-04-29 12:53:22,209 - root - INFO -   Epoch 27/150	 Time: 0.032	 Loss: 0.03542287
+2025-04-29 12:53:22,242 - root - INFO -   Epoch 28/150	 Time: 0.033	 Loss: 0.03447813
+2025-04-29 12:53:22,270 - root - INFO -   Epoch 29/150	 Time: 0.027	 Loss: 0.03375601
+2025-04-29 12:53:22,292 - root - INFO -   Epoch 30/150	 Time: 0.022	 Loss: 0.03311432
+2025-04-29 12:53:22,315 - root - INFO -   Epoch 31/150	 Time: 0.024	 Loss: 0.03276151
+2025-04-29 12:53:22,337 - root - INFO -   Epoch 32/150	 Time: 0.021	 Loss: 0.03219878
+2025-04-29 12:53:22,355 - root - INFO -   Epoch 33/150	 Time: 0.018	 Loss: 0.03121060
+2025-04-29 12:53:22,377 - root - INFO -   Epoch 34/150	 Time: 0.023	 Loss: 0.03060712
+2025-04-29 12:53:22,453 - root - INFO -   Epoch 35/150	 Time: 0.075	 Loss: 0.02941399
+2025-04-29 12:53:22,488 - root - INFO -   Epoch 36/150	 Time: 0.035	 Loss: 0.02833959
+2025-04-29 12:53:22,526 - root - INFO -   Epoch 37/150	 Time: 0.038	 Loss: 0.02745905
+2025-04-29 12:53:22,555 - root - INFO -   Epoch 38/150	 Time: 0.029	 Loss: 0.02617594
+2025-04-29 12:53:22,593 - root - INFO -   Epoch 39/150	 Time: 0.038	 Loss: 0.02502840
+2025-04-29 12:53:22,623 - root - INFO -   Epoch 40/150	 Time: 0.029	 Loss: 0.02401602
+2025-04-29 12:53:22,656 - root - INFO -   Epoch 41/150	 Time: 0.033	 Loss: 0.02310899
+2025-04-29 12:53:22,692 - root - INFO -   Epoch 42/150	 Time: 0.036	 Loss: 0.02229502
+2025-04-29 12:53:22,722 - root - INFO -   Epoch 43/150	 Time: 0.030	 Loss: 0.02154003
+2025-04-29 12:53:22,754 - root - INFO -   Epoch 44/150	 Time: 0.031	 Loss: 0.02081807
+2025-04-29 12:53:22,792 - root - INFO -   Epoch 45/150	 Time: 0.038	 Loss: 0.02012286
+2025-04-29 12:53:22,821 - root - INFO -   Epoch 46/150	 Time: 0.029	 Loss: 0.01948004
+2025-04-29 12:53:22,852 - root - INFO -   Epoch 47/150	 Time: 0.031	 Loss: 0.01889794
+2025-04-29 12:53:22,883 - root - INFO -   Epoch 48/150	 Time: 0.030	 Loss: 0.01837388
+2025-04-29 12:53:22,935 - root - INFO -   Epoch 49/150	 Time: 0.051	 Loss: 0.01789437
+2025-04-29 12:53:22,963 - root - INFO -   Epoch 50/150	 Time: 0.028	 Loss: 0.01746464
+2025-04-29 12:53:22,964 - root - INFO -   LR scheduler: new learning rate is 1e-05
+2025-04-29 12:53:23,000 - root - INFO -   Epoch 51/150	 Time: 0.037	 Loss: 0.01707481
+2025-04-29 12:53:23,037 - root - INFO -   Epoch 52/150	 Time: 0.037	 Loss: 0.01691961
+2025-04-29 12:53:23,070 - root - INFO -   Epoch 53/150	 Time: 0.033	 Loss: 0.01688460
+2025-04-29 12:53:23,100 - root - INFO -   Epoch 54/150	 Time: 0.030	 Loss: 0.01685024
+2025-04-29 12:53:23,140 - root - INFO -   Epoch 55/150	 Time: 0.040	 Loss: 0.01681649
+2025-04-29 12:53:23,165 - root - INFO -   Epoch 56/150	 Time: 0.024	 Loss: 0.01678334
+2025-04-29 12:53:23,190 - root - INFO -   Epoch 57/150	 Time: 0.025	 Loss: 0.01675313
+2025-04-29 12:53:23,240 - root - INFO -   Epoch 58/150	 Time: 0.050	 Loss: 0.01672348
+2025-04-29 12:53:23,271 - root - INFO -   Epoch 59/150	 Time: 0.030	 Loss: 0.01669709
+2025-04-29 12:53:23,305 - root - INFO -   Epoch 60/150	 Time: 0.034	 Loss: 0.01667197
+2025-04-29 12:53:23,379 - root - INFO -   Epoch 61/150	 Time: 0.075	 Loss: 0.01664780
+2025-04-29 12:53:23,458 - root - INFO -   Epoch 62/150	 Time: 0.079	 Loss: 0.01662463
+2025-04-29 12:53:23,482 - root - INFO -   Epoch 63/150	 Time: 0.023	 Loss: 0.01660232
+2025-04-29 12:53:23,526 - root - INFO -   Epoch 64/150	 Time: 0.043	 Loss: 0.01658076
+2025-04-29 12:53:23,540 - root - INFO -   Epoch 65/150	 Time: 0.014	 Loss: 0.01655984
+2025-04-29 12:53:23,554 - root - INFO -   Epoch 66/150	 Time: 0.014	 Loss: 0.01653965
+2025-04-29 12:53:23,569 - root - INFO -   Epoch 67/150	 Time: 0.014	 Loss: 0.01652071
+2025-04-29 12:53:23,594 - root - INFO -   Epoch 68/150	 Time: 0.025	 Loss: 0.01647507
+2025-04-29 12:53:23,612 - root - INFO -   Epoch 69/150	 Time: 0.018	 Loss: 0.01643245
+2025-04-29 12:53:23,641 - root - INFO -   Epoch 70/150	 Time: 0.029	 Loss: 0.01639255
+2025-04-29 12:53:23,660 - root - INFO -   Epoch 71/150	 Time: 0.018	 Loss: 0.01635516
+2025-04-29 12:53:23,687 - root - INFO -   Epoch 72/150	 Time: 0.026	 Loss: 0.01632001
+2025-04-29 12:53:23,710 - root - INFO -   Epoch 73/150	 Time: 0.023	 Loss: 0.01628690
+2025-04-29 12:53:23,744 - root - INFO -   Epoch 74/150	 Time: 0.034	 Loss: 0.01625567
+2025-04-29 12:53:23,779 - root - INFO -   Epoch 75/150	 Time: 0.035	 Loss: 0.01622620
+2025-04-29 12:53:23,806 - root - INFO -   Epoch 76/150	 Time: 0.027	 Loss: 0.01619838
+2025-04-29 12:53:23,830 - root - INFO -   Epoch 77/150	 Time: 0.024	 Loss: 0.01617204
+2025-04-29 12:53:23,861 - root - INFO -   Epoch 78/150	 Time: 0.031	 Loss: 0.01614699
+2025-04-29 12:53:23,882 - root - INFO -   Epoch 79/150	 Time: 0.021	 Loss: 0.01612314
+2025-04-29 12:53:23,912 - root - INFO -   Epoch 80/150	 Time: 0.030	 Loss: 0.01610075
+2025-04-29 12:53:23,937 - root - INFO -   Epoch 81/150	 Time: 0.024	 Loss: 0.01607941
+2025-04-29 12:53:23,962 - root - INFO -   Epoch 82/150	 Time: 0.025	 Loss: 0.01603111
+2025-04-29 12:53:23,986 - root - INFO -   Epoch 83/150	 Time: 0.023	 Loss: 0.01597708
+2025-04-29 12:53:24,009 - root - INFO -   Epoch 84/150	 Time: 0.023	 Loss: 0.01593048
+2025-04-29 12:53:24,046 - root - INFO -   Epoch 85/150	 Time: 0.036	 Loss: 0.01587557
+2025-04-29 12:53:24,096 - root - INFO -   Epoch 86/150	 Time: 0.050	 Loss: 0.01581742
+2025-04-29 12:53:24,119 - root - INFO -   Epoch 87/150	 Time: 0.022	 Loss: 0.01576589
+2025-04-29 12:53:24,143 - root - INFO -   Epoch 88/150	 Time: 0.024	 Loss: 0.01571939
+2025-04-29 12:53:24,193 - root - INFO -   Epoch 89/150	 Time: 0.050	 Loss: 0.01567923
+2025-04-29 12:53:24,230 - root - INFO -   Epoch 90/150	 Time: 0.036	 Loss: 0.01563879
+2025-04-29 12:53:24,267 - root - INFO -   Epoch 91/150	 Time: 0.036	 Loss: 0.01559807
+2025-04-29 12:53:24,300 - root - INFO -   Epoch 92/150	 Time: 0.033	 Loss: 0.01555712
+2025-04-29 12:53:24,317 - root - INFO -   Epoch 93/150	 Time: 0.017	 Loss: 0.01551606
+2025-04-29 12:53:24,340 - root - INFO -   Epoch 94/150	 Time: 0.022	 Loss: 0.01547490
+2025-04-29 12:53:24,368 - root - INFO -   Epoch 95/150	 Time: 0.028	 Loss: 0.01543395
+2025-04-29 12:53:24,390 - root - INFO -   Epoch 96/150	 Time: 0.022	 Loss: 0.01539330
+2025-04-29 12:53:24,455 - root - INFO -   Epoch 97/150	 Time: 0.065	 Loss: 0.01535268
+2025-04-29 12:53:24,478 - root - INFO -   Epoch 98/150	 Time: 0.023	 Loss: 0.01531526
+2025-04-29 12:53:24,499 - root - INFO -   Epoch 99/150	 Time: 0.020	 Loss: 0.01527897
+2025-04-29 12:53:24,529 - root - INFO -   Epoch 100/150	 Time: 0.030	 Loss: 0.01524385
+2025-04-29 12:53:24,549 - root - INFO -   Epoch 101/150	 Time: 0.019	 Loss: 0.01521127
+2025-04-29 12:53:24,564 - root - INFO -   Epoch 102/150	 Time: 0.015	 Loss: 0.01518146
+2025-04-29 12:53:24,589 - root - INFO -   Epoch 103/150	 Time: 0.025	 Loss: 0.01515420
+2025-04-29 12:53:24,618 - root - INFO -   Epoch 104/150	 Time: 0.028	 Loss: 0.01512893
+2025-04-29 12:53:24,644 - root - INFO -   Epoch 105/150	 Time: 0.026	 Loss: 0.01509986
+2025-04-29 12:53:24,671 - root - INFO -   Epoch 106/150	 Time: 0.027	 Loss: 0.01506114
+2025-04-29 12:53:24,694 - root - INFO -   Epoch 107/150	 Time: 0.022	 Loss: 0.01503116
+2025-04-29 12:53:24,721 - root - INFO -   Epoch 108/150	 Time: 0.027	 Loss: 0.01498691
+2025-04-29 12:53:24,742 - root - INFO -   Epoch 109/150	 Time: 0.021	 Loss: 0.01494363
+2025-04-29 12:53:24,768 - root - INFO -   Epoch 110/150	 Time: 0.026	 Loss: 0.01490400
+2025-04-29 12:53:24,798 - root - INFO -   Epoch 111/150	 Time: 0.029	 Loss: 0.01486987
+2025-04-29 12:53:24,823 - root - INFO -   Epoch 112/150	 Time: 0.025	 Loss: 0.01483709
+2025-04-29 12:53:24,852 - root - INFO -   Epoch 113/150	 Time: 0.028	 Loss: 0.01480588
+2025-04-29 12:53:24,884 - root - INFO -   Epoch 114/150	 Time: 0.032	 Loss: 0.01477585
+2025-04-29 12:53:24,904 - root - INFO -   Epoch 115/150	 Time: 0.019	 Loss: 0.01474855
+2025-04-29 12:53:24,925 - root - INFO -   Epoch 116/150	 Time: 0.021	 Loss: 0.01472123
+2025-04-29 12:53:24,944 - root - INFO -   Epoch 117/150	 Time: 0.019	 Loss: 0.01469543
+2025-04-29 12:53:24,962 - root - INFO -   Epoch 118/150	 Time: 0.018	 Loss: 0.01466931
+2025-04-29 12:53:24,981 - root - INFO -   Epoch 119/150	 Time: 0.019	 Loss: 0.01464469
+2025-04-29 12:53:25,010 - root - INFO -   Epoch 120/150	 Time: 0.029	 Loss: 0.01462048
+2025-04-29 12:53:25,030 - root - INFO -   Epoch 121/150	 Time: 0.020	 Loss: 0.01459379
+2025-04-29 12:53:25,070 - root - INFO -   Epoch 122/150	 Time: 0.040	 Loss: 0.01455584
+2025-04-29 12:53:25,094 - root - INFO -   Epoch 123/150	 Time: 0.024	 Loss: 0.01452352
+2025-04-29 12:53:25,119 - root - INFO -   Epoch 124/150	 Time: 0.024	 Loss: 0.01448578
+2025-04-29 12:53:25,139 - root - INFO -   Epoch 125/150	 Time: 0.020	 Loss: 0.01444792
+2025-04-29 12:53:25,165 - root - INFO -   Epoch 126/150	 Time: 0.026	 Loss: 0.01441224
+2025-04-29 12:53:25,182 - root - INFO -   Epoch 127/150	 Time: 0.017	 Loss: 0.01437621
+2025-04-29 12:53:25,242 - root - INFO -   Epoch 128/150	 Time: 0.060	 Loss: 0.01434076
+2025-04-29 12:53:25,260 - root - INFO -   Epoch 129/150	 Time: 0.017	 Loss: 0.01430568
+2025-04-29 12:53:25,282 - root - INFO -   Epoch 130/150	 Time: 0.022	 Loss: 0.01427186
+2025-04-29 12:53:25,304 - root - INFO -   Epoch 131/150	 Time: 0.023	 Loss: 0.01423829
+2025-04-29 12:53:25,324 - root - INFO -   Epoch 132/150	 Time: 0.019	 Loss: 0.01420561
+2025-04-29 12:53:25,346 - root - INFO -   Epoch 133/150	 Time: 0.022	 Loss: 0.01417461
+2025-04-29 12:53:25,371 - root - INFO -   Epoch 134/150	 Time: 0.025	 Loss: 0.01414705
+2025-04-29 12:53:25,397 - root - INFO -   Epoch 135/150	 Time: 0.025	 Loss: 0.01412166
+2025-04-29 12:53:25,458 - root - INFO -   Epoch 136/150	 Time: 0.060	 Loss: 0.01409018
+2025-04-29 12:53:25,478 - root - INFO -   Epoch 137/150	 Time: 0.020	 Loss: 0.01405998
+2025-04-29 12:53:25,521 - root - INFO -   Epoch 138/150	 Time: 0.042	 Loss: 0.01402417
+2025-04-29 12:53:25,539 - root - INFO -   Epoch 139/150	 Time: 0.018	 Loss: 0.01397910
+2025-04-29 12:53:25,569 - root - INFO -   Epoch 140/150	 Time: 0.030	 Loss: 0.01393873
+2025-04-29 12:53:25,594 - root - INFO -   Epoch 141/150	 Time: 0.025	 Loss: 0.01390395
+2025-04-29 12:53:25,648 - root - INFO -   Epoch 142/150	 Time: 0.054	 Loss: 0.01386978
+2025-04-29 12:53:25,742 - root - INFO -   Epoch 143/150	 Time: 0.093	 Loss: 0.01383463
+2025-04-29 12:53:25,788 - root - INFO -   Epoch 144/150	 Time: 0.046	 Loss: 0.01380345
+2025-04-29 12:53:25,822 - root - INFO -   Epoch 145/150	 Time: 0.034	 Loss: 0.01376759
+2025-04-29 12:53:25,841 - root - INFO -   Epoch 146/150	 Time: 0.019	 Loss: 0.01372951
+2025-04-29 12:53:25,872 - root - INFO -   Epoch 147/150	 Time: 0.031	 Loss: 0.01369172
+2025-04-29 12:53:25,896 - root - INFO -   Epoch 148/150	 Time: 0.023	 Loss: 0.01365910
+2025-04-29 12:53:25,918 - root - INFO -   Epoch 149/150	 Time: 0.023	 Loss: 0.01363108
+2025-04-29 12:53:25,972 - root - INFO -   Epoch 150/150	 Time: 0.054	 Loss: 0.01360557
+2025-04-29 12:53:25,972 - root - INFO - Training time: 4.855
+2025-04-29 12:53:25,973 - root - INFO - Finished training.
+2025-04-29 12:53:25,979 - root - INFO - start testing....
+2025-04-29 12:53:25,982 - root - INFO - Loading model from ./output/model.tar
+2025-04-29 12:53:33,294 - root - INFO - Starting testing...
+2025-04-29 12:53:33,318 - root - INFO - Testing time: 0.023
+2025-04-29 12:53:33,323 - root - INFO - Test set AUC: 90.94%
+2025-04-29 12:53:33,324 - root - INFO - Finished testing.
+2025-04-29 12:53:33,340 - root - INFO - Normal log templates to embedding: , 73
+2025-04-29 12:53:33,404 - root - INFO - Using embedding...
+2025-04-29 12:57:37,481 - root - INFO - {'is_train': True, 'is_rag': True, 'dataset_name': 'BGL', 'train_ratio': 0.8, 'window_size': 200, 'window_time': 1800, 'log_structed_path': './dataset/BGL/bgl-example.log_structured.csv', 'encoder_path': './pretrained', 'api_key': 'sk-IXv5inyh4jRh9ae8bRFbuZ1NDpQVXcTgjnUJW024Mn93JTsx', 'api_base': 'https://api.openai-proxy.org/v1', 'llm_name': 'gpt-3.5-turbo', 'normal_class': 0, 'is_pretrain': False, 'optimizer_name': 'adam', 'lr': 0.0001, 'n_epochs': 150, 'lr_milestones': [50], 'batch_size': 4096, 'weight_decay': 0.0005, 'device': 'cpu', 'n_jobs_dataloader': 0, 'threshold': 0.8, 'topk': 5, 'prompt': 'prompt5', 'persist_directory': './output/ragdb-bgl'}
+2025-04-29 12:57:50,478 - root - INFO - Initializing center c...
+2025-04-29 12:57:50,522 - root - INFO - Center c initialized.
+2025-04-29 12:57:50,522 - root - INFO - Starting training...
+2025-04-29 12:57:50,558 - root - INFO -   Epoch 1/150	 Time: 0.036	 Loss: 1.49316573
+2025-04-29 12:57:50,578 - root - INFO -   Epoch 2/150	 Time: 0.020	 Loss: 1.31148982
+2025-04-29 12:57:50,599 - root - INFO -   Epoch 3/150	 Time: 0.020	 Loss: 1.15446544
+2025-04-29 12:57:50,630 - root - INFO -   Epoch 4/150	 Time: 0.031	 Loss: 1.01573443
+2025-04-29 12:57:50,652 - root - INFO -   Epoch 5/150	 Time: 0.022	 Loss: 0.89526945
+2025-04-29 12:57:50,678 - root - INFO -   Epoch 6/150	 Time: 0.026	 Loss: 0.79178822
+2025-04-29 12:57:50,718 - root - INFO -   Epoch 7/150	 Time: 0.040	 Loss: 0.70365524
+2025-04-29 12:57:50,748 - root - INFO -   Epoch 8/150	 Time: 0.029	 Loss: 0.62904131
+2025-04-29 12:57:50,773 - root - INFO -   Epoch 9/150	 Time: 0.025	 Loss: 0.56426167
+2025-04-29 12:57:50,797 - root - INFO -   Epoch 10/150	 Time: 0.024	 Loss: 0.50772536
+2025-04-29 12:57:50,827 - root - INFO -   Epoch 11/150	 Time: 0.029	 Loss: 0.45871824
+2025-04-29 12:57:50,847 - root - INFO -   Epoch 12/150	 Time: 0.020	 Loss: 0.07726346
+2025-04-29 12:57:50,872 - root - INFO -   Epoch 13/150	 Time: 0.026	 Loss: 0.07148716
+2025-04-29 12:57:50,901 - root - INFO -   Epoch 14/150	 Time: 0.028	 Loss: 0.06633878
+2025-04-29 12:57:50,927 - root - INFO -   Epoch 15/150	 Time: 0.025	 Loss: 0.06165720
+2025-04-29 12:57:50,943 - root - INFO -   Epoch 16/150	 Time: 0.016	 Loss: 0.05750066
+2025-04-29 12:57:50,964 - root - INFO -   Epoch 17/150	 Time: 0.021	 Loss: 0.05389711
+2025-04-29 12:57:50,988 - root - INFO -   Epoch 18/150	 Time: 0.024	 Loss: 0.05068286
+2025-04-29 12:57:51,015 - root - INFO -   Epoch 19/150	 Time: 0.026	 Loss: 0.04799418
+2025-04-29 12:57:51,047 - root - INFO -   Epoch 20/150	 Time: 0.032	 Loss: 0.04563587
+2025-04-29 12:57:51,070 - root - INFO -   Epoch 21/150	 Time: 0.023	 Loss: 0.04371735
+2025-04-29 12:57:51,097 - root - INFO -   Epoch 22/150	 Time: 0.026	 Loss: 0.04155821
+2025-04-29 12:57:51,114 - root - INFO -   Epoch 23/150	 Time: 0.017	 Loss: 0.03972775
+2025-04-29 12:57:51,132 - root - INFO -   Epoch 24/150	 Time: 0.017	 Loss: 0.03811639
+2025-04-29 12:57:51,166 - root - INFO -   Epoch 25/150	 Time: 0.034	 Loss: 0.04445307
+2025-04-29 12:57:51,194 - root - INFO -   Epoch 26/150	 Time: 0.028	 Loss: 0.03688225
+2025-04-29 12:57:51,229 - root - INFO -   Epoch 27/150	 Time: 0.034	 Loss: 0.03517623
+2025-04-29 12:57:51,250 - root - INFO -   Epoch 28/150	 Time: 0.021	 Loss: 0.03370551
+2025-04-29 12:57:51,280 - root - INFO -   Epoch 29/150	 Time: 0.030	 Loss: 0.03247756
+2025-04-29 12:57:51,303 - root - INFO -   Epoch 30/150	 Time: 0.023	 Loss: 0.03154102
+2025-04-29 12:57:51,336 - root - INFO -   Epoch 31/150	 Time: 0.033	 Loss: 0.03053203
+2025-04-29 12:57:51,365 - root - INFO -   Epoch 32/150	 Time: 0.028	 Loss: 0.02962072
+2025-04-29 12:57:51,390 - root - INFO -   Epoch 33/150	 Time: 0.026	 Loss: 0.02885691
+2025-04-29 12:57:51,415 - root - INFO -   Epoch 34/150	 Time: 0.024	 Loss: 0.02807092
+2025-04-29 12:57:51,471 - root - INFO -   Epoch 35/150	 Time: 0.056	 Loss: 0.02731176
+2025-04-29 12:57:51,502 - root - INFO -   Epoch 36/150	 Time: 0.030	 Loss: 0.02654322
+2025-04-29 12:57:51,520 - root - INFO -   Epoch 37/150	 Time: 0.018	 Loss: 0.02578400
+2025-04-29 12:57:51,539 - root - INFO -   Epoch 38/150	 Time: 0.018	 Loss: 0.02506440
+2025-04-29 12:57:51,563 - root - INFO -   Epoch 39/150	 Time: 0.024	 Loss: 0.02437619
+2025-04-29 12:57:51,581 - root - INFO -   Epoch 40/150	 Time: 0.018	 Loss: 0.02376820
+2025-04-29 12:57:51,606 - root - INFO -   Epoch 41/150	 Time: 0.024	 Loss: 0.02319814
+2025-04-29 12:57:51,623 - root - INFO -   Epoch 42/150	 Time: 0.017	 Loss: 0.02265714
+2025-04-29 12:57:51,639 - root - INFO -   Epoch 43/150	 Time: 0.016	 Loss: 0.02215900
+2025-04-29 12:57:51,666 - root - INFO -   Epoch 44/150	 Time: 0.026	 Loss: 0.02170433
+2025-04-29 12:57:51,684 - root - INFO -   Epoch 45/150	 Time: 0.018	 Loss: 0.02128345
+2025-04-29 12:57:51,702 - root - INFO -   Epoch 46/150	 Time: 0.018	 Loss: 0.02089710
+2025-04-29 12:57:51,720 - root - INFO -   Epoch 47/150	 Time: 0.018	 Loss: 0.02057635
+2025-04-29 12:57:51,738 - root - INFO -   Epoch 48/150	 Time: 0.018	 Loss: 0.02030142
+2025-04-29 12:57:51,757 - root - INFO -   Epoch 49/150	 Time: 0.019	 Loss: 0.02004959
+2025-04-29 12:57:51,776 - root - INFO -   Epoch 50/150	 Time: 0.019	 Loss: 0.01983044
+2025-04-29 12:57:51,777 - root - INFO -   LR scheduler: new learning rate is 1e-05
+2025-04-29 12:57:51,808 - root - INFO -   Epoch 51/150	 Time: 0.031	 Loss: 0.01963642
+2025-04-29 12:57:51,824 - root - INFO -   Epoch 52/150	 Time: 0.016	 Loss: 0.01953817
+2025-04-29 12:57:51,848 - root - INFO -   Epoch 53/150	 Time: 0.024	 Loss: 0.01952113
+2025-04-29 12:57:51,865 - root - INFO -   Epoch 54/150	 Time: 0.017	 Loss: 0.01950487
+2025-04-29 12:57:51,887 - root - INFO -   Epoch 55/150	 Time: 0.021	 Loss: 0.01948932
+2025-04-29 12:57:51,903 - root - INFO -   Epoch 56/150	 Time: 0.016	 Loss: 0.01947442
+2025-04-29 12:57:51,925 - root - INFO -   Epoch 57/150	 Time: 0.022	 Loss: 0.01946009
+2025-04-29 12:57:52,044 - root - INFO -   Epoch 58/150	 Time: 0.119	 Loss: 0.01944631
+2025-04-29 12:57:52,095 - root - INFO -   Epoch 59/150	 Time: 0.050	 Loss: 0.01943300
+2025-04-29 12:57:52,114 - root - INFO -   Epoch 60/150	 Time: 0.019	 Loss: 0.01942011
+2025-04-29 12:57:52,137 - root - INFO -   Epoch 61/150	 Time: 0.022	 Loss: 0.01940764
+2025-04-29 12:57:52,158 - root - INFO -   Epoch 62/150	 Time: 0.021	 Loss: 0.01939551
+2025-04-29 12:57:52,183 - root - INFO -   Epoch 63/150	 Time: 0.024	 Loss: 0.01938373
+2025-04-29 12:57:52,203 - root - INFO -   Epoch 64/150	 Time: 0.020	 Loss: 0.01937224
+2025-04-29 12:57:52,250 - root - INFO -   Epoch 65/150	 Time: 0.046	 Loss: 0.01936102
+2025-04-29 12:57:52,281 - root - INFO -   Epoch 66/150	 Time: 0.032	 Loss: 0.01935002
+2025-04-29 12:57:52,314 - root - INFO -   Epoch 67/150	 Time: 0.032	 Loss: 0.01933926
+2025-04-29 12:57:52,344 - root - INFO -   Epoch 68/150	 Time: 0.030	 Loss: 0.01932880
+2025-04-29 12:57:52,357 - root - INFO -   Epoch 69/150	 Time: 0.013	 Loss: 0.01931880
+2025-04-29 12:57:52,386 - root - INFO -   Epoch 70/150	 Time: 0.029	 Loss: 0.01930900
+2025-04-29 12:57:52,414 - root - INFO -   Epoch 71/150	 Time: 0.028	 Loss: 0.01929934
+2025-04-29 12:57:52,444 - root - INFO -   Epoch 72/150	 Time: 0.029	 Loss: 0.01928988
+2025-04-29 12:57:52,483 - root - INFO -   Epoch 73/150	 Time: 0.039	 Loss: 0.01928053
+2025-04-29 12:57:52,531 - root - INFO -   Epoch 74/150	 Time: 0.047	 Loss: 0.01927132
+2025-04-29 12:57:52,572 - root - INFO -   Epoch 75/150	 Time: 0.041	 Loss: 0.01926224
+2025-04-29 12:57:52,599 - root - INFO -   Epoch 76/150	 Time: 0.027	 Loss: 0.01925325
+2025-04-29 12:57:52,633 - root - INFO -   Epoch 77/150	 Time: 0.034	 Loss: 0.01924432
+2025-04-29 12:57:52,651 - root - INFO -   Epoch 78/150	 Time: 0.017	 Loss: 0.01923548
+2025-04-29 12:57:52,677 - root - INFO -   Epoch 79/150	 Time: 0.026	 Loss: 0.01922674
+2025-04-29 12:57:52,699 - root - INFO -   Epoch 80/150	 Time: 0.022	 Loss: 0.01921838
+2025-04-29 12:57:52,739 - root - INFO -   Epoch 81/150	 Time: 0.040	 Loss: 0.01921011
+2025-04-29 12:57:52,800 - root - INFO -   Epoch 82/150	 Time: 0.061	 Loss: 0.01920213
+2025-04-29 12:57:52,834 - root - INFO -   Epoch 83/150	 Time: 0.033	 Loss: 0.01919422
+2025-04-29 12:57:52,868 - root - INFO -   Epoch 84/150	 Time: 0.034	 Loss: 0.01918661
+2025-04-29 12:57:52,890 - root - INFO -   Epoch 85/150	 Time: 0.022	 Loss: 0.01917927
+2025-04-29 12:57:52,914 - root - INFO -   Epoch 86/150	 Time: 0.023	 Loss: 0.01917205
+2025-04-29 12:57:52,941 - root - INFO -   Epoch 87/150	 Time: 0.027	 Loss: 0.01916509
+2025-04-29 12:57:52,965 - root - INFO -   Epoch 88/150	 Time: 0.023	 Loss: 0.01915875
+2025-04-29 12:57:52,984 - root - INFO -   Epoch 89/150	 Time: 0.019	 Loss: 0.01896902
+2025-04-29 12:57:53,009 - root - INFO -   Epoch 90/150	 Time: 0.025	 Loss: 0.01880133
+2025-04-29 12:57:53,025 - root - INFO -   Epoch 91/150	 Time: 0.016	 Loss: 0.01865237
+2025-04-29 12:57:53,050 - root - INFO -   Epoch 92/150	 Time: 0.025	 Loss: 0.01852169
+2025-04-29 12:57:53,075 - root - INFO -   Epoch 93/150	 Time: 0.024	 Loss: 0.01840602
+2025-04-29 12:57:53,105 - root - INFO -   Epoch 94/150	 Time: 0.030	 Loss: 0.01830291
+2025-04-29 12:57:53,132 - root - INFO -   Epoch 95/150	 Time: 0.027	 Loss: 0.01820993
+2025-04-29 12:57:53,167 - root - INFO -   Epoch 96/150	 Time: 0.034	 Loss: 0.01812597
+2025-04-29 12:57:53,195 - root - INFO -   Epoch 97/150	 Time: 0.028	 Loss: 0.01804908
+2025-04-29 12:57:53,215 - root - INFO -   Epoch 98/150	 Time: 0.020	 Loss: 0.01797855
+2025-04-29 12:57:53,245 - root - INFO -   Epoch 99/150	 Time: 0.030	 Loss: 0.01794333
+2025-04-29 12:57:53,269 - root - INFO -   Epoch 100/150	 Time: 0.024	 Loss: 0.01791042
+2025-04-29 12:57:53,299 - root - INFO -   Epoch 101/150	 Time: 0.030	 Loss: 0.01787803
+2025-04-29 12:57:53,332 - root - INFO -   Epoch 102/150	 Time: 0.033	 Loss: 0.01783049
+2025-04-29 12:57:53,350 - root - INFO -   Epoch 103/150	 Time: 0.017	 Loss: 0.01778732
+2025-04-29 12:57:53,387 - root - INFO -   Epoch 104/150	 Time: 0.037	 Loss: 0.01774356
+2025-04-29 12:57:53,425 - root - INFO -   Epoch 105/150	 Time: 0.038	 Loss: 0.01769995
+2025-04-29 12:57:53,455 - root - INFO -   Epoch 106/150	 Time: 0.029	 Loss: 0.01765585
+2025-04-29 12:57:53,496 - root - INFO -   Epoch 107/150	 Time: 0.041	 Loss: 0.01761186
+2025-04-29 12:57:53,521 - root - INFO -   Epoch 108/150	 Time: 0.025	 Loss: 0.01756971
+2025-04-29 12:57:53,540 - root - INFO -   Epoch 109/150	 Time: 0.018	 Loss: 0.01753102
+2025-04-29 12:57:53,568 - root - INFO -   Epoch 110/150	 Time: 0.027	 Loss: 0.01749310
+2025-04-29 12:57:53,601 - root - INFO -   Epoch 111/150	 Time: 0.033	 Loss: 0.01745588
+2025-04-29 12:57:53,629 - root - INFO -   Epoch 112/150	 Time: 0.028	 Loss: 0.01741929
+2025-04-29 12:57:53,650 - root - INFO -   Epoch 113/150	 Time: 0.020	 Loss: 0.01738709
+2025-04-29 12:57:53,701 - root - INFO -   Epoch 114/150	 Time: 0.051	 Loss: 0.01735788
+2025-04-29 12:57:53,733 - root - INFO -   Epoch 115/150	 Time: 0.032	 Loss: 0.01733251
+2025-04-29 12:57:53,758 - root - INFO -   Epoch 116/150	 Time: 0.025	 Loss: 0.01730877
+2025-04-29 12:57:53,801 - root - INFO -   Epoch 117/150	 Time: 0.043	 Loss: 0.01728631
+2025-04-29 12:57:53,853 - root - INFO -   Epoch 118/150	 Time: 0.052	 Loss: 0.01726439
+2025-04-29 12:57:53,876 - root - INFO -   Epoch 119/150	 Time: 0.022	 Loss: 0.01724297
+2025-04-29 12:57:53,903 - root - INFO -   Epoch 120/150	 Time: 0.027	 Loss: 0.01722247
+2025-04-29 12:57:53,933 - root - INFO -   Epoch 121/150	 Time: 0.029	 Loss: 0.01720447
+2025-04-29 12:57:53,959 - root - INFO -   Epoch 122/150	 Time: 0.026	 Loss: 0.01718455
+2025-04-29 12:57:53,983 - root - INFO -   Epoch 123/150	 Time: 0.024	 Loss: 0.01716247
+2025-04-29 12:57:54,001 - root - INFO -   Epoch 124/150	 Time: 0.018	 Loss: 0.01713763
+2025-04-29 12:57:54,034 - root - INFO -   Epoch 125/150	 Time: 0.032	 Loss: 0.01711412
+2025-04-29 12:57:54,067 - root - INFO -   Epoch 126/150	 Time: 0.033	 Loss: 0.01709182
+2025-04-29 12:57:54,091 - root - INFO -   Epoch 127/150	 Time: 0.024	 Loss: 0.01707060
+2025-04-29 12:57:54,119 - root - INFO -   Epoch 128/150	 Time: 0.027	 Loss: 0.01705036
+2025-04-29 12:57:54,140 - root - INFO -   Epoch 129/150	 Time: 0.020	 Loss: 0.01703101
+2025-04-29 12:57:54,167 - root - INFO -   Epoch 130/150	 Time: 0.027	 Loss: 0.01701246
+2025-04-29 12:57:54,230 - root - INFO -   Epoch 131/150	 Time: 0.063	 Loss: 0.01699465
+2025-04-29 12:57:54,283 - root - INFO -   Epoch 132/150	 Time: 0.053	 Loss: 0.01697752
+2025-04-29 12:57:54,315 - root - INFO -   Epoch 133/150	 Time: 0.032	 Loss: 0.01696098
+2025-04-29 12:57:54,414 - root - INFO -   Epoch 134/150	 Time: 0.098	 Loss: 0.01694497
+2025-04-29 12:57:54,439 - root - INFO -   Epoch 135/150	 Time: 0.025	 Loss: 0.01692947
+2025-04-29 12:57:54,475 - root - INFO -   Epoch 136/150	 Time: 0.036	 Loss: 0.01691438
+2025-04-29 12:57:54,504 - root - INFO -   Epoch 137/150	 Time: 0.029	 Loss: 0.01689973
+2025-04-29 12:57:54,535 - root - INFO -   Epoch 138/150	 Time: 0.031	 Loss: 0.01688544
+2025-04-29 12:57:54,556 - root - INFO -   Epoch 139/150	 Time: 0.021	 Loss: 0.01687149
+2025-04-29 12:57:54,628 - root - INFO -   Epoch 140/150	 Time: 0.072	 Loss: 0.01685793
+2025-04-29 12:57:54,656 - root - INFO -   Epoch 141/150	 Time: 0.028	 Loss: 0.01684523
+2025-04-29 12:57:54,691 - root - INFO -   Epoch 142/150	 Time: 0.035	 Loss: 0.01683426
+2025-04-29 12:57:54,793 - root - INFO -   Epoch 143/150	 Time: 0.101	 Loss: 0.01682449
+2025-04-29 12:57:54,814 - root - INFO -   Epoch 144/150	 Time: 0.021	 Loss: 0.01681518
+2025-04-29 12:57:54,839 - root - INFO -   Epoch 145/150	 Time: 0.025	 Loss: 0.01680618
+2025-04-29 12:57:54,859 - root - INFO -   Epoch 146/150	 Time: 0.019	 Loss: 0.01679742
+2025-04-29 12:57:54,876 - root - INFO -   Epoch 147/150	 Time: 0.017	 Loss: 0.01678888
+2025-04-29 12:57:54,897 - root - INFO -   Epoch 148/150	 Time: 0.021	 Loss: 0.01678098
+2025-04-29 12:57:54,913 - root - INFO -   Epoch 149/150	 Time: 0.016	 Loss: 0.01677249
+2025-04-29 12:57:54,930 - root - INFO -   Epoch 150/150	 Time: 0.017	 Loss: 0.01675949
+2025-04-29 12:57:54,931 - root - INFO - Training time: 4.408
+2025-04-29 12:57:54,931 - root - INFO - Finished training.
+2025-04-29 12:57:54,938 - root - INFO - start testing....
+2025-04-29 12:57:54,942 - root - INFO - Loading model from ./output/model.tar
+2025-04-29 12:58:03,463 - root - INFO - Starting testing...
+2025-04-29 12:58:03,580 - root - INFO - Testing time: 0.116
+2025-04-29 12:58:03,595 - root - INFO - Test set AUC: 63.00%
+2025-04-29 12:58:03,595 - root - INFO - Finished testing.
+2025-04-29 12:58:03,615 - root - INFO - Normal log templates to embedding: , 73
+2025-04-29 12:58:03,691 - root - INFO - Using embedding...
+2025-04-29 13:05:48,293 - root - INFO - {'is_train': False, 'is_rag': True, 'dataset_name': 'BGL', 'train_ratio': 0.8, 'window_size': 200, 'window_time': 1800, 'log_structed_path': './dataset/BGL/bgl-example.log_structured.csv', 'encoder_path': './pretrained', 'api_key': 'sk-IXv5inyh4jRh9ae8bRFbuZ1NDpQVXcTgjnUJW024Mn93JTsx', 'api_base': 'https://api.openai-proxy.org/v1', 'llm_name': 'gpt-3.5-turbo', 'normal_class': 0, 'is_pretrain': False, 'optimizer_name': 'adam', 'lr': 0.0001, 'n_epochs': 150, 'lr_milestones': [50], 'batch_size': 4096, 'weight_decay': 0.0005, 'device': 'cpu', 'n_jobs_dataloader': 0, 'threshold': 0.8, 'topk': 5, 'prompt': 'prompt5', 'persist_directory': './output/ragdb-bgl'}
+2025-04-29 13:05:48,333 - root - INFO - Loading model from ./output/model.tar
+2025-04-29 13:05:48,336 - root - INFO - start testing....
+2025-04-29 13:05:48,338 - root - INFO - Loading model from ./output/model.tar
+2025-04-29 13:05:55,539 - root - INFO - Starting testing...
+2025-04-29 13:05:55,554 - root - INFO - Testing time: 0.014
+2025-04-29 13:05:55,558 - root - INFO - Test set AUC: 63.00%
+2025-04-29 13:05:55,559 - root - INFO - Finished testing.
+2025-04-29 13:05:55,581 - root - INFO - Normal log templates to embedding: , 73
+2025-04-29 13:05:55,676 - root - INFO - Using embedding...
+2025-04-29 13:18:47,730 - root - INFO - {'is_train': False, 'is_rag': True, 'dataset_name': 'BGL', 'train_ratio': 0.8, 'window_size': 200, 'window_time': 1800, 'log_structed_path': './dataset/BGL/bgl-example.log_structured.csv', 'encoder_path': './pretrained', 'api_key': 'sk-IXv5inyh4jRh9ae8bRFbuZ1NDpQVXcTgjnUJW024Mn93JTsx', 'api_base': 'https://api.openai-proxy.org/v1', 'llm_name': 'gpt-3.5-turbo', 'normal_class': 0, 'is_pretrain': False, 'optimizer_name': 'adam', 'lr': 0.0001, 'n_epochs': 150, 'lr_milestones': [50], 'batch_size': 4096, 'weight_decay': 0.0005, 'device': 'cpu', 'n_jobs_dataloader': 0, 'threshold': 0.8, 'topk': 5, 'prompt': 'prompt5', 'persist_directory': './output/ragdb-bgl'}
+2025-04-29 13:18:47,888 - root - INFO - Loading model from ./output/model.tar
+2025-04-29 13:18:47,892 - root - INFO - start testing....
+2025-04-29 13:18:47,902 - root - INFO - Loading model from ./output/model.tar
+2025-04-29 13:18:55,831 - root - INFO - Starting testing...
+2025-04-29 13:18:55,878 - root - INFO - Testing time: 0.045
+2025-04-29 13:18:55,883 - root - INFO - Test set AUC: 63.00%
+2025-04-29 13:18:55,883 - root - INFO - Finished testing.
+2025-04-29 13:18:55,902 - root - INFO - Normal log templates to embedding: , 73
+2025-04-29 13:18:55,974 - root - INFO - Using embedding...
+2025-04-29 13:27:41,994 - root - INFO - {'is_train': False, 'is_rag': True, 'dataset_name': 'BGL', 'train_ratio': 0.8, 'window_size': 200, 'window_time': 1800, 'log_structed_path': './dataset/BGL/bgl-example.log_structured.csv', 'encoder_path': './pretrained', 'api_key': 'sk-IXv5inyh4jRh9ae8bRFbuZ1NDpQVXcTgjnUJW024Mn93JTsx', 'api_base': 'https://api.openai-proxy.org/v1', 'llm_name': 'gpt-3.5-turbo', 'normal_class': 0, 'is_pretrain': False, 'optimizer_name': 'adam', 'lr': 0.0001, 'n_epochs': 150, 'lr_milestones': [50], 'batch_size': 4096, 'weight_decay': 0.0005, 'device': 'cpu', 'n_jobs_dataloader': 0, 'threshold': 0.8, 'topk': 5, 'prompt': 'prompt5', 'persist_directory': './output/ragdb-bgl'}
+2025-04-29 13:27:42,044 - root - INFO - Loading model from ./output/model.tar
+2025-04-29 13:27:42,047 - root - INFO - start testing....
+2025-04-29 13:27:42,050 - root - INFO - Loading model from ./output/model.tar
+2025-04-29 13:27:53,221 - root - INFO - Starting testing...
+2025-04-29 13:27:53,303 - root - INFO - Testing time: 0.079
+2025-04-29 13:27:53,320 - root - INFO - Test set AUC: 63.00%
+2025-04-29 13:27:53,320 - root - INFO - Finished testing.
+2025-04-29 13:27:53,346 - root - INFO - Normal log templates to embedding: , 73
+2025-04-29 13:27:53,431 - root - INFO - Using embedding...
+2025-04-29 13:27:54,323 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-29 13:27:59,420 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:28:01,356 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:28:03,303 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:28:03,812 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:28:03,824 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.8
+2025-04-29 13:28:05,122 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:28:05,933 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:28:07,032 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:28:07,580 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:28:07,595 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.8
+2025-04-29 13:28:08,669 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:28:09,598 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:28:10,865 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:28:11,608 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:28:11,631 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.8
+2025-04-29 13:28:12,625 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:28:13,124 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:28:14,324 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:28:14,900 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:28:14,929 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.8
+2025-04-29 13:28:15,967 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:28:16,469 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:28:17,702 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:28:18,300 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:28:19,544 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:28:20,330 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:28:21,199 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:28:21,791 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:28:22,863 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:28:23,283 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:28:24,401 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:28:24,984 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:28:24,998 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.8
+2025-04-29 13:28:26,204 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:28:26,739 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:28:28,249 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:28:28,741 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:28:30,141 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:28:30,714 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:28:32,121 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:28:32,674 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:28:32,687 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.8
+2025-04-29 13:28:33,895 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:28:33,901 - root - INFO - Saved results to 
+output/anomaly_logs_detc_by_rag.csv
+output/llm_answer.json
+2025-04-29 13:28:33,924 - root - INFO - fixing windows size 1:  TP: 17, FP: 104, TN: 272, FN: 7 
+2025-04-29 13:28:33,925 - root - INFO - fixing windows size 1: Acc: 0.7225, Precision: 0.1405, Recall: 0.7083, F1: 0.2345
+
+2025-04-29 13:28:33,929 - root - INFO - fixing windows size 200, Tp: 2, Fp: 0, Tn: 0, Fn: 0
+2025-04-29 13:28:33,929 - root - INFO - fixing windows size 200, Acc: 1.0000, Precision: 1.0000, Recall: 1.0000, F1: 1.0000
+
+2025-04-29 13:28:33,934 - root - INFO - time windows size 1800 seconds, Tp: 12, Fp: 27, Tn: 94, Fn: 5
+2025-04-29 13:28:33,935 - root - INFO - time windows size 1800 seconds, Acc: 0.7681, Precision: 0.3077, Recall: 0.7059, F1: 0.4286
+
+2025-04-29 13:41:32,557 - root - INFO - {'is_train': False, 'is_rag': True, 'dataset_name': 'BGL', 'train_ratio': 0.8, 'window_size': 200, 'window_time': 1800, 'log_structed_path': './dataset/BGL/bgl-example.log_structured.csv', 'encoder_path': './pretrained', 'api_key': 'sk-IXv5inyh4jRh9ae8bRFbuZ1NDpQVXcTgjnUJW024Mn93JTsx', 'api_base': 'https://api.openai-proxy.org/v1', 'llm_name': 'gpt-3.5-turbo', 'normal_class': 0, 'is_pretrain': False, 'optimizer_name': 'adam', 'lr': 0.0001, 'n_epochs': 150, 'lr_milestones': [50], 'batch_size': 4096, 'weight_decay': 0.0005, 'device': 'cpu', 'n_jobs_dataloader': 0, 'threshold': 0.8, 'topk': 5, 'prompt': 'prompt5', 'persist_directory': './output/ragdb-bgl'}
+2025-04-29 13:41:32,597 - root - INFO - Loading model from ./output/model.tar
+2025-04-29 13:41:32,599 - root - INFO - start testing....
+2025-04-29 13:41:32,602 - root - INFO - Loading model from ./output/model.tar
+2025-04-29 13:41:41,229 - root - INFO - Starting testing...
+2025-04-29 13:41:41,267 - root - INFO - Testing time: 0.037
+2025-04-29 13:41:41,278 - root - INFO - Test set AUC: 63.00%
+2025-04-29 13:41:41,278 - root - INFO - Finished testing.
+2025-04-29 13:41:41,296 - root - INFO - Normal log templates to embedding: , 73
+2025-04-29 13:41:41,374 - root - INFO - Loading from db...
+2025-04-29 13:41:41,982 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-29 13:41:46,903 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:41:48,980 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:41:49,513 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:41:49,556 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.8
+2025-04-29 13:41:50,705 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:41:51,185 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:41:52,353 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:41:53,132 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:41:53,164 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.8
+2025-04-29 13:41:54,326 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:41:55,137 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:41:57,612 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:41:58,365 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:41:58,375 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.8
+2025-04-29 13:41:59,348 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:41:59,767 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:42:00,881 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:42:01,646 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:42:01,670 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.8
+2025-04-29 13:42:02,694 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:42:03,183 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:42:04,514 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:42:05,279 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:42:06,558 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:42:06,975 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:42:07,785 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:42:08,633 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:42:09,739 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:42:10,252 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:42:11,475 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:42:12,126 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:42:13,231 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.8
+2025-04-29 13:42:14,655 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:42:15,202 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:42:16,893 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:42:17,456 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:42:18,945 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:42:19,795 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:42:21,548 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:42:22,163 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:42:22,462 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.8
+2025-04-29 13:42:25,825 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:42:25,835 - root - INFO - Saved results to 
+output/anomaly_logs_detc_by_rag.csv
+output/llm_answer.json
+2025-04-29 13:42:25,861 - root - INFO - fixing windows size 1:  TP: 17, FP: 104, TN: 272, FN: 7 
+2025-04-29 13:42:25,861 - root - INFO - fixing windows size 1: Acc: 0.7225, Precision: 0.1405, Recall: 0.7083, F1: 0.2345
+
+2025-04-29 13:42:25,864 - root - INFO - fixing windows size 200, Tp: 2, Fp: 0, Tn: 0, Fn: 0
+2025-04-29 13:42:25,864 - root - INFO - fixing windows size 200, Acc: 1.0000, Precision: 1.0000, Recall: 1.0000, F1: 1.0000
+
+2025-04-29 13:42:25,869 - root - INFO - time windows size 1800 seconds, Tp: 12, Fp: 27, Tn: 94, Fn: 5
+2025-04-29 13:42:25,869 - root - INFO - time windows size 1800 seconds, Acc: 0.7681, Precision: 0.3077, Recall: 0.7059, F1: 0.4286
+
+2025-04-29 13:54:14,390 - root - INFO - {'is_train': False, 'is_rag': True, 'dataset_name': 'BGL', 'train_ratio': 0.8, 'window_size': 200, 'window_time': 1800, 'log_structed_path': './dataset/BGL/bgl-example.log_structured.csv', 'encoder_path': './pretrained', 'api_key': 'sk-IXv5inyh4jRh9ae8bRFbuZ1NDpQVXcTgjnUJW024Mn93JTsx', 'api_base': 'https://api.openai-proxy.org/v1', 'llm_name': 'gpt-3.5-turbo', 'normal_class': 0, 'is_pretrain': False, 'optimizer_name': 'adam', 'lr': 0.0001, 'n_epochs': 150, 'lr_milestones': [50], 'batch_size': 4096, 'weight_decay': 0.0005, 'device': 'cpu', 'n_jobs_dataloader': 0, 'threshold': 0.8, 'topk': 5, 'prompt': 'prompt5', 'persist_directory': './output/ragdb-bgl'}
+2025-04-29 13:54:14,423 - root - INFO - Loading model from ./output/model.tar
+2025-04-29 13:54:14,426 - root - INFO - start testing....
+2025-04-29 13:54:14,428 - root - INFO - Loading model from ./output/model.tar
+2025-04-29 13:54:19,576 - root - INFO - Starting testing...
+2025-04-29 13:54:19,598 - root - INFO - Testing time: 0.022
+2025-04-29 13:54:19,603 - root - INFO - Test set AUC: 63.00%
+2025-04-29 13:54:19,603 - root - INFO - Finished testing.
+2025-04-29 13:54:19,626 - root - INFO - Normal log templates to embedding: , 73
+2025-04-29 13:54:19,680 - root - INFO - Loading from db...
+2025-04-29 13:54:20,192 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-29 13:54:25,391 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:54:27,667 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:54:28,260 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:54:28,303 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.8
+2025-04-29 13:54:29,282 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:54:29,814 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:54:31,144 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:54:31,662 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:54:31,677 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.8
+2025-04-29 13:54:32,993 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:54:33,510 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:54:34,732 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:54:35,249 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:54:35,295 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.8
+2025-04-29 13:54:36,575 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:54:37,159 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:54:38,289 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:54:38,687 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:54:38,730 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.8
+2025-04-29 13:54:39,955 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:54:40,467 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:54:41,822 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:54:42,423 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:54:43,641 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:54:44,264 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:54:45,072 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:54:45,590 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:54:46,841 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:54:47,328 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:54:48,336 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:54:49,176 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:54:49,187 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.8
+2025-04-29 13:54:50,379 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:54:51,015 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:54:52,342 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:54:52,961 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:54:54,208 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:54:54,807 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:54:56,238 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:54:56,867 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 13:54:56,906 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.8
+2025-04-29 13:54:58,184 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 13:54:58,197 - root - INFO - Saved results to 
+output/anomaly_logs_detc_by_rag.csv
+output/llm_answer.json
+2025-04-29 13:54:58,219 - root - INFO - fixing windows size 1:  TP: 17, FP: 104, TN: 272, FN: 7 
+2025-04-29 13:54:58,219 - root - INFO - fixing windows size 1: Acc: 0.7225, Precision: 0.1405, Recall: 0.7083, F1: 0.2345
+
+2025-04-29 13:54:58,223 - root - INFO - fixing windows size 200, Tp: 2, Fp: 0, Tn: 0, Fn: 0
+2025-04-29 13:54:58,223 - root - INFO - fixing windows size 200, Acc: 1.0000, Precision: 1.0000, Recall: 1.0000, F1: 1.0000
+
+2025-04-29 13:54:58,229 - root - INFO - time windows size 1800 seconds, Tp: 12, Fp: 27, Tn: 94, Fn: 5
+2025-04-29 13:54:58,229 - root - INFO - time windows size 1800 seconds, Acc: 0.7681, Precision: 0.3077, Recall: 0.7059, F1: 0.4286
+
+2025-04-29 15:07:06,186 - root - INFO - {'is_train': False, 'is_rag': True, 'dataset_name': 'BGL', 'train_ratio': 0.8, 'window_size': 200, 'window_time': 1800, 'log_structed_path': './dataset/BGL/bgl-example.log_structured.csv', 'encoder_path': './pretrained', 'api_key': 'sk-IXv5inyh4jRh9ae8bRFbuZ1NDpQVXcTgjnUJW024Mn93JTsx', 'api_base': 'https://api.openai-proxy.org/v1', 'llm_name': 'gpt-3.5-turbo', 'normal_class': 0, 'is_pretrain': False, 'optimizer_name': 'adam', 'lr': 0.0001, 'n_epochs': 150, 'lr_milestones': [50], 'batch_size': 4096, 'weight_decay': 0.0005, 'device': 'cpu', 'n_jobs_dataloader': 0, 'threshold': 0.8, 'topk': 5, 'prompt': 'prompt5', 'persist_directory': './output/ragdb-bgl'}
+2025-04-29 15:07:06,248 - root - INFO - Loading model from ./output/model.tar
+2025-04-29 15:07:06,251 - root - INFO - start testing....
+2025-04-29 15:07:06,254 - root - INFO - Loading model from ./output/model.tar
+2025-04-29 15:07:20,538 - root - INFO - Starting testing...
+2025-04-29 15:07:20,558 - root - INFO - Testing time: 0.018
+2025-04-29 15:07:20,574 - root - INFO - Test set AUC: 63.00%
+2025-04-29 15:07:20,574 - root - INFO - Finished testing.
+2025-04-29 15:07:20,611 - root - INFO - Normal log templates to embedding: , 73
+2025-04-29 15:07:20,702 - root - INFO - Loading from db...
+2025-04-29 15:07:21,367 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-29 15:07:28,111 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 15:07:30,376 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 15:07:31,005 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 15:07:31,059 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.8
+2025-04-29 15:07:32,187 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 15:07:32,626 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 15:07:33,835 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 15:07:34,331 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 15:07:34,368 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.8
+2025-04-29 15:07:35,692 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 15:07:36,192 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 15:07:37,527 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 15:07:38,079 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 15:07:38,121 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.8
+2025-04-29 15:07:39,262 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 15:07:39,895 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 15:07:40,894 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 15:07:41,378 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 15:07:41,429 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.8
+2025-04-29 15:07:42,572 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 15:07:42,984 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 15:07:44,393 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 15:07:44,822 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 15:07:46,202 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 15:07:46,622 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 15:07:47,397 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 15:07:47,936 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 15:07:49,015 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 15:07:49,476 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 15:07:50,740 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 15:07:51,342 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 15:07:51,373 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.8
+2025-04-29 15:07:52,584 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 15:07:53,367 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 15:07:54,589 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 15:07:55,279 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 15:07:56,579 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 15:07:56,973 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 15:07:58,449 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 15:07:59,000 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-29 15:07:59,007 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.8
+2025-04-29 15:08:00,106 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-29 15:08:00,116 - root - INFO - Saved results to 
+output/anomaly_logs_detc_by_rag.csv
+output/llm_answer.json
+2025-04-29 15:08:00,151 - root - INFO - fixing windows size 1:  TP: 17, FP: 104, TN: 272, FN: 7 
+2025-04-29 15:08:00,152 - root - INFO - fixing windows size 1: Acc: 0.7225, Precision: 0.1405, Recall: 0.7083, F1: 0.2345
+
+2025-04-29 15:08:00,155 - root - INFO - fixing windows size 200, Tp: 2, Fp: 0, Tn: 0, Fn: 0
+2025-04-29 15:08:00,155 - root - INFO - fixing windows size 200, Acc: 1.0000, Precision: 1.0000, Recall: 1.0000, F1: 1.0000
+
+2025-04-29 15:08:00,160 - root - INFO - time windows size 1800 seconds, Tp: 12, Fp: 27, Tn: 94, Fn: 5
+2025-04-29 15:08:00,160 - root - INFO - time windows size 1800 seconds, Acc: 0.7681, Precision: 0.3077, Recall: 0.7059, F1: 0.4286
+

@@ -2,9 +2,13 @@ FROM node:18-alpine
 
 WORKDIR /app
 
+# 安装 cnpm
+RUN npm install -g cnpm --registry=https://registry.npmmirror.com
+
 COPY package*.json ./
 
-RUN npm install
+# 使用 cnpm 安装依赖
+RUN cnpm install
 
 COPY . .
 

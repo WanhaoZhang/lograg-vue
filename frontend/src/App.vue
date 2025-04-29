@@ -121,94 +121,89 @@
       v-model="detailsVisible"
       title="异常日志详情"
       width="70%"
-      :style="{ maxHeight: '85vh' }"
       center
       @open="handleDialogOpen"
       custom-class="details-dialog"
     >
-      <div class="details-container">
-        <div class="details-header">
-          <div class="log-meta">
-            <el-tag size="large" :type="getTagType(currentLog.level)" effect="dark">{{ currentLog.level }}</el-tag>
-            <span class="log-timestamp">{{ currentLog.timestamp }}</span>
-            <span class="log-service">{{ currentLog.service }}</span>
+      <div class="log-details">
+        <!-- 日志基本信息 -->
+        <div class="log-info">
+          <div class="log-level">
+            <el-tag size="large" :type="getTagType(currentLog.level)" effect="dark">
+              {{ currentLog.level }}
+            </el-tag>
           </div>
-          <div class="control-buttons">
-            <el-button size="small" type="primary" @click="toggleFullScreen" circle>
-              <el-icon><FullScreen /></el-icon>
-            </el-button>
+          <div class="log-time">{{ currentLog.timestamp }}</div>
+          <div class="log-service">{{ currentLog.service }}</div>
+        </div>
+
+        <!-- 异常概述 -->
+        <div class="section">
+          <div class="section-title">
+            <el-icon><Warning /></el-icon>
+            <span>异常概述</span>
+          </div>
+          <div class="section-content">
+            <div class="info-item">
+              <div class="label">类型</div>
+              <div class="value">{{ currentLog && currentLog.service === 'openstack-service' ? 'AssertionError' : '服务异常' }}</div>
+            </div>
+            <div class="info-item">
+              <div class="label">表现</div>
+              <div class="value">{{ currentLog && currentLog.service === 'openstack-service' ? '预期返回1个服务器实例，实际len(servers)为0' : currentLog.message }}</div>
+            </div>
           </div>
         </div>
-        
-        <div class="details-content">
-          <div class="detail-card">
-            <div class="card-title">
-              <el-icon><Warning /></el-icon>
-              <span>异常概述</span>
+
+        <!-- 核心原因 -->
+        <div class="section">
+          <div class="section-title">
+            <el-icon><CircleClose /></el-icon>
+            <span>核心原因</span>
+          </div>
+          <div class="section-content">
+            <div class="cause-item">
+              <div class="cause-title">参数转换错误</div>
+              <ul class="cause-list">
+                <li>{{ currentLog && currentLog.service === 'openstack-service' ? 'flavor=abcde未映射到flavor_id' : '服务参数配置错误' }}</li>
+                <li>{{ currentLog && currentLog.service === 'openstack-service' ? 'status=resize未匹配实例真实状态' : '状态不匹配' }}</li>
+              </ul>
             </div>
-            <div class="card-content">
-              <div class="detail-item">
-                <div class="item-label">类型</div>
-                <div class="item-value">{{ currentLog && currentLog.service === 'openstack-service' ? 'AssertionError' : '服务异常' }}</div>
+            <div class="cause-item">
+              <div class="cause-title">测试数据缺陷</div>
+              <div class="cause-desc">
+                {{ currentLog && currentLog.service === 'openstack-service' ? 'Mock返回空列表，但测试预期非空数据' : '测试数据不完整' }}
               </div>
-              <div class="detail-item">
-                <div class="item-label">表现</div>
-                <div class="item-value">{{ currentLog && currentLog.service === 'openstack-service' ? '预期返回1个服务器实例，实际len(servers)为0' : currentLog.message }}</div>
+            </div>
+            <div class="cause-item">
+              <div class="cause-title">状态同步异常</div>
+              <div class="cause-desc">
+                {{ currentLog && currentLog.service === 'openstack-service' ? 'Nova日志显示实例因pending task跳过状态更新' : '服务状态同步失败' }}
               </div>
             </div>
           </div>
-          
-          <div class="detail-card">
-            <div class="card-title">
-              <el-icon><CircleClose /></el-icon>
-              <span>核心原因</span>
-            </div>
-            <div class="card-content">
-              <div class="cause-section">
-                <div class="cause-title">参数转换错误</div>
-                <ul class="cause-list">
-                  <li>{{ currentLog && currentLog.service === 'openstack-service' ? 'flavor=abcde未映射到flavor_id' : '服务参数配置错误' }}</li>
-                  <li>{{ currentLog && currentLog.service === 'openstack-service' ? 'status=resize未匹配实例真实状态' : '状态不匹配' }}</li>
-                </ul>
-              </div>
-              
-              <div class="cause-section">
-                <div class="cause-title">测试数据缺陷</div>
-                <div class="cause-content">
-                  {{ currentLog && currentLog.service === 'openstack-service' ? 'Mock返回空列表，但测试预期非空数据' : '测试数据不完整' }}
-                </div>
-              </div>
-              
-              <div class="cause-section">
-                <div class="cause-title">状态同步异常</div>
-                <div class="cause-content">
-                  {{ currentLog && currentLog.service === 'openstack-service' ? 'Nova日志显示实例因pending task跳过状态更新' : '服务状态同步失败' }}
-                </div>
-              </div>
-            </div>
+        </div>
+
+        <!-- 解决方案 -->
+        <div class="section">
+          <div class="section-title">
+            <el-icon><SetUp /></el-icon>
+            <span>解决方案</span>
           </div>
-          
-          <div class="detail-card">
-            <div class="card-title">
-              <el-icon><SetUp /></el-icon>
-              <span>解决方案</span>
+          <div class="section-content">
+            <div class="solution-item">
+              <div class="solution-title">短期措施</div>
+              <ul class="solution-list">
+                <li>{{ currentLog && currentLog.service === 'openstack-service' ? '检查compute_api.API.get_all中search_opts的过滤逻辑' : '检查服务配置' }}</li>
+                <li>{{ currentLog && currentLog.service === 'openstack-service' ? '添加断言验证参数：mock_get.assert_called_with(search_opts={\'status\':\'resize\'})' : '更新服务参数验证' }}</li>
+              </ul>
             </div>
-            <div class="card-content">
-              <div class="solution-section">
-                <div class="solution-type">短期措施</div>
-                <ul class="solution-list">
-                  <li>{{ currentLog && currentLog.service === 'openstack-service' ? '检查compute_api.API.get_all中search_opts的过滤逻辑' : '检查服务配置' }}</li>
-                  <li>{{ currentLog && currentLog.service === 'openstack-service' ? '添加断言验证参数：mock_get.assert_called_with(search_opts={\'status\':\'resize\'})' : '更新服务参数验证' }}</li>
-                </ul>
-              </div>
-              
-              <div class="solution-section">
-                <div class="solution-type">长期优化</div>
-                <ul class="solution-list">
-                  <li>{{ currentLog && currentLog.service === 'openstack-service' ? '在get_all中记录search_opts和返回结果数量' : '增强日志记录' }}</li>
-                  <li>{{ currentLog && currentLog.service === 'openstack-service' ? '为pending task状态增加自动重试机制' : '添加自动重试机制' }}</li>
-                </ul>
-              </div>
+            <div class="solution-item">
+              <div class="solution-title">长期优化</div>
+              <ul class="solution-list">
+                <li>{{ currentLog && currentLog.service === 'openstack-service' ? '在get_all中记录search_opts和返回结果数量' : '增强日志记录' }}</li>
+                <li>{{ currentLog && currentLog.service === 'openstack-service' ? '为pending task状态增加自动重试机制' : '添加自动重试机制' }}</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -697,167 +692,71 @@ const handleDialogOpen = () => {
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
 }
 
-:deep(.el-dialog__header) {
-  margin: 0;
-  padding: 20px 24px;
-  background: linear-gradient(to right, #f8f9fa, #ffffff);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+:deep(.el-dialog__body) {
+  flex: 1;
+  overflow: auto;
+  padding: 0;
+  max-height: calc(90vh - 120px);
 }
 
-:deep(.el-descriptions) {
-  padding: 24px;
-  border-radius: 12px;
-  background-color: #f8f9fa;
-}
-
-:deep(.el-descriptions__cell) {
-  padding: 16px 24px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-:deep(.el-descriptions-item__label) {
-  font-weight: bold;
-  color: #303133;
-}
-
-:deep(.el-descriptions-item__content) {
-  color: #606266;
-}
-
-:deep(ul) {
-  padding-left: 20px;
-  list-style-type: disc;
-}
-
-:deep(li) {
-  margin-bottom: 8px;
-}
-
-/* 确保日期选择器弹窗在最上层 */
-:deep(.el-picker__popper) {
-  z-index: 2000 !important;
-}
-
-/* 响应式布局调整 */
-@media screen and (max-width: 1200px) {
-  .container {
-    width: 98%;
-    transform: translateX(0);
-  }
-}
-
-.call-chain-container {
-  max-height: 200px; /* 限制最大高度 */
-  overflow-y: auto; /* 启用垂直滚动 */
-  padding: 10px;
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  position: relative;
-}
-
-.call-chain-container .el-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  z-index: 1;
-}
-
-.custom-message {
-  font-size: 20px; /* 增大字体 */
-  font-weight: bold; /* 加粗字体 */
-  padding: 10px 20px; /* 增加内边距 */
-  background-color: #f0f9ff; /* 设置背景颜色 */
-  border: 1px solid #b3d8ff; /* 设置边框颜色 */
-  border-radius: 8px; /* 圆角 */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 添加阴影 */
-  position: fixed;
-  top: 50%; /* 垂直居中 */
-  left: 50%; /* 水平居中 */
-  transform: translate(-50%, -50%); /* 确保居中 */
-  z-index: 1000; /* 确保在其他元素之上 */
-}
-
-.details-container {
-  padding: 20px;
+.details-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: 80vh;
 }
 
 .details-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
+  padding: 16px 20px;
+  background-color: #fff;
+  border-bottom: 1px solid #ebeef5;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
-.log-meta {
-  display: flex;
-  align-items: center;
-}
-
-.log-meta .el-tag {
-  margin-right: 10px;
-}
-
-.log-timestamp {
-  font-size: 14px;
-  color: #606266;
-  margin: 0 10px;
-}
-
-.log-service {
-  font-size: 14px;
-  color: #606266;
-  background-color: #f5f7fa;
-  padding: 4px 8px;
-  border-radius: 4px;
-  border: 1px solid #e4e7ed;
-}
-
-.control-buttons {
-  display: flex;
-  align-items: center;
-}
-
-.control-buttons .el-button {
-  margin-left: 10px;
+.details-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  height: calc(90vh - 200px); /* 设置固定高度 */
 }
 
 .details-content {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 20px;
-  padding: 10px;
+  min-height: 100%;
 }
 
 .detail-card {
-  width: calc(50% - 10px);
-  margin-right: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
-  flex: 1 0 calc(50% - 10px);
-  min-width: 320px;
+  overflow: hidden; /* 添加溢出处理 */
 }
 
 .card-title {
+  padding: 15px 20px;
+  border-bottom: 1px solid #ebeef5;
+  font-size: 16px;
+  font-weight: 600;
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
-}
-
-.card-title .el-icon {
-  margin-right: 10px;
 }
 
 .card-content {
   padding: 20px;
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  border: 1px solid #f0f2f5;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #fff;
+  overflow-y: auto;
+  max-height: none;
+  min-height: 200px; /* 设置最小高度 */
 }
 
 .detail-item {
@@ -893,49 +792,146 @@ const handleDialogOpen = () => {
 }
 
 .solution-section {
-  margin-bottom: 10px;
+  margin-bottom: 16px;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 8px;
 }
 
 .solution-type {
-  font-weight: bold;
+  font-weight: 600;
+  margin-bottom: 8px;
   color: #303133;
-  margin-bottom: 5px;
+  font-size: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #ebeef5;
 }
 
 .solution-list {
+  margin: 0;
   padding-left: 20px;
   list-style-type: disc;
 }
 
+.solution-list li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+  color: #606266;
+}
+
 .details-dialog {
-  .el-dialog__body {
+  :deep(.el-dialog) {
+    display: flex;
+    flex-direction: column;
+    margin: 0 !important;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 90vh;
+    width: 80% !important;
+    border-radius: 8px;
+  }
+
+  :deep(.el-dialog__header) {
+    padding: 20px;
+    margin: 0;
+    border-bottom: 1px solid #ebeef5;
+  }
+
+  :deep(.el-dialog__body) {
+    flex: 1;
+    overflow: hidden;
     padding: 0;
   }
 }
 
-.fullscreen-dialog {
-  .el-dialog__body {
-    padding: 0;
-  }
+.details-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-/* 添加正确的深度选择器样式 */
-:deep(.details-dialog .el-dialog__body) {
-  padding: 0;
+.details-header {
+  padding: 20px;
+  background-color: #fff;
+  border-bottom: 1px solid #ebeef5;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
-:deep(.fullscreen-dialog .el-dialog__body) {
-  padding: 0;
+.details-content {
+  padding: 20px;
+  flex: 1;
+  overflow-y: auto;
 }
 
-/* 添加响应式布局 */
 .detail-card {
-  width: calc(50% - 10px);
-  margin-right: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
+  padding: 0;
 }
 
-/* 响应式布局调整 */
+.card-title {
+  padding: 15px 20px;
+  border-bottom: 1px solid #ebeef5;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.card-title .el-icon {
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+.card-content {
+  padding: 20px;
+  background: #fff;
+}
+
+.cause-section, .solution-section {
+  margin-bottom: 16px;
+}
+
+.cause-title, .solution-type {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #303133;
+}
+
+.cause-list, .solution-list {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.cause-list li, .solution-list li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.log-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.log-timestamp {
+  color: #606266;
+}
+
+.log-service {
+  background: #f5f7fa;
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: #606266;
+}
+
+/* 移除之前的响应式布局代码 */
 @media screen and (max-width: 768px) {
   .detail-card {
     width: 100%;
@@ -953,10 +949,6 @@ const handleDialogOpen = () => {
   
   .log-timestamp, .log-service {
     margin-top: 5px;
-  }
-  
-  .details-content {
-    flex-direction: column;
   }
 }
 

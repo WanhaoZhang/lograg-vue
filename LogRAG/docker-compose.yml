@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  lograg:
+    build:
+      context: ..
+      dockerfile: LogRAG/Dockerfile
+    container_name: lograg
+    volumes:
+      - ./:/app/LogRAG
+    ports:
+      - "8000:8000"  # 如果需要暴露端口
+    environment:
+      - PYTHONUNBUFFERED=1
+    networks:
+      - lograg-network
+
+networks:
+  lograg-network:
+    name: lograg-network 

@@ -30,7 +30,6 @@ class RAGPostProcessor:
         self.device = configs['device']
         self.prompt = self._import_prompt(configs['prompt'])
         self.logger = logger
-        self.dataset_name = configs['dataset_name']
 
     def _import_prompt(self, prompt_name):
         # 动态导入 postprocess.prompts 模块
@@ -114,8 +113,12 @@ class RAGPostProcessor:
         tokenizer.pad_token = tokenizer.eos_token
         tokenizer.padding_side = "right"
 
-        model = AutoModelForCausalLM.from_pretrained(model_path,torch_dtype=torch.bfloat16).to(self.device)
-        # model = AutoModelForCausalLM.from_pretrained(model_path).to(self.device)
+        # model = AutoModelForCausalLM.from_pretrained(model_path)
+
+        gc.collect()
+        torch.cuda.empty_cache()
+
+        model = AutoModelForCausalLM.from_pretrained(model_path).to(self.device)
 
         text_generation_pipeline = pipeline(
             model=model,
@@ -142,8 +145,8 @@ class RAGPostProcessor:
         return normal_log_entries
 
     def post_process(self, anomaly_logs_path, test_data_path):
-        result_path = f"output/{self.dataset_name}/anomaly_logs_detc_by_rag.csv"       
-        answer_path = f"output/{self.dataset_name}/llm_answer.json"
+        result_path = 'output/anomaly_logs_detc_by_rag.csv'        
+        answer_path = 'output/llm_answer.json'
         
         QA_CHAIN_PROMPT = PromptTemplate.from_template(template=self.prompt)
         normal_log_entries = self.get_normal_log_entries()

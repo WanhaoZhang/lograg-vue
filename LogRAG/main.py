@@ -10,7 +10,6 @@ from postprocess import RAG
 import yaml
 from utils.evaluator import evaluate
 import torch
-os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'max_split_size_mb:50'
 
 with open('config.yaml', 'r') as file:
     configs = yaml.safe_load(file)
@@ -19,7 +18,7 @@ api_key = configs['api_key']
 os.environ["OPENAI_API_BASE"] = configs['api_base']
 os.environ["OPENAI_API_KEY"] = api_key
 
-output_dir = f"./output/{configs['dataset_name']}"
+output_dir = './output'
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
     
@@ -28,21 +27,21 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-file_handler = logging.FileHandler(f"./output/{configs['dataset_name']}/runtime.log")
+file_handler = logging.FileHandler('./output/runtime.log')
 file_handler.setLevel(logging.INFO)
 file_handler.setFormatter(formatter)
 logger.addHandler(file_handler)
 
 def train_deepsvdd(train_data_path):
-    if not os.path.exists(f"./output/{configs['dataset_name']}"):
-        os.makedirs(f"./output/{configs['dataset_name']}")
+    if not os.path.exists('./output'):
+        os.makedirs('./output')
     
     deep_SVDD = DeepSVDD('soft-boundary')
     deep_SVDD.set_network("mlp")
     
     if not configs['is_train']:
-        deep_SVDD.load_model(model_path=f"./output/{configs['dataset_name']}", load_ae=False)
-        logger.info(f"Loading model from ./output/{configs['dataset_name']}" )
+        deep_SVDD.load_model(model_path='./output/model.tar', load_ae=False)
+        logger.info('Loading model from ./output/model.tar' )
     else :
         # dataloader 
         train_dataset = load_dataset(data_path=train_data_path, encoder_path=configs['encoder_path'])
@@ -67,9 +66,9 @@ def train_deepsvdd(train_data_path):
                         device=configs['device'],  
                         n_jobs_dataloader=configs['n_jobs_dataloader'])  
     # Save results, model, and configuration
-    model_path = f"./output/{configs['dataset_name']}/model.tar"
-    deep_SVDD.save_results(export_json=f"./output/{configs['dataset_name']}/results.json")
-    deep_SVDD.save_model(export_model= model_path, save_ae=False)
+    model_path = './output/model.tar'
+    deep_SVDD.save_results(export_json='./output/results.json')
+    deep_SVDD.save_model(export_model= './output/model.tar', save_ae=False)
     return model_path
 
 def anomaly_detection(model_path, test_data_path):
@@ -85,7 +84,7 @@ def anomaly_detection(model_path, test_data_path):
 
     anomaly_lineid_list = [item[0] for item in tqdm(anomalys, desc='saving anomaly LineIds to list')]
    
-    output_file = f"output/{configs['dataset_name']}/anomaly_logs_detc_by_svdd.csv"
+    output_file = 'output/anomaly_logs_detc_by_svdd.csv'
     # 保存deepsvdd检测为异常的
     df_test = pd.read_csv(test_data_path)
     
