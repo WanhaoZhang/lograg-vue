@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  logrca:
+    build: .
+    volumes:
+      - ./output:/app/output
+    command: ["--input", "/app/output/code_context.json", "--output", "/app/output/log_analysis_report.json"] 
