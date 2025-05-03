@@ -1265,3 +1265,141 @@ output/llm_answer.json
 2025-04-29 15:08:00,160 - root - INFO - time windows size 1800 seconds, Tp: 12, Fp: 27, Tn: 94, Fn: 5
 2025-04-29 15:08:00,160 - root - INFO - time windows size 1800 seconds, Acc: 0.7681, Precision: 0.3077, Recall: 0.7059, F1: 0.4286
 
+2025-04-30 12:48:36,248 - root - INFO - {'is_train': False, 'is_rag': True, 'dataset_name': 'BGL', 'train_ratio': 0.8, 'window_size': 200, 'window_time': 1800, 'log_structed_path': './dataset/BGL/bgl-example.log_structured.csv', 'encoder_path': './pretrained', 'api_key': 'sk-IXv5inyh4jRh9ae8bRFbuZ1NDpQVXcTgjnUJW024Mn93JTsx', 'api_base': 'https://api.openai-proxy.org/v1', 'llm_name': 'gpt-3.5-turbo', 'normal_class': 0, 'is_pretrain': False, 'optimizer_name': 'adam', 'lr': 0.0001, 'n_epochs': 150, 'lr_milestones': [50], 'batch_size': 4096, 'weight_decay': 0.0005, 'device': 'cpu', 'n_jobs_dataloader': 0, 'threshold': 0.8, 'topk': 5, 'prompt': 'prompt5', 'persist_directory': './output/ragdb-bgl'}
+2025-04-30 12:48:36,328 - root - INFO - Loading model from ./output/model.tar
+2025-04-30 12:48:36,335 - root - INFO - start testing....
+2025-04-30 12:48:36,341 - root - INFO - Loading model from ./output/model.tar
+2025-04-30 12:56:33,352 - root - INFO - {'is_train': False, 'is_rag': True, 'dataset_name': 'BGL', 'train_ratio': 0.8, 'window_size': 200, 'window_time': 1800, 'log_structed_path': './dataset/BGL/bgl-example.log_structured.csv', 'encoder_path': './pretrained', 'api_key': 'sk-IXv5inyh4jRh9ae8bRFbuZ1NDpQVXcTgjnUJW024Mn93JTsx', 'api_base': 'https://api.openai-proxy.org/v1', 'llm_name': 'gpt-3.5-turbo', 'normal_class': 0, 'is_pretrain': False, 'optimizer_name': 'adam', 'lr': 0.0001, 'n_epochs': 150, 'lr_milestones': [50], 'batch_size': 4096, 'weight_decay': 0.0005, 'device': 'cpu', 'n_jobs_dataloader': 0, 'threshold': 0.8, 'topk': 5, 'prompt': 'prompt5', 'persist_directory': './output/ragdb-bgl'}
+2025-04-30 12:56:33,431 - root - INFO - Loading model from ./output/model.tar
+2025-04-30 12:56:33,433 - root - INFO - start testing....
+2025-04-30 12:56:33,435 - root - INFO - Loading model from ./output/model.tar
+2025-04-30 14:08:21,493 - root - INFO - {'is_train': False, 'is_rag': True, 'dataset_name': 'BGL', 'train_ratio': 0.8, 'window_size': 200, 'window_time': 1800, 'log_structed_path': './dataset/BGL/bgl-example.log_structured.csv', 'encoder_path': './pretrained', 'api_key': 'sk-IXv5inyh4jRh9ae8bRFbuZ1NDpQVXcTgjnUJW024Mn93JTsx', 'api_base': 'https://api.openai-proxy.org/v1', 'llm_name': 'gpt-3.5-turbo', 'normal_class': 0, 'is_pretrain': False, 'optimizer_name': 'adam', 'lr': 0.0001, 'n_epochs': 150, 'lr_milestones': [50], 'batch_size': 4096, 'weight_decay': 0.0005, 'device': 'cpu', 'n_jobs_dataloader': 0, 'threshold': 0.8, 'topk': 5, 'prompt': 'prompt5', 'persist_directory': './output/ragdb-bgl'}
+2025-04-30 14:08:21,565 - root - INFO - Loading model from ./output/model.tar
+2025-04-30 14:08:21,568 - root - INFO - start testing....
+2025-04-30 14:08:21,570 - root - INFO - Loading model from ./output/model.tar
+2025-04-30 14:08:31,786 - root - INFO - Starting testing...
+2025-04-30 14:08:31,809 - root - INFO - Testing time: 0.021
+2025-04-30 14:08:31,823 - root - INFO - Test set AUC: 63.00%
+2025-04-30 14:08:31,823 - root - INFO - Finished testing.
+2025-04-30 14:08:31,852 - root - INFO - Normal log templates to embedding: , 73
+2025-04-30 14:08:31,934 - root - INFO - Loading from db...
+2025-04-30 14:08:32,644 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-30 14:08:37,580 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-30 14:08:39,680 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-30 14:08:40,222 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-30 14:08:40,247 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.8
+2025-04-30 14:08:41,310 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-30 14:08:41,771 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-30 14:08:43,220 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-30 14:08:43,822 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-30 14:08:43,872 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.8
+2025-04-30 14:08:45,321 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-30 14:08:45,892 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-30 14:08:47,165 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-30 14:08:47,779 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-30 14:08:47,794 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.8
+2025-04-30 14:08:48,697 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-30 14:08:49,222 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-30 14:08:51,546 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-30 14:08:52,005 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-30 14:08:52,081 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.8
+2025-04-30 14:08:53,098 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-30 14:08:53,667 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-30 14:08:55,068 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-30 14:08:55,591 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-30 14:08:56,665 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-30 14:08:57,237 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-30 14:08:58,082 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-30 14:08:58,801 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-30 14:09:00,077 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-30 14:09:00,480 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-30 14:09:01,627 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-30 14:09:02,222 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-30 14:09:02,258 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.8
+2025-04-30 14:09:03,361 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-30 14:09:03,876 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-30 14:09:04,953 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-30 14:09:05,446 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-30 14:09:06,595 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-30 14:09:07,088 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-30 14:09:08,885 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-30 14:09:09,294 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-04-30 14:09:09,350 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.8
+2025-04-30 14:09:10,391 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-30 14:09:10,399 - root - INFO - Saved results to 
+output/anomaly_logs_detc_by_rag.csv
+output/llm_answer.json
+2025-04-30 14:09:10,431 - root - INFO - fixing windows size 1:  TP: 17, FP: 104, TN: 272, FN: 7 
+2025-04-30 14:09:10,431 - root - INFO - fixing windows size 1: Acc: 0.7225, Precision: 0.1405, Recall: 0.7083, F1: 0.2345
+
+2025-04-30 14:09:10,435 - root - INFO - fixing windows size 200, Tp: 2, Fp: 0, Tn: 0, Fn: 0
+2025-04-30 14:09:10,435 - root - INFO - fixing windows size 200, Acc: 1.0000, Precision: 1.0000, Recall: 1.0000, F1: 1.0000
+
+2025-04-30 14:09:10,440 - root - INFO - time windows size 1800 seconds, Tp: 12, Fp: 27, Tn: 94, Fn: 5
+2025-04-30 14:09:10,440 - root - INFO - time windows size 1800 seconds, Acc: 0.7681, Precision: 0.3077, Recall: 0.7059, F1: 0.4286
+
+2025-05-03 14:55:06,970 - root - INFO - {'is_train': False, 'is_rag': True, 'dataset_name': 'BGL', 'train_ratio': 0.8, 'window_size': 200, 'window_time': 1800, 'log_structed_path': './dataset/BGL/bgl-example.log_structured.csv', 'encoder_path': './pretrained', 'api_key': 'sk-IXv5inyh4jRh9ae8bRFbuZ1NDpQVXcTgjnUJW024Mn93JTsx', 'api_base': 'https://api.openai-proxy.org/v1', 'llm_name': 'gpt-3.5-turbo', 'normal_class': 0, 'is_pretrain': False, 'optimizer_name': 'adam', 'lr': 0.0001, 'n_epochs': 150, 'lr_milestones': [50], 'batch_size': 4096, 'weight_decay': 0.0005, 'device': 'cpu', 'n_jobs_dataloader': 0, 'threshold': 0.8, 'topk': 5, 'prompt': 'prompt5', 'persist_directory': './output/ragdb-bgl'}
+2025-05-03 14:55:07,020 - root - INFO - Loading model from ./output/model.tar
+2025-05-03 14:55:07,023 - root - INFO - start testing....
+2025-05-03 14:55:07,026 - root - INFO - Loading model from ./output/model.tar
+2025-05-03 14:55:10,587 - root - INFO - Starting testing...
+2025-05-03 14:55:10,632 - root - INFO - Testing time: 0.044
+2025-05-03 14:55:10,635 - root - INFO - Test set AUC: 63.00%
+2025-05-03 14:55:10,635 - root - INFO - Finished testing.
+2025-05-03 14:55:10,648 - root - INFO - Normal log templates to embedding: , 73
+2025-05-03 14:55:10,698 - root - INFO - Loading from db...
+2025-05-03 14:55:11,128 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-05-03 14:55:13,464 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-05-03 14:55:15,388 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-03 14:55:15,852 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-05-03 14:55:15,889 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.8
+2025-05-03 14:55:16,938 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-03 14:55:17,501 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-05-03 14:55:18,579 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-03 14:55:19,159 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-05-03 14:55:19,171 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.8
+2025-05-03 14:55:20,256 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-03 14:55:20,778 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-05-03 14:55:21,987 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-03 14:55:22,474 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-05-03 14:55:22,483 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.8
+2025-05-03 14:55:23,503 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-03 14:55:23,901 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-05-03 14:55:24,838 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-03 14:55:25,350 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-05-03 14:55:25,400 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.8
+2025-05-03 14:55:26,437 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-03 14:55:26,871 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-05-03 14:55:27,842 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-03 14:55:28,523 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-05-03 14:55:29,642 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-03 14:55:30,079 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-05-03 14:55:31,047 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-03 14:55:31,689 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-05-03 14:55:32,753 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-03 14:55:33,317 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-05-03 14:55:34,442 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-03 14:55:34,965 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-05-03 14:55:34,977 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.8
+2025-05-03 14:55:36,273 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-03 14:55:36,810 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-05-03 14:55:37,937 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-03 14:55:38,412 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-05-03 14:55:39,865 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-03 14:55:40,410 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-05-03 14:55:41,822 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-03 14:55:42,420 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/embeddings "HTTP/1.1 200 OK"
+2025-05-03 14:55:42,472 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.8
+2025-05-03 14:55:43,469 - httpx - INFO - HTTP Request: POST https://api.openai-proxy.org/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-03 14:55:43,486 - root - INFO - Saved results to 
+output/anomaly_logs_detc_by_rag.csv
+output/llm_answer.json
+2025-05-03 14:55:43,526 - root - INFO - fixing windows size 1:  TP: 17, FP: 104, TN: 272, FN: 7 
+2025-05-03 14:55:43,526 - root - INFO - fixing windows size 1: Acc: 0.7225, Precision: 0.1405, Recall: 0.7083, F1: 0.2345
+
+2025-05-03 14:55:43,530 - root - INFO - fixing windows size 200, Tp: 2, Fp: 0, Tn: 0, Fn: 0
+2025-05-03 14:55:43,530 - root - INFO - fixing windows size 200, Acc: 1.0000, Precision: 1.0000, Recall: 1.0000, F1: 1.0000
+
+2025-05-03 14:55:43,536 - root - INFO - time windows size 1800 seconds, Tp: 12, Fp: 27, Tn: 94, Fn: 5
+2025-05-03 14:55:43,536 - root - INFO - time windows size 1800 seconds, Acc: 0.7681, Precision: 0.3077, Recall: 0.7059, F1: 0.4286
+
