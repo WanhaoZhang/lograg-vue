@@ -5,4 +5,6 @@ services:
     build: .
     volumes:
       - ./output:/app/output
-    command: ["--input", "/app/output/code_context.json", "--output", "/app/output/log_analysis_report.json"] 
+      - ./OpenStack:/app/OpenStack
+      - ./nova-13.0.0:/app/nova-13.0.0
+    command: ["--api-key", "sk-IXv5inyh4jRh9ae8bRFbuZ1NDpQVXcTgjnUJW024Mn93JTsx"] 

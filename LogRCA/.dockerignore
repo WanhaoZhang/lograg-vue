@@ -1,13 +1,33 @@
-.git
+# 输出目录（将通过卷挂载）
+output/
+
+# 日志和源代码（将通过卷挂载）
+OpenStack/
+nova-13.0.0/
+
+# 版本控制
+.git/
 .gitignore
-__pycache__
-*.pyc
-*.pyo
-*.pyd
+
+# 系统文件
+.DS_Store
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
 .Python
 env/
-venv/
-*.so
-.DS_Store
-output/*
-!output/.gitkeep 
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg 
