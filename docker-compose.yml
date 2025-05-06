@@ -9,7 +9,7 @@ services:
       - ./frontend:/app
       - /app/node_modules
     environment:
-      - VITE_API_URL=http://backend:3000
+      - VITE_API_BASE_URL=http://backend:3000
     depends_on:
       - backend
 
@@ -32,6 +32,35 @@ services:
       - "27017:27017"
     volumes:
       - mongodb_data:/data/db
+
+  logrca:
+    build: ./LogRCA
+    volumes:
+      - ./LogRCA/output:/app/output
+      - ./LogRCA/OpenStack:/app/OpenStack
+      - ./LogRCA/nova-13.0.0:/app/nova-13.0.0
+      - ./LogRCA/import_logs.js:/app/import_logs.js
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/loganalysis
+    command: ["--api-key", "sk-IXv5inyh4jRh9ae8bRFbuZ1NDpQVXcTgjnUJW024Mn93JTsx"]
+    depends_on:
+      - mongodb
+    restart: on-failure
+
+  lograg:
+    build: 
+      context: .
+      dockerfile: ./LogRAG/Dockerfile
+    volumes:
+      - ./LogRAG:/app/LogRAG
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - MONGODB_URI=mongodb://mongodb:27017/loganalysis
+    depends_on:
+      - mongodb
+    restart: on-failure
 
 volumes:
   mongodb_data:

@@ -13,9 +13,8 @@ export default defineConfig({
     port: 8080,
     proxy: {
       '/api': {
-        target: process.env.VITE_API_BASE_URL || 'http://backend:3000', // 使用环境变量或默认值
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '')
+        target: process.env.VITE_API_BASE_URL || 'http://backend:3000',
+        changeOrigin: true
       }
     }
   },

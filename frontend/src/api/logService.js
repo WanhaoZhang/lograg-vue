@@ -3,7 +3,7 @@ import { mockLogs } from '../mock/logData'
 
 // 创建axios实例
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || '/api',
+  baseURL: '/api',
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json'
@@ -12,6 +12,28 @@ const api = axios.create({
 
 // 日志服务API
 export const logService = {
+  /**
+   * 获取服务列表
+   * @returns {Promise<Array>} 服务列表
+   */
+  async getServices() {
+    try {
+      const response = await api.get('/logs/services')
+      return response.data
+    } catch (error) {
+      console.error('获取服务列表失败:', error)
+      
+      // 如果API请求失败，返回默认服务列表
+      return [
+        { label: 'OpenStack服务', value: 'openstack-service' },
+        { label: 'LogRCA异常分析', value: 'test' },
+        { label: '用户服务', value: 'user-service' },
+        { label: '订单服务', value: 'order-service' },
+        { label: '支付服务', value: 'payment-service' }
+      ]
+    }
+  },
+  
   /**
    * 查询日志数据
    * @param {Object} params 查询参数
@@ -26,10 +48,23 @@ export const logService = {
       // 构建查询参数
       const queryParams = {
         service: params.service,
-        startTime: params.timeRange ? params.timeRange[0].toISOString() : undefined,
-        endTime: params.timeRange ? params.timeRange[1].toISOString() : undefined,
         page: params.page || 1,
         pageSize: params.pageSize || 10
+      }
+      
+      // 处理时间范围参数
+      if (params.timeRange && Array.isArray(params.timeRange) && params.timeRange.length === 2) {
+        const startTime = params.timeRange[0] instanceof Date ? params.timeRange[0] : new Date(params.timeRange[0]);
+        const endTime = params.timeRange[1] instanceof Date ? params.timeRange[1] : new Date(params.timeRange[1]);
+        
+        // 确保日期有效
+        if (!isNaN(startTime) && !isNaN(endTime)) {
+          // 使用ISO字符串格式
+          queryParams.startTime = startTime.toISOString();
+          queryParams.endTime = endTime.toISOString();
+          
+          console.log('时间范围:', startTime, '到', endTime);
+        }
       }
       
       // 调试输出

@@ -59,7 +59,11 @@
               element-loading-text="加载中..."
               element-loading-background="rgba(255, 255, 255, 0.9)"
             >
-              <el-table-column prop="timestamp" label="时间" width="200" />
+              <el-table-column prop="timestamp" label="时间" width="200">
+                <template #default="scope">
+                  {{ formatDateTime(scope.row.timestamp) }}
+                </template>
+              </el-table-column>
               <el-table-column prop="service" label="服务" width="180" />
               <el-table-column prop="level" label="级别" width="120" align="center">
                 <template #default="scope">
@@ -133,7 +137,7 @@
               {{ currentLog.level }}
             </el-tag>
           </div>
-          <div class="log-time">{{ currentLog.timestamp }}</div>
+          <div class="log-time">{{ formatDateTime(currentLog.timestamp) }}</div>
           <div class="log-service">{{ currentLog.service }}</div>
         </div>
 
@@ -222,7 +226,7 @@
         <div class="details-header">
           <div class="log-meta">
             <el-tag size="large" :type="getTagType(currentLog.level)" effect="dark">{{ currentLog.level }}</el-tag>
-            <span class="log-timestamp">{{ currentLog.timestamp }}</span>
+            <span class="log-timestamp">{{ formatDateTime(currentLog.timestamp) }}</span>
             <span class="log-service">{{ currentLog.service }}</span>
           </div>
           <div class="control-buttons">
@@ -319,18 +323,12 @@ import AIChatBox from './components/AIChatBox.vue'
 import { logService } from './api/logService'
 
 const searchForm = reactive({
-  service: '',
+  service: 'openstack-service',
   quickTime: '',
-  timeRange: null
+  timeRange: [new Date('2017-01-01'), new Date()]
 })
 
-const services = [
-  { value: 'dns-service', label: 'DNS服务' },
-  { value: 'http-service', label: 'HTTP服务' },
-  { value: 'ftp-service', label: 'FTP服务' },
-  { value: 'smtp-service', label: 'SMTP服务' },
-  { value: 'openstack-service', label: 'OpenStack服务' }
-]
+const services = ref([])
 
 const loading = ref(false)
 const logs = ref([])
@@ -379,11 +377,31 @@ onMounted(() => {
     calculateTableHeight()
     calculateOffset()  // 窗口大小变化时重新计算
   })
+  
+  // 初始加载日志服务列表
+  loadServices()
+  
+  // 自动执行一次查询
+  handleSearch()
 })
 
 onUnmounted(() => {
   window.removeEventListener('resize', calculateTableHeight)
 })
+
+// 添加加载服务列表的函数
+const loadServices = async () => {
+  try {
+    const serviceList = await logService.getServices()
+    // 如果后端返回了服务列表，更新services数组
+    if (serviceList && serviceList.length > 0) {
+      services.value.length = 0 // 清空现有数组
+      serviceList.forEach(service => services.value.push(service))
+    }
+  } catch (error) {
+    console.error('加载服务列表失败:', error)
+  }
+}
 
 // 添加缺失的函数
 const getTagType = (level) => {
@@ -412,6 +430,11 @@ const handleQuickTimeChange = (value) => {
 
 // 将handleSearch函数替换为使用API服务的版本
 const handleSearch = async () => {
+  // 如果没有选择服务且服务列表不为空，自动选择第一个服务
+  if (!searchForm.service && services.value.length > 0) {
+    searchForm.service = services.value[0].value;
+  }
+
   if (!searchForm.service) {
     ElMessage({
       message: '请选择服务',
@@ -423,15 +446,9 @@ const handleSearch = async () => {
     return
   }
 
-  if (!searchForm.quickTime && !searchForm.timeRange) {
-    ElMessage({
-      message: '请选择时间或快捷时间',
-      type: 'warning',
-      duration: 3000,
-      showClose: true,
-      customClass: 'custom-message'
-    })
-    return
+  // 检查时间范围，如果未设置则使用默认值（2017年至今）
+  if (!searchForm.timeRange) {
+    searchForm.timeRange = [new Date('2017-01-01'), new Date()];
   }
 
   loading.value = true
@@ -545,6 +562,22 @@ const closeFullScreen = () => {
 const handleDialogOpen = () => {
   // 移除对callChainGraph的操作
   // callChainGraphRef.value?.setFullView()
+}
+
+// 在script部分添加formatDateTime方法
+const formatDateTime = (dateString) => {
+  if (!dateString) return '';
+  const date = new Date(dateString);
+  
+  // 格式化日期和时间
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  const hours = String(date.getHours()).padStart(2, '0');
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+  const seconds = String(date.getSeconds()).padStart(2, '0');
+  
+  return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 }
 </script>
 

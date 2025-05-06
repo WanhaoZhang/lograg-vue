@@ -7,4 +7,26 @@ services:
       - ./output:/app/output
       - ./OpenStack:/app/OpenStack
       - ./nova-13.0.0:/app/nova-13.0.0
-    command: ["--api-key", "sk-IXv5inyh4jRh9ae8bRFbuZ1NDpQVXcTgjnUJW024Mn93JTsx"] 
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/loganalysis
+    command: ["--api-key", "sk-IXv5inyh4jRh9ae8bRFbuZ1NDpQVXcTgjnUJW024Mn93JTsx"]
+    networks:
+      - app-network
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - app-network
+
+volumes:
+  mongodb_data:
+
+networks:
+  app-network:
+    driver: bridge 

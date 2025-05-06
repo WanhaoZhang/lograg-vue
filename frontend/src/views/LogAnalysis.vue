@@ -72,18 +72,50 @@
     <el-dialog
       v-model="detailsVisible"
       title="日志详情"
-      width="60%"
+      width="80%"
     >
-      <el-descriptions :column="1" border>
-        <el-descriptions-item label="AI分析摘要">
-          {{ currentLog.aiSummary }}
-        </el-descriptions-item>
-        <el-descriptions-item label="调用链信息">
-          <div class="call-stack">
-            {{ currentLog.callStack }}
-          </div>
-        </el-descriptions-item>
-      </el-descriptions>
+      <el-tabs>
+        <el-tab-pane label="分析摘要">
+          <el-descriptions :column="1" border>
+            <el-descriptions-item label="AI分析摘要">
+              {{ currentLog.aiSummary }}
+            </el-descriptions-item>
+            <el-descriptions-item label="调用链信息">
+              <div class="call-stack">
+                {{ currentLog.callStack }}
+              </div>
+            </el-descriptions-item>
+          </el-descriptions>
+        </el-tab-pane>
+        
+        <el-tab-pane label="详细分析">
+          <el-card class="analysis-card" v-if="currentLog.analysis">
+            <h3>根本原因分析</h3>
+            <el-timeline>
+              <el-timeline-item
+                v-for="(cause, index) in currentLog.analysis.rootCauses"
+                :key="index"
+                type="primary"
+              >
+                <h4>{{ cause.title || '原因 ' + (index + 1) }}</h4>
+                <p>{{ cause.description }}</p>
+              </el-timeline-item>
+            </el-timeline>
+            
+            <h3>解决方案建议</h3>
+            <el-collapse>
+              <el-collapse-item 
+                v-for="(solution, index) in currentLog.analysis.solutions" 
+                :key="index" 
+                :title="getSolutionTitle(solution)"
+              >
+                {{ solution.description }}
+              </el-collapse-item>
+            </el-collapse>
+          </el-card>
+          <el-empty v-else description="没有找到详细分析信息" />
+        </el-tab-pane>
+      </el-tabs>
     </el-dialog>
   </div>
 </template>
@@ -98,12 +130,9 @@ const queryForm = reactive({
   timeRange: '1'
 })
 
-const serviceOptions = [
-  { label: 'OpenStack服务', value: 'openstack-service' },
-  { label: '用户服务', value: 'user-service' },
-  { label: '订单服务', value: 'order-service' },
-  { label: '支付服务', value: 'payment-service' }
-]
+const serviceOptions = ref([
+  { label: '加载中...', value: '' }
+])
 
 const currentPage = ref(1)
 const pageSize = ref(10)
@@ -111,6 +140,23 @@ const total = ref(0)
 const logList = ref([])
 const detailsVisible = ref(false)
 const currentLog = ref({})
+
+// 获取服务列表
+const fetchServices = async () => {
+  try {
+    const services = await logService.getServices()
+    serviceOptions.value = services
+    
+    // 如果有'test'服务，默认选择它
+    const testService = services.find(service => service.value === 'test')
+    if (testService && !queryForm.service) {
+      queryForm.service = 'test'
+      handleQuery()
+    }
+  } catch (error) {
+    ElMessage.error('获取服务列表失败：' + error.message)
+  }
+}
 
 const handleQuery = async () => {
   try {
@@ -144,14 +190,27 @@ const handlePageChange = (page) => {
 
 const showDetails = async (log) => {
   try {
+    // 先获取日志详情
     const details = await logService.getLogDetails(log.id)
+    
+    // 初始化当前日志数据
     currentLog.value = {
-      ...log,
-      aiSummary: details.aiSummary,
-      callStack: details.callStack
+      ...details,
+      aiSummary: details.analysis?.summary || details.summary || '没有分析摘要',
+      callStack: details.stackTrace || '没有调用堆栈信息'
     }
+    
+    // 如果没有analysis数据，尝试从专门的API获取
+    if (!details.analysis && log.service === 'test') {
+      const analysisData = await logService.getLogAnalysis(log.id)
+      currentLog.value.analysis = analysisData
+      currentLog.value.aiSummary = analysisData.summary || currentLog.value.aiSummary
+    }
+    
+    console.log('当前日志详情:', currentLog.value);
     detailsVisible.value = true
   } catch (error) {
+    console.error('获取详情失败:', error);
     ElMessage.error('获取详情失败：' + error.message)
   }
 }
@@ -165,9 +224,18 @@ const getLogLevelType = (level) => {
   return types[level] || 'info'
 }
 
-// 页面加载时自动查询
+const getSolutionTitle = (solution) => {
+  const typeLabels = {
+    'shortTerm': '短期解决方案',
+    'longTerm': '长期优化策略',
+    'general': '一般建议'
+  }
+  return typeLabels[solution.type] || '解决方案'
+}
+
+// 页面加载时获取服务列表和日志
 onMounted(() => {
-  handleQuery()
+  fetchServices()
 })
 </script>
 
@@ -208,5 +276,25 @@ onMounted(() => {
   background-color: #f5f7fa;
   padding: 10px;
   border-radius: 4px;
+}
+
+.analysis-card {
+  margin-bottom: 20px;
+}
+
+.analysis-card h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #409EFF;
+}
+
+.el-timeline-item h4 {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.el-collapse-item {
+  margin-bottom: 5px;
 }
 </style> 

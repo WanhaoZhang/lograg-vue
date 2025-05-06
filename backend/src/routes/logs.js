@@ -4,6 +4,30 @@ const Log = require('../models/Log');
 const router = express.Router();
 
 /**
+ * @route GET /api/logs/services
+ * @desc 获取所有可用服务列表
+ * @access Public
+ */
+router.get('/services', async (req, res, next) => {
+  try {
+    // 从数据库中查询去重后的服务列表
+    const services = await Log.distinct('service');
+    console.log('可用服务列表:', services);
+    
+    // 构建响应数据
+    const serviceOptions = services.map(service => ({
+      value: service,
+      label: service === 'test' ? 'LogRCA异常分析' : `${service}服务`
+    }));
+    
+    res.json(serviceOptions);
+  } catch (error) {
+    console.error('获取服务列表失败:', error);
+    next(error);
+  }
+});
+
+/**
  * @route GET /api/logs
  * @desc 获取日志列表
  * @access Public
@@ -106,7 +130,8 @@ router.get('/:id', async (req, res, next) => {
       message: log.message,
       stackTrace: log.stackTrace,
       summary: log.summary,
-      metadata: log.metadata
+      metadata: log.metadata,
+      analysis: log.analysis // 确保包含完整的分析信息
     };
 
     res.json(formattedLog);
