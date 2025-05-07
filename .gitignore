@@ -1,3 +1,4 @@
 /LogRAG/pretrained/pytorch_model.bin
 .env
 .env.*
+/node_modules
