@@ -72,7 +72,7 @@ async function importLogRCAData() {
       let rootCauses = [];
       let solutions = [];
       
-      // 简单提取分析摘要（第一行）
+      // 处理分析文本
       if (logEntry.analysis) {
         const lines = logEntry.analysis.split('\n');
         if (lines.length > 0) {
@@ -92,19 +92,23 @@ async function importLogRCAData() {
             if (currentSection === 'causes') {
               rootCauses.push({
                 title: '异常原因',
-                description: line.replace(/^- |^  - /, '')
+                description: line.replace(/^- |^  - /, '').replace(/\*\*/g, '')
               });
             } else if (currentSection === 'solutions') {
               let type = 'general';
-              if (line.includes('短期')) {
+              let description = line.replace(/^- |^  - /, '').replace(/\*\*/g, '');
+              
+              if (line.includes('短期修复')) {
                 type = 'shortTerm';
-              } else if (line.includes('长期')) {
+                description = description.replace(/短期修复：/, '').trim();
+              } else if (line.includes('长期优化')) {
                 type = 'longTerm';
+                description = description.replace(/长期优化：/, '').trim();
               }
               
               solutions.push({
                 type: type,
-                description: line.replace(/^- |^  - /, '')
+                description: description
               });
             }
           }
@@ -126,13 +130,14 @@ async function importLogRCAData() {
         message: message,
         stackTrace: logEntry.anomaly_log,
         summary: summary,
+        vm_id: logEntry.vm_id, // 确保vm_id字段添加到主文档中
         analysis: {
           summary: summary,
           rootCauses: rootCauses,
-          solutions: solutions
+          solutions: solutions,
+          rawText: logEntry.analysis // 保存原始分析文本
         },
         metadata: {
-          vm_id: logEntry.vm_id,
           source: 'LogRCA',
           originalService: originalService
         },

@@ -14,10 +14,17 @@ router.get('/services', async (req, res, next) => {
     const services = await Log.distinct('service');
     console.log('可用服务列表:', services);
     
+    // 确保服务列表中包含openstack-service
+    if (!services.includes('openstack-service') && services.length > 0) {
+      services.push('openstack-service');
+    }
+    
     // 构建响应数据
     const serviceOptions = services.map(service => ({
       value: service,
-      label: service === 'test' ? 'LogRCA异常分析' : `${service}服务`
+      label: service === 'test' ? 'LogRCA异常分析' 
+           : service === 'openstack-service' ? 'OpenStack服务' 
+           : `${service}服务`
     }));
     
     res.json(serviceOptions);
@@ -39,6 +46,7 @@ router.get('/', async (req, res, next) => {
       level,
       startTime,
       endTime,
+      vm_id,
       page = 1,
       pageSize = 10
     } = req.query;
@@ -59,6 +67,10 @@ router.get('/', async (req, res, next) => {
       query.level = level;
     }
     
+    if (vm_id) {
+      query.vm_id = vm_id;
+    }
+    
     if (startTime || endTime) {
       query.timestamp = {};
       if (startTime) {
@@ -72,6 +84,7 @@ router.get('/', async (req, res, next) => {
     // 调试输出
     console.log('后端查询条件:', JSON.stringify(query));
     console.log('startTime:', startTime, '  endTime:', endTime);
+    console.log('vm_id:', vm_id);
     
     // 计算分页
     const skip = (parseInt(page) - 1) * parseInt(pageSize);
@@ -93,8 +106,10 @@ router.get('/', async (req, res, next) => {
       service: log.service,
       level: log.level,
       message: log.message,
+      vm_id: log.vm_id,
       stackTrace: log.stackTrace,
-      summary: log.summary
+      summary: log.summary || (log.analysis ? log.analysis.summary : ''),
+      hasAnalysis: !!log.analysis
     }));
 
     res.json({
@@ -128,8 +143,9 @@ router.get('/:id', async (req, res, next) => {
       service: log.service,
       level: log.level,
       message: log.message,
+      vm_id: log.vm_id,
       stackTrace: log.stackTrace,
-      summary: log.summary,
+      summary: log.summary || (log.analysis ? log.analysis.summary : ''),
       metadata: log.metadata,
       analysis: log.analysis // 确保包含完整的分析信息
     };
@@ -167,6 +183,53 @@ router.get('/:id/analysis', async (req, res, next) => {
 });
 
 /**
+ * @route GET /api/logs/vm/:vm_id
+ * @desc 获取指定VM_ID的所有日志
+ * @access Public
+ */
+router.get('/vm/:vm_id', async (req, res, next) => {
+  try {
+    const { vm_id } = req.params;
+    const { page = 1, pageSize = 10 } = req.query;
+
+    // 计算分页
+    const skip = (parseInt(page) - 1) * parseInt(pageSize);
+    
+    // 执行查询
+    const [logs, total] = await Promise.all([
+      Log.find({ vm_id })
+        .sort({ timestamp: -1 })
+        .skip(skip)
+        .limit(parseInt(pageSize))
+        .lean(),
+      Log.countDocuments({ vm_id })
+    ]);
+
+    // 格式化数据
+    const formattedLogs = logs.map(log => ({
+      id: log._id,
+      timestamp: log.timestamp,
+      service: log.service,
+      level: log.level,
+      message: log.message,
+      vm_id: log.vm_id,
+      stackTrace: log.stackTrace,
+      summary: log.summary || (log.analysis ? log.analysis.summary : ''),
+      hasAnalysis: !!log.analysis
+    }));
+
+    res.json({
+      data: formattedLogs,
+      total,
+      page: parseInt(page),
+      pageSize: parseInt(pageSize)
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+/**
  * @route POST /api/logs
  * @desc 创建新日志
  * @access Public
@@ -180,6 +243,7 @@ router.post('/', async (req, res, next) => {
       message,
       stackTrace,
       summary,
+      vm_id,
       metadata
     } = req.body;
 
@@ -190,6 +254,7 @@ router.post('/', async (req, res, next) => {
       message,
       stackTrace,
       summary,
+      vm_id,
       metadata
     });
 
@@ -204,63 +269,55 @@ router.post('/', async (req, res, next) => {
   }
 });
 
-// 生成默认分析结果的辅助函数
+/**
+ * 生成默认的分析结果
+ * @param {Object} log 日志对象
+ * @returns {Object} 分析结果
+ */
 function generateDefaultAnalysis(log) {
-  const causes = [];
-  const solutions = [];
+  // 根据日志类型和级别生成分析结果
+  let summary = '';
+  let rootCauses = [];
+  let solutions = [];
   
-  // 根据服务和错误等级确定可能的原因和解决方案
-  if (log.service === 'dns-service') {
-    causes.push({
-      title: 'DNS配置错误',
-      description: 'DNS服务器配置不正确或域名解析失败'
-    });
-    solutions.push({
+  switch (log.level) {
+    case 'ERROR':
+      summary = `系统错误: ${log.message.substring(0, 50)}`;
+      rootCauses = [{
+        title: '可能的原因',
+        description: '系统组件运行异常或配置错误'
+      }];
+      solutions = [{
       type: 'shortTerm',
-      description: '检查DNS服务器配置和网络连接'
-    });
-  } else if (log.service === 'http-service') {
-    causes.push({
-      title: 'HTTP请求问题',
-      description: '服务器返回错误状态码或请求超时'
-    });
-    solutions.push({
+        description: '检查系统日志以获取更多详细信息并重启相关服务'
+      }];
+      break;
+      
+    case 'WARN':
+      summary = `警告信息: ${log.message.substring(0, 50)}`;
+      rootCauses = [{
+        title: '可能的原因',
+        description: '系统检测到潜在的问题，但未导致严重故障'
+      }];
+      solutions = [{
       type: 'shortTerm',
-      description: '检查服务器状态和网络连接'
-    });
-  } else if (log.service === 'openstack-service') {
-    causes.push({
-      title: '参数转换错误',
-      description: 'flavor=abcde未映射到flavor_id'
-    });
-    causes.push({
-      title: '测试数据缺陷',
-      description: 'Mock返回空列表，但测试预期非空数据'
-    });
-    
-    solutions.push({
-      type: 'shortTerm',
-      description: '检查compute_api.API.get_all中search_opts的过滤逻辑'
-    });
-    solutions.push({
-      type: 'longTerm',
-      description: '为pending task状态增加自动重试机制'
-    });
-  } else {
-    // 默认分析
-    causes.push({
-      title: '未知错误',
-      description: '系统无法自动分析此类型错误的具体原因'
-    });
-    solutions.push({
-      type: 'shortTerm',
-      description: '请检查相关日志和系统状态'
-    });
+        description: '监控系统状态，确保问题未扩大'
+      }];
+      break;
+      
+    default:
+      summary = `信息日志: ${log.message.substring(0, 50)}`;
+      rootCauses = [{
+        title: '说明',
+        description: '这是一条正常的系统操作日志'
+      }];
+      solutions = [];
+      break;
   }
 
   return {
-    summary: `${log.service}服务出现${log.level.toLowerCase()}级别的异常，可能影响系统正常运行。`,
-    rootCauses: causes,
+    summary,
+    rootCauses,
     solutions
   };
 }

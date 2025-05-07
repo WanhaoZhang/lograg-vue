@@ -3,9 +3,11 @@ import os
 import re
 import subprocess
 import hashlib
+import yaml
 from collections import defaultdict
 from tqdm import tqdm
 import glob
+import argparse
 
 # 日志语句模式，扩展匹配范围
 LOG_CODE_PATTERN = re.compile(
@@ -14,6 +16,12 @@ LOG_CODE_PATTERN = re.compile(
 
 # 创建日志片段到代码的缓存，避免重复搜索
 CODE_CACHE = {}
+
+# 读取配置文件
+def load_config(config_path="config.yaml"):
+    with open(config_path, 'r', encoding='utf-8') as f:
+        config = yaml.safe_load(f)
+    return config
 
 def extract_log_info(log_line):
     """解析日志行，提取详细信息"""
@@ -319,66 +327,58 @@ def find_code_for_logs(anomaly_data, source_dir):
     return results
 
 def main():
-    print("开始查找日志对应的代码上下文...")
+    # 解析命令行参数
+    parser = argparse.ArgumentParser(description="查找日志对应的代码上下文")
+    parser.add_argument("--config", type=str, default="config.yaml", help="配置文件路径")
+    parser.add_argument("--source", type=str, help="源码目录路径")
+    parser.add_argument("--input", type=str, help="输入文件路径")
+    parser.add_argument("--output", type=str, help="输出文件路径")
+    args = parser.parse_args()
     
-    # 设置路径
+    # 加载配置
+    config = load_config(args.config)
+    
+    # 获取当前脚本所在目录
     script_dir = os.path.dirname(os.path.abspath(__file__))
     
-    # 尝试不同的可能路径
-    possible_paths = [
-        os.path.join(script_dir, 'anomaly_context.json'),
-        os.path.join(script_dir, 'output', 'anomaly_context.json'),
-        os.path.join(script_dir, 'OpenStack', 'anomaly_context.json')
-    ]
+    # 设置源码目录
+    source_dir = args.source or os.path.join(script_dir, config['source_code']['nova_dir'])
     
-    # 找到存在的文件路径
-    input_file = None
-    for path in possible_paths:
-        if os.path.exists(path):
-            input_file = path
-            break
-    
-    if not input_file:
-        print("错误: 无法找到anomaly_context.json文件，请先运行extract_anomaly_context.py")
-        print("尝试查找的路径:")
-        for path in possible_paths:
-            print(f"- {path}")
-        return
-    
-    output_file = os.path.join('output', 'code_context.json')
-    source_dir = os.path.join(script_dir, 'nova-13.0.0')
+    # 设置输入输出文件路径
+    output_config = config['output']
+    input_file = args.input or os.path.join(script_dir, output_config['output_dir'], output_config['anomaly_context_file'])
+    output_file = args.output or os.path.join(script_dir, output_config['output_dir'], output_config['code_context_file'])
     
     # 确保输出目录存在
     os.makedirs(os.path.dirname(output_file), exist_ok=True)
     
-    # 读取异常日志数据
-    print(f"读取文件: {input_file}")
-    with open(input_file, 'r') as f:
-        anomaly_data = json.load(f)
+    print(f"开始处理...")
+    print(f"源码目录: {source_dir}")
+    print(f"输入文件: {input_file}")
+    print(f"输出文件: {output_file}")
     
-    print(f"找到 {len(anomaly_data)} 条异常记录")
+    try:
+        # 读取anomaly_context.json
+        with open(input_file, 'r', encoding='utf-8') as f:
+            anomaly_data_list = json.load(f)
     
-    # 查找代码上下文
-    results = find_code_for_logs(anomaly_data, source_dir)
+        # 为每条异常日志查找代码上下文
+        print(f"处理 {len(anomaly_data_list)} 条异常记录...")
+        result_list = find_code_for_logs(anomaly_data_list, source_dir)
     
     # 保存结果
-    print(f"保存结果到: {output_file}")
-    with open(output_file, 'w') as f:
-        json.dump(results, f, indent=2, ensure_ascii=False)
+        with open(output_file, 'w', encoding='utf-8') as f:
+            json.dump(result_list, f, indent=2, ensure_ascii=False)
     
-    # 统计找到代码上下文的日志数量
-    anomaly_with_code = sum(1 for r in results if r['anomaly_log']['code_context'])
-    before_with_code = sum(sum(1 for log in r['context_before'] if log['code_context']) for r in results)
-    after_with_code = sum(sum(1 for log in r['context_after'] if log['code_context']) for r in results)
-    
-    total_before = sum(len(r['context_before']) for r in results)
-    total_after = sum(len(r['context_after']) for r in results)
-    
-    print(f"\n处理完成！")
-    print(f"异常日志找到代码上下文: {anomaly_with_code}/{len(results)} ({100*anomaly_with_code/len(results):.1f}%)")
-    print(f"上文日志找到代码上下文: {before_with_code}/{total_before} ({100*before_with_code/total_before:.1f}% 如果有)")
-    print(f"下文日志找到代码上下文: {after_with_code}/{total_after} ({100*after_with_code/total_after:.1f}% 如果有)")
-    print(f"总体匹配率: {100*(anomaly_with_code+before_with_code+after_with_code)/(len(results)+total_before+total_after):.1f}%")
+        print(f"处理完成！结果已保存到 {output_file}")
+        print(f"找到 {len(result_list)} 条代码上下文信息")
+        
+    except FileNotFoundError:
+        print(f"错误: 文件 {input_file} 不存在")
+    except json.JSONDecodeError:
+        print(f"错误: 文件 {input_file} 不是有效的JSON文件")
+    except Exception as e:
+        print(f"处理过程中发生错误: {str(e)}")
 
 if __name__ == "__main__":
     main() 

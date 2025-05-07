@@ -10,7 +10,9 @@ const logAnalysisSchema = new mongoose.Schema({
   solutions: [{
     type: String,  // 'shortTerm' 或 'longTerm'
     description: String
-  }]
+  }],
+  // 添加原始分析文本，用于显示完整的分析结果
+  rawText: String
 });
 
 // 日志数据模型
@@ -37,6 +39,11 @@ const logSchema = new mongoose.Schema({
   },
   stackTrace: String,
   summary: String,
+  // 添加vm_id字段，用于关联LogRCA分析结果
+  vm_id: {
+    type: String,
+    index: true
+  },
   analysis: logAnalysisSchema,
   metadata: {
     type: mongoose.Schema.Types.Mixed,
@@ -50,6 +57,7 @@ const logSchema = new mongoose.Schema({
 logSchema.index({ timestamp: -1 });
 logSchema.index({ service: 1, timestamp: -1 });
 logSchema.index({ level: 1, timestamp: -1 });
+logSchema.index({ vm_id: 1 });
 
 const Log = mongoose.model('Log', logSchema);
 

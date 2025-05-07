@@ -1,0 +1,32 @@
+api:
+  # OpenAI API配置
+  openai:
+    api_key: "sk-IXv5inyh4jRh9ae8bRFbuZ1NDpQVXcTgjnUJW024Mn93JTsx"  # 默认API密钥
+    api_base: "https://api.openai-proxy.org/v1"  # 默认API基础URL
+    default_model: "gpt-4o-mini"  # 默认使用的模型
+    alternative_models:
+      - "gpt-3.5-turbo"
+      - "gpt-4"
+      - "gpt-4o"
+    
+# 日志分析配置
+log_analysis:
+  context_size: 3  # 上下文日志条数
+  max_logs: 10  # 最多处理的异常日志数量
+
+# 源码配置
+source_code:
+  openstack_dir: "./OpenStack"
+  nova_dir: "./nova-13.0.0"
+
+# 输出配置
+output:
+  output_dir: "./output"
+  anomaly_context_file: "anomaly_context.json"
+  code_context_file: "code_context.json"
+  analysis_report_file: "log_analysis_report.json"
+
+# MongoDB配置
+mongodb:
+  uri: "mongodb://mongodb:27017/loganalysis"
+  collection_analysis: "log_analyses" 

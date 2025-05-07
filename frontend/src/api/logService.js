@@ -41,6 +41,7 @@ export const logService = {
    * @param {Array} params.timeRange 时间范围 [开始时间, 结束时间]
    * @param {number} params.page 当前页码
    * @param {number} params.pageSize 每页数量
+   * @param {string} params.vm_id 虚拟机ID
    * @returns {Promise<Object>} 查询结果
    */
   async queryLogs(params) {
@@ -50,6 +51,11 @@ export const logService = {
         service: params.service,
         page: params.page || 1,
         pageSize: params.pageSize || 10
+      }
+      
+      // 添加vm_id查询参数
+      if (params.vm_id) {
+        queryParams.vm_id = params.vm_id
       }
       
       // 处理时间范围参数
@@ -87,6 +93,10 @@ export const logService = {
         filteredLogs = filteredLogs.filter(log => log.service === params.service)
       }
       
+      if (params.vm_id) {
+        filteredLogs = filteredLogs.filter(log => log.vm_id === params.vm_id)
+      }
+      
       if (params.timeRange) {
         const [startTime, endTime] = params.timeRange
         filteredLogs = filteredLogs.filter(log => {
@@ -103,6 +113,27 @@ export const logService = {
         data: filteredLogs.slice(start, end),
         total: filteredLogs.length
       }
+    }
+  },
+  
+  /**
+   * 获取指定VM ID的日志
+   * @param {string} vm_id 虚拟机ID
+   * @param {Object} params 分页参数
+   * @returns {Promise<Object>} 查询结果
+   */
+  async getLogsByVmId(vm_id, params = {}) {
+    try {
+      const queryParams = {
+        page: params.page || 1,
+        pageSize: params.pageSize || 10
+      }
+      
+      const response = await api.get(`/logs/vm/${vm_id}`, { params: queryParams })
+      return response.data
+    } catch (error) {
+      console.error(`获取VM ID ${vm_id} 的日志失败:`, error)
+      return { data: [], total: 0 }
     }
   },
   

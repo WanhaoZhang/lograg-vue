@@ -5,14 +5,21 @@ import argparse
 from openai import OpenAI
 import yaml
 
+# 读取配置文件
+def load_config(config_path="config.yaml"):
+    with open(config_path, 'r', encoding='utf-8') as f:
+        config = yaml.safe_load(f)
+    return config
+
 # 配置OpenAI客户端
 class GPTAnalyzer:
-    def __init__(self, api_base="https://api.openai-proxy.org/v1", 
-                 api_key="sk-IXv5inyh4jRh9ae8bRFbuZ1NDpQVXcTgjnUJW024Mn93JTsx", 
-                 model="gpt-4o-mini"):
-        self.api_base = api_base
-        self.api_key = api_key
-        self.model = model
+    def __init__(self, api_base=None, api_key=None, model=None, config=None):
+        if config is None:
+            config = load_config()
+        
+        self.api_base = api_base or config['api']['openai']['api_base']
+        self.api_key = api_key or config['api']['openai']['api_key']
+        self.model = model or config['api']['openai']['default_model']
         self.client = OpenAI(
             base_url=self.api_base,
             api_key=self.api_key,
@@ -95,24 +102,36 @@ def parse_args():
     """
     解析命令行参数
     """
+    config = load_config()
+    default_api_key = config['api']['openai']['api_key']
+    default_api_base = config['api']['openai']['api_base']
+    default_model = config['api']['openai']['default_model']
+    
     parser = argparse.ArgumentParser(description='分析异常日志并生成报告')
     parser.add_argument('--api-key', type=str, 
-                        default="sk-IXv5inyh4jRh9ae8bRFbuZ1NDpQVXcTgjnUJW024Mn93JTsx", 
+                        default=default_api_key, 
                         help='OpenAI API密钥')
     parser.add_argument('--api-base', type=str, 
-                        default="https://api.openai-proxy.org/v1", 
+                        default=default_api_base, 
                         help='OpenAI API基础URL')
-    parser.add_argument('--model', type=str, default="gpt-4o-mini", 
+    parser.add_argument('--model', type=str, 
+                        default=default_model, 
                         help='使用的模型名称')
     parser.add_argument('--input', type=str, 
                         help='输入JSON文件路径，默认为output/code_context.json')
     parser.add_argument('--output', type=str, 
                         help='输出JSON文件路径，默认为output/log_analysis_report.json')
+    parser.add_argument('--config', type=str,
+                        default='config.yaml',
+                        help='配置文件路径')
     return parser.parse_args()
 
 def main():
     # 解析命令行参数
     args = parse_args()
+    
+    # 加载配置
+    config = load_config(args.config)
     
     # 配置
     api_base = args.api_base
@@ -121,8 +140,9 @@ def main():
     
     # 设置输入输出文件路径
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    input_file = args.input or os.path.join(current_dir, "output", "code_context.json")
-    output_file = args.output or os.path.join(current_dir, "output", "log_analysis_report.json")
+    output_config = config['output']
+    input_file = args.input or os.path.join(current_dir, output_config['output_dir'], output_config['code_context_file'])
+    output_file = args.output or os.path.join(current_dir, output_config['output_dir'], output_config['analysis_report_file'])
     
     # 确保输出目录存在
     os.makedirs(os.path.dirname(output_file), exist_ok=True)
@@ -133,7 +153,7 @@ def main():
     print(f"输出文件: {output_file}")
     
     # 初始化GPT分析器
-    analyzer = GPTAnalyzer(api_base, api_key, model)
+    analyzer = GPTAnalyzer(api_base, api_key, model, config)
     
     try:
         # 读取code_context.json
@@ -144,10 +164,13 @@ def main():
         print(f"共读取到 {len(anomaly_data_list)} 条异常记录")
         analysis_results = []
         
+        # 获取最大处理的日志数量
+        max_logs = config['log_analysis']['max_logs']
+        
         # 处理每个异常日志
         for i, anomaly_data in enumerate(anomaly_data_list):
             print(f"处理第 {i+1}/{len(anomaly_data_list)} 条异常日志...")
-            if i > 10:
+            if i > max_logs:
                 break
             
             try:

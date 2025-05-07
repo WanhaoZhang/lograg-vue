@@ -71,6 +71,7 @@
                 </template>
               </el-table-column>
               <el-table-column prop="message" label="错误信息" min-width="500" show-overflow-tooltip />
+              <el-table-column prop="vm_id" label="VM ID" width="220" show-overflow-tooltip />
               <el-table-column fixed="right" label="操作" width="180" align="center">
                 <template #default="scope">
                   <el-button link type="primary" @click="showDetails(scope.row)">
@@ -139,6 +140,10 @@
           </div>
           <div class="log-time">{{ formatDateTime(currentLog.timestamp) }}</div>
           <div class="log-service">{{ currentLog.service }}</div>
+          <div class="log-vm-id" v-if="currentLog.vm_id">
+            <span class="label">VM ID:</span>
+            <span class="value">{{ currentLog.vm_id }}</span>
+          </div>
         </div>
 
         <!-- 异常概述 -->
@@ -148,13 +153,8 @@
             <span>异常概述</span>
           </div>
           <div class="section-content">
-            <div class="info-item">
-              <div class="label">类型</div>
-              <div class="value">{{ currentLog && currentLog.service === 'openstack-service' ? 'AssertionError' : '服务异常' }}</div>
-            </div>
-            <div class="info-item">
-              <div class="label">表现</div>
-              <div class="value">{{ currentLog && currentLog.service === 'openstack-service' ? '预期返回1个服务器实例，实际len(servers)为0' : currentLog.message }}</div>
+            <div class="info-item full-width">
+              <div class="value">{{ currentLog.analysis ? currentLog.analysis.summary : '暂无详细分析数据' }}</div>
             </div>
           </div>
         </div>
@@ -165,26 +165,14 @@
             <el-icon><CircleClose /></el-icon>
             <span>核心原因</span>
           </div>
-          <div class="section-content">
-            <div class="cause-item">
-              <div class="cause-title">参数转换错误</div>
-              <ul class="cause-list">
-                <li>{{ currentLog && currentLog.service === 'openstack-service' ? 'flavor=abcde未映射到flavor_id' : '服务参数配置错误' }}</li>
-                <li>{{ currentLog && currentLog.service === 'openstack-service' ? 'status=resize未匹配实例真实状态' : '状态不匹配' }}</li>
-              </ul>
+          <div class="section-content" v-if="currentLog.analysis && currentLog.analysis.rootCauses && currentLog.analysis.rootCauses.length > 0">
+            <div class="cause-item" v-for="(cause, index) in currentLog.analysis.rootCauses" :key="index">
+              <div class="cause-title">{{ cause.title }}</div>
+              <div class="cause-desc">{{ cause.description }}</div>
             </div>
-            <div class="cause-item">
-              <div class="cause-title">测试数据缺陷</div>
-              <div class="cause-desc">
-                {{ currentLog && currentLog.service === 'openstack-service' ? 'Mock返回空列表，但测试预期非空数据' : '测试数据不完整' }}
               </div>
-            </div>
-            <div class="cause-item">
-              <div class="cause-title">状态同步异常</div>
-              <div class="cause-desc">
-                {{ currentLog && currentLog.service === 'openstack-service' ? 'Nova日志显示实例因pending task跳过状态更新' : '服务状态同步失败' }}
-              </div>
-            </div>
+          <div class="section-content" v-else>
+            <div class="empty-content">暂无根因分析数据</div>
           </div>
         </div>
 
@@ -194,21 +182,25 @@
             <el-icon><SetUp /></el-icon>
             <span>解决方案</span>
           </div>
+          <div class="section-content" v-if="currentLog.analysis && currentLog.analysis.solutions && currentLog.analysis.solutions.length > 0">
+            <div class="solution-item" v-for="(solution, index) in currentLog.analysis.solutions" :key="index">
+              <div class="solution-title">{{ solution.type === 'shortTerm' ? '短期措施' : '长期优化' }}</div>
+              <div class="solution-desc">{{ solution.description }}</div>
+            </div>
+            </div>
+          <div class="section-content" v-else>
+            <div class="empty-content">暂无解决方案数据</div>
+          </div>
+        </div>
+
+        <!-- 原始分析结果 -->
+        <div class="section" v-if="currentLog.analysis && currentLog.analysis.rawText">
+          <div class="section-title">
+            <el-icon><Document /></el-icon>
+            <span>详细分析报告</span>
+          </div>
           <div class="section-content">
-            <div class="solution-item">
-              <div class="solution-title">短期措施</div>
-              <ul class="solution-list">
-                <li>{{ currentLog && currentLog.service === 'openstack-service' ? '检查compute_api.API.get_all中search_opts的过滤逻辑' : '检查服务配置' }}</li>
-                <li>{{ currentLog && currentLog.service === 'openstack-service' ? '添加断言验证参数：mock_get.assert_called_with(search_opts={\'status\':\'resize\'})' : '更新服务参数验证' }}</li>
-              </ul>
-            </div>
-            <div class="solution-item">
-              <div class="solution-title">长期优化</div>
-              <ul class="solution-list">
-                <li>{{ currentLog && currentLog.service === 'openstack-service' ? '在get_all中记录search_opts和返回结果数量' : '增强日志记录' }}</li>
-                <li>{{ currentLog && currentLog.service === 'openstack-service' ? '为pending task状态增加自动重试机制' : '添加自动重试机制' }}</li>
-              </ul>
-            </div>
+            <el-button type="primary" @click="showFullAnalysis">查看完整分析报告</el-button>
           </div>
         </div>
       </div>
@@ -310,13 +302,25 @@
         </div>
       </div>
     </el-dialog>
+
+    <!-- 添加完整分析报告对话框 -->
+    <el-dialog
+      v-model="fullAnalysisVisible"
+      title="完整分析报告"
+      width="80%"
+      custom-class="analysis-dialog"
+    >
+      <div class="analysis-container" v-if="currentLog.analysis && currentLog.analysis.rawText">
+        <pre class="analysis-text">{{ currentLog.analysis.rawText }}</pre>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
 <script setup>
 import { ref, reactive, onMounted, onUnmounted } from 'vue'
 import { ElMessage } from 'element-plus'
-import { ChatDotRound, FullScreen, Warning, CircleClose, SetUp, Back } from '@element-plus/icons-vue'
+import { ChatDotRound, FullScreen, Warning, CircleClose, SetUp, Back, Document } from '@element-plus/icons-vue'
 // 保留导入但注释掉使用
 import AIChatBox from './components/AIChatBox.vue'
 // 导入logService API，更新路径
@@ -340,6 +344,7 @@ const currentLog = ref({})
 const fullScreenVisible = ref(false)
 const showMessage = ref(false)
 const messageContent = ref('')
+const fullAnalysisVisible = ref(false)
 
 // 动态计算表格高度
 const tableHeight = ref(500)  // 默认高度
@@ -451,6 +456,9 @@ const handleSearch = async () => {
     searchForm.timeRange = [new Date('2017-01-01'), new Date()];
   }
 
+  // 当切换服务时，重置当前页为第1页
+  currentPage.value = 1;
+
   loading.value = true
   
   try {
@@ -487,13 +495,49 @@ const handleSearch = async () => {
 }
 
 const handleSizeChange = (val) => {
+  console.log('页面大小改变:', val)
   pageSize.value = val
   handleSearch()
 }
 
 const handleCurrentChange = (val) => {
+  console.log('当前页改变:', val)
   currentPage.value = val
-  handleSearch()
+  
+  // 构建查询参数
+  const params = {
+    service: searchForm.service,
+    timeRange: searchForm.timeRange,
+    page: currentPage.value,
+    pageSize: pageSize.value
+  }
+  
+  // 执行查询，但不重置页码
+  loading.value = true
+  
+  logService.queryLogs(params)
+    .then(result => {
+      // 更新数据
+      logs.value = result.data
+      total.value = result.total
+    })
+    .catch(error => {
+      console.error('查询日志失败:', error)
+      
+      ElMessage({
+        message: '查询日志失败，请稍后再试',
+        type: 'error',
+        duration: 3000,
+        showClose: true
+      })
+      
+      // 清空数据
+      logs.value = []
+      total.value = 0
+    })
+    .finally(() => {
+      loading.value = false
+    })
 }
 
 // 更新详情查看函数，使用API获取详细信息
@@ -578,6 +622,10 @@ const formatDateTime = (dateString) => {
   const seconds = String(date.getSeconds()).padStart(2, '0');
   
   return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+}
+
+const showFullAnalysis = () => {
+  fullAnalysisVisible.value = true
 }
 </script>
 
@@ -1012,5 +1060,45 @@ const formatDateTime = (dateString) => {
 /* 添加图标颜色 */
 .card-title .el-icon {
   color: #409EFF;
+}
+
+.analysis-dialog {
+  :deep(.el-dialog) {
+    display: flex;
+    flex-direction: column;
+    margin: 0 !important;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 90vh;
+    width: 80% !important;
+    border-radius: 8px;
+  }
+
+  :deep(.el-dialog__header) {
+    padding: 20px;
+    margin: 0;
+    border-bottom: 1px solid #ebeef5;
+  }
+
+  :deep(.el-dialog__body) {
+    flex: 1;
+    overflow: hidden;
+    padding: 0;
+  }
+}
+
+.analysis-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.analysis-text {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  height: calc(90vh - 200px); /* 设置固定高度 */
 }
 </style>

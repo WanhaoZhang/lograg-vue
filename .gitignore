@@ -1,1 +1,3 @@
 /LogRAG/pretrained/pytorch_model.bin
+.env
+.env.*

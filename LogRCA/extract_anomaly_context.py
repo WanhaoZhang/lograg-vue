@@ -4,7 +4,15 @@ from collections import defaultdict, Counter
 from typing import List, Dict, Any, Set, Tuple
 import os
 import time
+import yaml
+import argparse
 from tqdm import tqdm
+
+# 读取配置文件
+def load_config(config_path="config.yaml"):
+    with open(config_path, 'r', encoding='utf-8') as f:
+        config = yaml.safe_load(f)
+    return config
 
 def read_anomaly_vms(file_path: str) -> List[str]:
     """读取包含异常VM ID的文件"""
@@ -163,25 +171,44 @@ def extract_log_context(log_file: str, vm_ids: List[str], context_size: int = 3)
 def main():
     start_time = time.time()
     
+    # 解析命令行参数
+    parser = argparse.ArgumentParser(description="提取异常日志及其上下文")
+    parser.add_argument("--config", type=str, default="config.yaml", help="配置文件路径")
+    parser.add_argument("--anomaly-file", type=str, help="异常VM ID文件路径")
+    parser.add_argument("--log-file", type=str, help="日志文件路径")
+    parser.add_argument("--output", type=str, help="输出文件路径")
+    parser.add_argument("--context-size", type=int, help="上下文大小")
+    args = parser.parse_args()
+    
+    # 加载配置
+    config = load_config(args.config)
+    
     # 获取当前脚本所在目录
     script_dir = os.path.dirname(os.path.abspath(__file__))
     
     # 文件路径
-    anomaly_vms_file = os.path.join(script_dir, 'OpenStack', 'anomaly_labels.txt')
-    log_file = os.path.join(script_dir, 'OpenStack', 'openstack_abnormal.log')
-    output_file = os.path.join('output', 'anomaly_context.json')
+    anomaly_vms_file = args.anomaly_file or os.path.join(script_dir, config['source_code']['openstack_dir'], 'anomaly_labels.txt')
+    log_file = args.log_file or os.path.join(script_dir, config['source_code']['openstack_dir'], 'openstack_abnormal.log')
+    output_file = args.output or os.path.join(script_dir, config['output']['output_dir'], config['output']['anomaly_context_file'])
+    
+    # 上下文大小
+    context_size = args.context_size or config['log_analysis']['context_size']
     
     # 确保输出目录存在
     os.makedirs(os.path.dirname(output_file), exist_ok=True)
     
     print(f"开始处理异常日志...")
+    print(f"异常VM ID文件: {anomaly_vms_file}")
+    print(f"日志文件: {log_file}")
+    print(f"输出文件: {output_file}")
+    print(f"上下文大小: {context_size}")
     
     # 读取异常VM ID
     vm_ids = read_anomaly_vms(anomaly_vms_file)
     print(f"读取到 {len(vm_ids)} 个异常VM ID")
     
     # 提取日志上下文
-    results = extract_log_context(log_file, vm_ids)
+    results = extract_log_context(log_file, vm_ids, context_size)
     
     # 保存结果
     print(f"保存结果到 {output_file}...")
