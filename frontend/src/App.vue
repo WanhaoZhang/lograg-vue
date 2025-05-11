@@ -2,124 +2,116 @@
   <div class="page-container">
     <div class="container">
       <div class="main-section">
-        <el-card class="main-card">
-          <template #header>
-            <div class="card-header">
-              <h2>日志异常检测与分析平台</h2>
-              <div v-if="showMessage" class="custom-message">
-                {{ messageContent }}
-              </div>
-            </div>
-          </template>
-          
-          <div class="search-section">
-            <el-form :model="searchForm" inline class="search-form">
-              <el-form-item label="服务选择">
-                <el-select v-model="searchForm.service" placeholder="请选择服务" style="width: 240px">
-                  <el-option
-                    v-for="item in services"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value"
-                  />
-                </el-select>
-              </el-form-item>
-              
-              <el-form-item label="时间选择">
-                <el-date-picker
-                  v-model="searchForm.timeRange"
-                  type="datetimerange"
-                  range-separator="至"
-                  start-placeholder="开始时间"
-                  end-placeholder="结束时间"
-                  style="width: 460px"
+        <div class="page-header">
+          <h2>日志异常检测与分析平台</h2>
+          <div v-if="showMessage" class="custom-message">
+            {{ messageContent }}
+          </div>
+        </div>
+        
+        <div class="search-section">
+          <el-form :model="searchForm" inline class="search-form">
+            <el-form-item label="服务选择">
+              <el-select v-model="searchForm.service" placeholder="请选择服务" style="width: 240px">
+                <el-option
+                  v-for="item in services"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value"
                 />
-              </el-form-item>
-
-              <el-form-item label="快捷时间">
-                <el-select v-model="searchForm.quickTime" placeholder="请选择快捷时间" style="width: 240px" @change="handleQuickTimeChange">
-                  <el-option label="最近一天" value="1" />
-                  <el-option label="最近一周" value="7" />
-                  <el-option label="最近一月" value="30" />
-                </el-select>
-              </el-form-item>
-              
-              <el-form-item>
-                <el-button type="primary" size="default" @click="handleSearch">查询</el-button>
-              </el-form-item>
-            </el-form>
-          </div>
-
-          <div class="logs-section" style="overflow-y: auto; max-height: calc(100vh - 400px);">
-            <el-table 
-              :data="logs" 
-              style="width: 100%" 
-              v-loading="loading"
-              :max-height="tableHeight"
-              element-loading-text="加载中..."
-              element-loading-background="rgba(255, 255, 255, 0.9)"
-            >
-              <el-table-column prop="timestamp" label="时间" width="200">
-                <template #default="scope">
-                  {{ formatDateTime(scope.row.timestamp) }}
-                </template>
-              </el-table-column>
-              <el-table-column prop="service" label="服务" width="180" />
-              <el-table-column prop="level" label="级别" width="120" align="center">
-                <template #default="scope">
-                  <el-tag :type="getTagType(scope.row.level)">{{ scope.row.level }}</el-tag>
-                </template>
-              </el-table-column>
-              <el-table-column prop="message" label="错误信息" min-width="500" show-overflow-tooltip />
-              <el-table-column prop="vm_id" label="VM ID" width="220" show-overflow-tooltip />
-              <el-table-column fixed="right" label="操作" width="180" align="center">
-                <template #default="scope">
-                  <el-button link type="primary" @click="showDetails(scope.row)">
-                    查看详情
-                  </el-button>
-                  <!-- 注释掉AI对话按钮
-                  <el-button 
-                    link 
-                    type="success" 
-                    @click="startAIChat(scope.row)"
-                  >
-                    <el-icon><ChatDotRound /></el-icon>
-                    AI对话
-                  </el-button>
-                  -->
-                </template>
-              </el-table-column>
-            </el-table>
+              </el-select>
+            </el-form-item>
             
-            <div v-if="!loading && logs.length === 0" class="empty-state">
-              <el-empty 
-                description="暂无数据，请点击查询按钮获取日志信息"
-                :image-size="200"
-              >
-                <el-button type="primary" @click="handleSearch">
-                  立即查询
-                </el-button>
-              </el-empty>
-            </div>
-
-            <div class="pagination" v-if="logs.length > 0">
-              <el-pagination
-                v-model:current-page="currentPage"
-                v-model:page-size="pageSize"
-                :total="total"
-                :page-sizes="[10, 20, 50, 100]"
-                layout="total, sizes, prev, pager, next"
-                @size-change="handleSizeChange"
-                @current-change="handleCurrentChange"
+            <el-form-item label="时间选择">
+              <el-date-picker
+                v-model="searchForm.timeRange"
+                type="datetimerange"
+                range-separator="至"
+                start-placeholder="开始时间"
+                end-placeholder="结束时间"
+                style="width: 460px"
               />
-            </div>
+            </el-form-item>
+
+            <el-form-item label="快捷时间">
+              <el-select v-model="searchForm.quickTime" placeholder="请选择快捷时间" style="width: 240px" @change="handleQuickTimeChange">
+                <el-option label="最近一天" value="1" />
+                <el-option label="最近一周" value="7" />
+                <el-option label="最近一月" value="30" />
+              </el-select>
+            </el-form-item>
+            
+            <el-form-item>
+              <el-button type="primary" size="default" @click="handleSearch">查询</el-button>
+            </el-form-item>
+          </el-form>
+        </div>
+
+        <div class="logs-section" style="overflow-y: auto; max-height: calc(100vh - 300px);">
+          <el-table 
+            :data="logs" 
+            style="width: 100%" 
+            v-loading="loading"
+            :max-height="tableHeight"
+            element-loading-text="加载中..."
+            element-loading-background="rgba(255, 255, 255, 0.9)"
+          >
+            <el-table-column prop="timestamp" label="时间" width="200">
+              <template #default="scope">
+                {{ formatDateTime(scope.row.timestamp) }}
+              </template>
+            </el-table-column>
+            <el-table-column prop="service" label="服务" width="180" />
+            <el-table-column prop="level" label="级别" width="120" align="center">
+              <template #default="scope">
+                <el-tag :type="getTagType(scope.row.level)">{{ scope.row.level }}</el-tag>
+              </template>
+            </el-table-column>
+            <el-table-column prop="message" label="错误信息" min-width="500" show-overflow-tooltip />
+            <el-table-column prop="vm_id" label="VM ID" width="220" show-overflow-tooltip />
+            <el-table-column fixed="right" label="操作" width="180" align="center">
+              <template #default="scope">
+                <el-button link type="primary" @click="showDetails(scope.row)">
+                  查看详情
+                </el-button>
+                <!-- 注释掉AI对话按钮
+                <el-button 
+                  link 
+                  type="success" 
+                  @click="startAIChat(scope.row)"
+                >
+                  <el-icon><ChatDotRound /></el-icon>
+                  AI对话
+                </el-button>
+                -->
+              </template>
+            </el-table-column>
+          </el-table>
+          
+          <div v-if="!loading && logs.length === 0" class="empty-state">
+            <el-empty 
+              description="暂无数据，请点击查询按钮获取日志信息"
+              :image-size="200"
+            >
+              <el-button type="primary" @click="handleSearch">
+                立即查询
+              </el-button>
+            </el-empty>
           </div>
-        </el-card>
+
+          <div class="pagination" v-if="logs.length > 0">
+            <el-pagination
+              v-model:current-page="currentPage"
+              v-model:page-size="pageSize"
+              :total="total"
+              :page-sizes="[10, 20, 50, 100]"
+              layout="total, sizes, prev, pager, next"
+              @size-change="handleSizeChange"
+              @current-change="handleCurrentChange"
+            />
+          </div>
+        </div>
       </div>
-      
-      <!-- 注释掉AIChatBox组件显示 
-      <AIChatBox ref="aiChatRef" />
-      -->
     </div>
 
     <el-dialog
@@ -131,78 +123,12 @@
       custom-class="details-dialog"
     >
       <div class="log-details">
-        <!-- 日志基本信息 -->
-        <div class="log-info">
-          <div class="log-level">
-            <el-tag size="large" :type="getTagType(currentLog.level)" effect="dark">
-              {{ currentLog.level }}
-            </el-tag>
-          </div>
-          <div class="log-time">{{ formatDateTime(currentLog.timestamp) }}</div>
-          <div class="log-service">{{ currentLog.service }}</div>
-          <div class="log-vm-id" v-if="currentLog.vm_id">
-            <span class="label">VM ID:</span>
-            <span class="value">{{ currentLog.vm_id }}</span>
-          </div>
+        <!-- 只保留分析报告部分 -->
+        <div class="section report-section" v-if="currentLog.analysis && currentLog.analysis.rawText">
+          <div class="markdown-body enhanced" v-html="renderMarkdown(currentLog.analysis.rawText)"></div>
         </div>
-
-        <!-- 异常概述 -->
-        <div class="section">
-          <div class="section-title">
-            <el-icon><Warning /></el-icon>
-            <span>异常概述</span>
-          </div>
-          <div class="section-content">
-            <div class="info-item full-width">
-              <div class="value">{{ currentLog.analysis ? currentLog.analysis.summary : '暂无详细分析数据' }}</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 核心原因 -->
-        <div class="section">
-          <div class="section-title">
-            <el-icon><CircleClose /></el-icon>
-            <span>核心原因</span>
-          </div>
-          <div class="section-content" v-if="currentLog.analysis && currentLog.analysis.rootCauses && currentLog.analysis.rootCauses.length > 0">
-            <div class="cause-item" v-for="(cause, index) in currentLog.analysis.rootCauses" :key="index">
-              <div class="cause-title">{{ cause.title }}</div>
-              <div class="cause-desc">{{ cause.description }}</div>
-            </div>
-              </div>
-          <div class="section-content" v-else>
-            <div class="empty-content">暂无根因分析数据</div>
-          </div>
-        </div>
-
-        <!-- 解决方案 -->
-        <div class="section">
-          <div class="section-title">
-            <el-icon><SetUp /></el-icon>
-            <span>解决方案</span>
-          </div>
-          <div class="section-content" v-if="currentLog.analysis && currentLog.analysis.solutions && currentLog.analysis.solutions.length > 0">
-            <div class="solution-item" v-for="(solution, index) in currentLog.analysis.solutions" :key="index">
-              <div class="solution-title">{{ solution.type === 'shortTerm' ? '短期措施' : '长期优化' }}</div>
-              <div class="solution-desc">{{ solution.description }}</div>
-            </div>
-            </div>
-          <div class="section-content" v-else>
-            <div class="empty-content">暂无解决方案数据</div>
-          </div>
-        </div>
-
-        <!-- 原始分析结果 -->
-        <div class="section" v-if="currentLog.analysis && currentLog.analysis.rawText">
-          <div class="section-title">
-            <el-icon><Document /></el-icon>
-            <span>详细分析报告</span>
-          </div>
-          <div class="section-content">
-            <el-button type="primary" @click="showFullAnalysis">查看完整分析报告</el-button>
-          </div>
-        </div>
+        <!-- 如果没有分析报告则显示提示 -->
+        <div class="empty-content" v-else>暂无分析报告数据</div>
       </div>
     </el-dialog>
 
@@ -237,11 +163,11 @@
             <div class="card-content">
               <div class="detail-item">
                 <div class="item-label">类型</div>
-                <div class="item-value">{{ currentLog && currentLog.service === 'openstack-service' ? 'AssertionError' : '服务异常' }}</div>
+                <div class="item-value markdown-body" v-html="renderMarkdown(currentLog && currentLog.service === 'openstack-service' ? 'AssertionError' : '服务异常')"></div>
               </div>
               <div class="detail-item">
                 <div class="item-label">表现</div>
-                <div class="item-value">{{ currentLog && currentLog.service === 'openstack-service' ? '预期返回1个服务器实例，实际len(servers)为0' : currentLog.message }}</div>
+                <div class="item-value markdown-body" v-html="renderMarkdown(currentLog && currentLog.service === 'openstack-service' ? '预期返回1个服务器实例，实际len(servers)为0' : currentLog.message)"></div>
               </div>
             </div>
           </div>
@@ -255,23 +181,19 @@
               <div class="cause-section">
                 <div class="cause-title">参数转换错误</div>
                 <ul class="cause-list">
-                  <li>{{ currentLog && currentLog.service === 'openstack-service' ? 'flavor=abcde未映射到flavor_id' : '服务参数配置错误' }}</li>
-                  <li>{{ currentLog && currentLog.service === 'openstack-service' ? 'status=resize未匹配实例真实状态' : '状态不匹配' }}</li>
+                  <li class="markdown-body" v-html="renderMarkdown(currentLog && currentLog.service === 'openstack-service' ? 'flavor=abcde未映射到flavor_id' : '服务参数配置错误')"></li>
+                  <li class="markdown-body" v-html="renderMarkdown(currentLog && currentLog.service === 'openstack-service' ? 'status=resize未匹配实例真实状态' : '状态不匹配')"></li>
                 </ul>
               </div>
               
               <div class="cause-section">
                 <div class="cause-title">测试数据缺陷</div>
-                <div class="cause-content">
-                  {{ currentLog && currentLog.service === 'openstack-service' ? 'Mock返回空列表，但测试预期非空数据' : '测试数据不完整' }}
-                </div>
+                <div class="cause-content markdown-body" v-html="renderMarkdown(currentLog && currentLog.service === 'openstack-service' ? 'Mock返回空列表，但测试预期非空数据' : '测试数据不完整')"></div>
               </div>
               
               <div class="cause-section">
                 <div class="cause-title">状态同步异常</div>
-                <div class="cause-content">
-                  {{ currentLog && currentLog.service === 'openstack-service' ? 'Nova日志显示实例因pending task跳过状态更新' : '服务状态同步失败' }}
-                </div>
+                <div class="cause-content markdown-body" v-html="renderMarkdown(currentLog && currentLog.service === 'openstack-service' ? 'Nova日志显示实例因pending task跳过状态更新' : '服务状态同步失败')"></div>
               </div>
             </div>
           </div>
@@ -285,33 +207,21 @@
               <div class="solution-section">
                 <div class="solution-type">短期措施</div>
                 <ul class="solution-list">
-                  <li>{{ currentLog && currentLog.service === 'openstack-service' ? '检查compute_api.API.get_all中search_opts的过滤逻辑' : '检查服务配置' }}</li>
-                  <li>{{ currentLog && currentLog.service === 'openstack-service' ? '添加断言验证参数：mock_get.assert_called_with(search_opts={\'status\':\'resize\'})' : '更新服务参数验证' }}</li>
+                  <li class="markdown-body" v-html="renderMarkdown(currentLog && currentLog.service === 'openstack-service' ? '检查compute_api.API.get_all中search_opts的过滤逻辑' : '检查服务配置')"></li>
+                  <li class="markdown-body" v-html="renderMarkdown(currentLog && currentLog.service === 'openstack-service' ? '添加断言验证参数：mock_get.assert_called_with(search_opts={\'status\':\'resize\'})' : '更新服务参数验证')"></li>
                 </ul>
               </div>
               
               <div class="solution-section">
                 <div class="solution-type">长期优化</div>
                 <ul class="solution-list">
-                  <li>{{ currentLog && currentLog.service === 'openstack-service' ? '在get_all中记录search_opts和返回结果数量' : '增强日志记录' }}</li>
-                  <li>{{ currentLog && currentLog.service === 'openstack-service' ? '为pending task状态增加自动重试机制' : '添加自动重试机制' }}</li>
+                  <li class="markdown-body" v-html="renderMarkdown(currentLog && currentLog.service === 'openstack-service' ? '在get_all中记录search_opts和返回结果数量' : '增强日志记录')"></li>
+                  <li class="markdown-body" v-html="renderMarkdown(currentLog && currentLog.service === 'openstack-service' ? '为pending task状态增加自动重试机制' : '添加自动重试机制')"></li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </el-dialog>
-
-    <!-- 添加完整分析报告对话框 -->
-    <el-dialog
-      v-model="fullAnalysisVisible"
-      title="完整分析报告"
-      width="80%"
-      custom-class="analysis-dialog"
-    >
-      <div class="analysis-container" v-if="currentLog.analysis && currentLog.analysis.rawText">
-        <pre class="analysis-text">{{ currentLog.analysis.rawText }}</pre>
       </div>
     </el-dialog>
   </div>
@@ -325,6 +235,9 @@ import { ChatDotRound, FullScreen, Warning, CircleClose, SetUp, Back, Document }
 import AIChatBox from './components/AIChatBox.vue'
 // 导入logService API，更新路径
 import { logService } from './api/logService'
+// 导入Markdown渲染相关库
+import { marked } from 'marked'
+import DOMPurify from 'dompurify'
 
 const searchForm = reactive({
   service: 'openstack-service',
@@ -344,7 +257,6 @@ const currentLog = ref({})
 const fullScreenVisible = ref(false)
 const showMessage = ref(false)
 const messageContent = ref('')
-const fullAnalysisVisible = ref(false)
 
 // 动态计算表格高度
 const tableHeight = ref(500)  // 默认高度
@@ -624,12 +536,20 @@ const formatDateTime = (dateString) => {
   return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 }
 
-const showFullAnalysis = () => {
-  fullAnalysisVisible.value = true
+// 添加Markdown渲染函数
+const renderMarkdown = (content) => {
+  try {
+    // 使用DOMPurify清理HTML，防止XSS攻击
+    return DOMPurify.sanitize(marked(content))
+  } catch (error) {
+    console.error('Markdown渲染错误:', error)
+    return content
+  }
 }
-</script>
 
+</script>
 <style scoped>
+/* 页面容器样式 */
 .page-container {
   min-height: 100vh;
   width: 100%;
@@ -663,49 +583,24 @@ const showFullAnalysis = () => {
   min-width: 0;
   display: flex;
   flex-direction: column;
-  height: 100%; /* 确保主卡片占满容器高度 */
-}
-
-.main-card, .chat-card {
-  width: 100%;
-  margin: 0;
-  flex-grow: 0;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  height: 100%; /* 确保卡片占满主卡片高度 */
-  overflow: hidden;
+  height: 100%; /* 确保主内容占满容器高度 */
+  background-color: #fff;
   border-radius: 16px;
-  transition: all 0.3s ease;
-  border: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
 }
 
-.main-card:hover, .chat-card:hover {
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-  transform: translateY(-2px);
-}
-
-.search-section {
-  margin: 0 20px 20px;
-  padding: 24px;
-  background-color: #f8f9fa;
-  border-radius: 12px;
-  display: flex;
-  justify-content: center;
-  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.03);
-  position: relative;
+.page-header {
+  padding: 20px;
+  background: linear-gradient(to right, #f8f9fa, #ffffff);
+  border-bottom: 1px solid #ebeef5;
+  text-align: center;
+  position: sticky;
+  top: 0;
   z-index: 10;
 }
 
-.card-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 16px 0;
-  background: linear-gradient(to right, #f8f9fa, #ffffff);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  position: relative; /* 确保子元素可以绝对定位 */
-}
-
-.card-header h2 {
+.page-header h2 {
   margin: 0;
   color: #303133;
   font-size: 24px;
@@ -713,6 +608,25 @@ const showFullAnalysis = () => {
   background: linear-gradient(45deg, #409EFF, #36D1DC);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.search-section {
+  margin: 0;
+  padding: 24px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: center;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.03);
+  position: relative;
+  z-index: 9;
+}
+
+.logs-section {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #fff;
 }
 
 :deep(.el-table) {
@@ -1100,5 +1014,454 @@ const showFullAnalysis = () => {
   overflow-y: auto;
   padding: 20px;
   height: calc(90vh - 200px); /* 设置固定高度 */
+}
+
+/* 添加Markdown样式 */
+.markdown-body {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  padding: 16px;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+  border-bottom: 1px solid #eaecef;
+  padding-bottom: 0.3em;
+}
+
+.markdown-body h1 { font-size: 1.7em; color: #24292e; }
+.markdown-body h2 { font-size: 1.5em; color: #24292e; }
+.markdown-body h3 { font-size: 1.3em; color: #24292e; }
+.markdown-body h4 { font-size: 1.2em; color: #24292e; }
+
+.markdown-body p {
+  margin-top: 0;
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+
+.markdown-body code {
+  padding: 0.2em 0.4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(27,31,35,0.05);
+  border-radius: 3px;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f6f8fa;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  border: 1px solid #e1e4e8;
+}
+
+.markdown-body pre code {
+  display: block;
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body li {
+  margin-bottom: 6px;
+}
+
+.markdown-body li + li {
+  margin-top: 0.25em;
+}
+
+.markdown-body blockquote {
+  margin: 0 0 16px 0;
+  padding: 0 1em;
+  color: #6a737d;
+  border-left: 0.25em solid #dfe2e5;
+  background-color: #f6f8fa;
+  border-radius: 3px;
+}
+
+.markdown-body blockquote > :first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  margin-bottom: 16px;
+  width: 100%;
+  overflow: auto;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 8px 13px;
+  border: 1px solid #dfe2e5;
+}
+
+.markdown-body table th {
+  font-weight: 600;
+  background-color: #f6f8fa;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #c6cbd1;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}
+
+.markdown-body a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.markdown-body a:hover {
+  text-decoration: underline;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  box-sizing: content-box;
+  background-color: #fff;
+  border-radius: 3px;
+}
+
+.markdown-body hr {
+  height: 0.25em;
+  padding: 0;
+  margin: 24px 0;
+  background-color: #e1e4e8;
+  border: 0;
+}
+
+/* 添加Markdown内部样式调整 */
+.solution-desc.markdown-body {
+  margin-top: 8px;
+}
+
+.cause-desc.markdown-body {
+  margin-top: 6px;
+}
+
+.detail-item .markdown-body {
+  padding: 8px 0;
+}
+
+.cause-list li.markdown-body, 
+.solution-list li.markdown-body {
+  padding: 4px 0;
+}
+
+.cause-content.markdown-body, 
+.solution-content.markdown-body {
+  padding: 8px;
+  background-color: #f9fafb;
+  border-radius: 4px;
+}
+
+/* 在详情卡片内的Markdown样式特别调整 */
+.log-details .markdown-body {
+  font-size: 14px;
+  padding: 0;
+  background: transparent;
+}
+
+.log-details .markdown-body p {
+  margin-bottom: 10px;
+}
+
+.log-details .markdown-body code {
+  background-color: #f6f8fa;
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+
+.log-details .markdown-body pre {
+  margin: 10px 0;
+}
+
+/* 增强版Markdown样式 */
+.report-section {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 0;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.markdown-body.enhanced {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  color: #24292e;
+  padding: 32px;
+  background-color: #fff;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.markdown-body.enhanced h1,
+.markdown-body.enhanced h2,
+.markdown-body.enhanced h3,
+.markdown-body.enhanced h4 {
+  margin-top: 32px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+  position: relative;
+}
+
+.markdown-body.enhanced h1 {
+  font-size: 2em;
+  color: #1a73e8;
+  border-bottom: 1px solid #eaecef;
+  padding-bottom: 0.3em;
+}
+
+.markdown-body.enhanced h2 {
+  font-size: 1.6em;
+  color: #1a73e8;
+  border-bottom: 1px solid #eaecef;
+  padding-bottom: 0.3em;
+}
+
+.markdown-body.enhanced h3 {
+  font-size: 1.4em;
+  color: #444;
+}
+
+.markdown-body.enhanced h4 {
+  font-size: 1.2em;
+  color: #444;
+}
+
+.markdown-body.enhanced h1::before,
+.markdown-body.enhanced h2::before {
+  content: "";
+  position: absolute;
+  left: -20px;
+  top: 0.3em;
+  height: 0.8em;
+  width: 4px;
+  background-color: #1a73e8;
+  border-radius: 4px;
+}
+
+.markdown-body.enhanced p {
+  margin-top: 0;
+  margin-bottom: 20px;
+  line-height: 1.8;
+  color: #444;
+}
+
+.markdown-body.enhanced a {
+  color: #1a73e8;
+  text-decoration: none;
+  border-bottom: 1px dotted #1a73e8;
+  transition: all 0.3s ease;
+}
+
+.markdown-body.enhanced a:hover {
+  color: #0d47a1;
+  border-bottom: 1px solid #0d47a1;
+}
+
+.markdown-body.enhanced code {
+  padding: 0.2em 0.4em;
+  margin: 0;
+  font-size: 90%;
+  background-color: rgba(27, 31, 35, 0.05);
+  border-radius: 4px;
+  font-family: "SFMono-Regular", Consolas, Monaco, "Liberation Mono", "Courier New", monospace;
+  color: #d14;
+}
+
+.markdown-body.enhanced pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 90%;
+  line-height: 1.45;
+  background-color: #f6f8fa;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eaecef;
+}
+
+.markdown-body.enhanced pre code {
+  display: block;
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+  color: #24292e;
+}
+
+.markdown-body.enhanced ul,
+.markdown-body.enhanced ol {
+  padding-left: 2em;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.markdown-body.enhanced ul {
+  list-style-type: disc;
+}
+
+.markdown-body.enhanced ol {
+  list-style-type: decimal;
+}
+
+.markdown-body.enhanced li {
+  margin-bottom: 8px;
+  line-height: 1.8;
+}
+
+.markdown-body.enhanced li + li {
+  margin-top: 0.25em;
+}
+
+.markdown-body.enhanced blockquote {
+  margin: 0 0 20px 0;
+  padding: 12px 20px;
+  color: #444;
+  border-left: 4px solid #1a73e8;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  font-style: italic;
+}
+
+.markdown-body.enhanced blockquote > :first-child {
+  margin-top: 0;
+}
+
+.markdown-body.enhanced blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body.enhanced table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  width: 100%;
+  overflow: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border-radius: 8px;
+}
+
+.markdown-body.enhanced table th,
+.markdown-body.enhanced table td {
+  padding: 10px 16px;
+  border: 1px solid #eaecef;
+}
+
+.markdown-body.enhanced table th {
+  font-weight: 600;
+  background-color: #f8f9fa;
+  color: #24292e;
+  text-align: left;
+}
+
+.markdown-body.enhanced table tr {
+  background-color: #fff;
+  border-top: 1px solid #eaecef;
+}
+
+.markdown-body.enhanced table tr:nth-child(2n) {
+  background-color: #f8f9fa;
+}
+
+.markdown-body.enhanced img {
+  max-width: 100%;
+  box-sizing: content-box;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  margin: 12px 0;
+}
+
+.markdown-body.enhanced hr {
+  height: 2px;
+  padding: 0;
+  margin: 24px 0;
+  background-color: #eaecef;
+  border: 0;
+  border-radius: 2px;
+}
+
+/* 优化代码块语法高亮部分的样式 */
+.markdown-body.enhanced .hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: #333;
+  background: #f8f8f8;
+}
+
+/* 对话框样式优化 */
+.details-dialog :deep(.el-dialog__body) {
+  padding: 0;
+  overflow: auto;
+}
+
+.details-dialog :deep(.el-dialog__header) {
+  background: linear-gradient(135deg, #1a73e8, #6c5ce7);
+  padding: 16px 20px;
+}
+
+.details-dialog :deep(.el-dialog__title) {
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.details-dialog :deep(.el-dialog__headerbtn .el-dialog__close) {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.details-dialog :deep(.el-dialog__headerbtn:hover .el-dialog__close) {
+  color: white;
+}
+
+/* 空内容提示样式优化 */
+.empty-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  font-size: 16px;
+  color: #909399;
+  background-color: #f5f7fa;
+  border-radius: 8px;
+  min-height: 200px;
 }
 </style>
