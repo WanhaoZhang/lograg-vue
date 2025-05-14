@@ -1,3 +1,4 @@
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/WanhaoZhang/lograg-vue)
 # 日志异常检测与分析平台
 
 一个用于检测和分析系统日志异常的综合平台，集成了多种先进的日志分析技术，包括日志根因分析(LogRCA)和基于检索增强生成的日志异常检测(LogRAG)。本平台提供直观的前端可视化界面和强大的后端API服务，帮助开发人员和运维人员快速定位和解决系统问题。
